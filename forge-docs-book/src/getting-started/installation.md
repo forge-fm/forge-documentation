@@ -22,14 +22,14 @@ To install via Git, open a terminal window. Then:
 
 - clone our Git repository (`git clone https://github.com/tnelson/forge`);
 - change directory to the repository folder (`cd forge`);
-- install the `forge` and `froglet` packages (`raco pkg install ./forge`).
+- install the `forge` package (`raco pkg install ./forge`).
 
 If you wish to switch to the development branch, you must:
 - check out the development branch (`git checkout dev`);
 - rebuild Forge (`raco setup forge`).
 
 ~~~admonish warning title="Using ./"
-Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding prefix `./` tells `raco` that you're talking about folders instead. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to "helpfully" install it from the package server, not your local drive.
+Note the `./` in the `install` command! If you write `raco pkg install forge`, that will install both from the package server instead of your local directory. Adding prefix `./` tells `raco` that you're talking about folders instead.
 ~~~
 
 ~~~admonish note title="Upgrading a version from before 2025?"
@@ -38,7 +38,7 @@ If you have already installed a version of Forge prior to 2025, we are no longer
 
 ### Installing from Racket's Package Servers
 
-For the standard package-server installation, after installing Racket, run `raco pkg install forge froglet` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type `forge` as the package name and choose **Install**, then do the same for `froglet` 
+For the standard package-server installation, after installing Racket, run `raco pkg install forge` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type `forge` as the package name and choose **Install**.
 
 If the package is already installed, you'll see an **Update** button instead of an **Install** button.
 
@@ -137,8 +137,7 @@ If you encounter any issues installing, please report them. We'll do our best to
 ### If you installed via Racket's package system
 
 Do:
-  *  `raco pkg update forge` and 
-  *  `raco pkg update froglet`.  
+  *  `raco pkg update forge`
 or click `Update` for both in the DrRacket package manager.
 
 ### If you installed via Git 
@@ -147,10 +146,10 @@ Do:
   * `cd` to the location of the `Forge` repository on your system;
   * make sure you're in the branch you want (`main` for published updates, `dev` for our development build);
   * `git pull` in the repository, and then 
-  * `raco setup forge` and `raco setup froglet` (to rebuild the packages). 
+  * `raco setup forge` (to rebuild the packages). 
 
 ~~~admonish hint title="Confirming install location"
-Confirm that these packages are installed properly using `raco pkg show froglet` and `raco pkg show forge`. 
+Confirm that these packages are installed properly using `raco pkg show forge`. 
 
 If one is installed from a directory on your machine, and another via the Racket package system, issues can occur. Here's how to read the information that `raco` provides. If it says: 
 * `link <path on your machine>` then the package is installed from a local folder; and 
