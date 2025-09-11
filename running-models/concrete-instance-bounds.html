@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Concrete Instance Bounds - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item expanded "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../running-models/concrete-instance-bounds.html" class="active"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="concrete-instance-bounds"><a class="header" href="#concrete-instance-bounds">Concrete Instance Bounds</a></h1>
+<p>The types of problems that Forge creates and solves consist of 3 mathematical objects:</p>
+<ul>
+<li>A set of signatures and relations (the <strong>language</strong> of the problem);</li>
+<li>A set of logical/relational formulas (the <strong>constraints</strong> of the problem);</li>
+<li>A set of bounds on sigs and relations (the <strong>bounds</strong> of the problem).</li>
+</ul>
+<h2 id="partial-instances"><a class="header" href="#partial-instances">Partial Instances</a></h2>
+<p>Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by <code>sig</code> and <code>pred</code> declarations. The third concern is often addressed by numeric bounds (also called &quot;scope&quot;), but numeric bounds are always converted (usually invisibly to the user!) into set-based bounds that concretely specify:</p>
+<ul>
+<li>the <em>lower</em> bounds, what <em>must</em> be in an instance; and </li>
+<li>the <em>upper</em> bounds, what <em>may</em> be in an instance.</li>
+</ul>
+<p>The <code>inst</code> syntax provides the ability to manipulate these set-based bounds directly, instead of indirectly via numeric bounds. The same syntax is used in <code>example</code> tests. Because bounds declarations interface more directly with the solver than constraints, at times they can yield performance improvements.</p>
+<p>Finally, because bounds declarations can concretely refer to atoms in the world, we will often refer to them as <em>partial instances</em>.</p>
+<h2 id="inst-syntax"><a class="header" href="#inst-syntax"><code>inst</code> Syntax</a></h2>
+<p>An <code>inst</code> declaration contains a <code>{}</code>-enclosed sequence of bind declarations.  A bind declaration is one of the following, where <code>A</code> is either a sig name or field name.</p>
+<ul>
+<li><code>#Int = k</code>: use bitwidth <code>k</code> (where <code>k</code> is an integer greater than zero); </li>
+<li><code>A in &lt;bounds-expr&gt;</code>: specify <em>upper</em> bounds on a sig or field <code>A</code>;</li>
+<li><code>A ni &lt;bounds-expr&gt;</code>: specify <em>lower</em> bounds on a sig or field <code>A</code>;</li>
+<li><code>A = &lt;bounds-expr&gt;</code>: <em>exactly</em> specify the contents of the sig or field <code>A</code> (effectively setting both the lower and upper bounds to be the same);</li>
+<li><code>no A</code>: specify that <code>A</code> is empty;</li>
+<li><code>r is linear</code> : use bounds-based symmetry breaking to make sure field <code>r</code> is a linear ordering on its types (useful for optimizing model-checking queries in Forge); and</li>
+<li><code>r is plinear</code> : similar to <code>r is linear</code>, but possibly not involving the entire contents of the sig. I.e., a total linear order on <code>A'</code>-&gt;<code>A'</code> for some subset <code>A'</code> of <code>A</code>.</li>
+</ul>
+<p>When binding fields, the binding can also be given <em>piecewise</em> per atom. Keep in mind that atom names should be prefixed by a backquote:</p>
+<ul>
+<li><code>AtomName.f in &lt;bounds-expr&gt;</code> (upper bound, restricted to <code>AtomName</code>);</li>
+<li><code>AtomName.f ni &lt;bounds-expr&gt;</code> (lower bound, restricted to <code>AtomName</code>);</li>
+<li><code>AtomName.f = &lt;bounds-expr&gt;</code> (exact bound, restricted to <code>AtomName</code>); and</li>
+<li><code>no AtomName.f</code> (exact bound <em>contains nothing</em>, restricted to <code>AtomName</code>).
+Piecewise bindings add no restrictions to <em>other</em> atoms, only those mentioned. They can improve readability if you're defining a field for many different atoms. There is an example below.</li>
+</ul>
+<p>The specifics of <code>&lt;bounds-expr&gt;</code> depend on which Forge language you are using. </p>
+<div id="admonition-bounds-arent-the-same-as-constraints" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Bounds aren't the same as constraints!</p>
+<p><a class="admonition-anchor-link" href="#admonition-bounds-arent-the-same-as-constraints"></a></p>
+</div>
+<div>
+<p>The syntax of partial <code>inst</code>ances is very similar to the syntax you use to write constraints in <code>pred</code>icates. Always keep in mind that <strong>they are not the same</strong>; bindings have a far more restrictive syntax but allow you to refer to atoms directly---something constraints don't allow.</p>
+</div>
+</div>
+<h3 id="froglet-style-bind-expressions"><a class="header" href="#froglet-style-bind-expressions">Froglet Style Bind Expressions</a></h3>
+<p>In Froglet:</p>
+<ul>
+<li>a <code>&lt;bounds-expr&gt;</code> for a <code>sig</code> is a <code>+</code>-separated list of atom names (each prefixed by backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes).</li>
+<li>a <code>&lt;bounds-expr&gt;</code> for a field is a <code>+</code>-separated list of entries in that field, using atom names (each prefixed by a backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes). Entries are defined using the <code>(arg1, arg2, ...) -&gt; result</code> syntax, and may be either complete or piecewise. 
+<ul>
+<li>a <em>complete</em> bind for a field </li>
+</ul>
+</li>
+</ul>
+<div id="admonition-froglet-style-bounds" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Froglet-style bounds</p>
+<p><a class="admonition-anchor-link" href="#admonition-froglet-style-bounds"></a></p>
+</div>
+<div>
+<p>Suppose you have a Forge model like this:</p>
+<pre><code>sig Person {
+    gradeIn: pfunc Course -&gt; Grade
+}
+sig Course {}
+abstract sig Grade {}
+</code></pre>
+<p>where <code>Person</code> has a partial-function field <code>gradeIn</code>, indicating which grade they got in a given course (if any).</p>
+<p>Given this concrete bound for the <code>Person</code>, <code>Course</code>, and <code>Grade</code> <code>sig</code>s:</p>
+<pre><code>Person = `Person0 + `Person1 + `Person2
+Course = `Course0 + `Course1 + `Course2
+Grade = `A + `B + `C 
+</code></pre>
+<p>you might define bounds for the <code>gradeIn</code> field of <code>Person</code> all at once, for everyone:</p>
+<pre><code>gradeIn = (`Person0, `Course0) -&gt; `A + 
+          (`Person0, `Course1) -&gt; `B + 
+          (`Person1, `Course2) -&gt; `C
+</code></pre>
+<p>or piecewise, one <code>Person</code> at a time:</p>
+<pre><code>`Person0.gradeIn = `Course0 -&gt; `A + 
+                   `Course1 -&gt; `B
+`Person1.gradeIn = `Course2 -&gt; `C
+no `Person2.gradeIn
+</code></pre>
+<p>Note that in the piecewise version, we need to explicitly say that <code>\</code>Person2` hasn't taken courses; in the all-at-once version, that's implicit.</p>
+<p><em>This model is available in full <a href="../example-models/piecewise-bounds.frg">here</a>.</em></p>
+</div>
+</div>
+<div id="admonition-atom-names" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Atom names</p>
+<p><a class="admonition-anchor-link" href="#admonition-atom-names"></a></p>
+</div>
+<div>
+<p>Identifiers prefixed by a backquote (<code>\</code>) always denote atom names. You cannot name atoms like this in ordinary constraints! (Thus, in the example above there is no <code>one sig A extends Grade {}</code>; there is only the atom <code>\</code>A`.)</p>
+</div>
+</div>
+<div id="admonition-in-vs-ni-vs-" class="admonition admonish-warning">
+<div class="admonition-title">
+<p><code>in</code> vs. <code>ni</code> vs. <code>=</code></p>
+<p><a class="admonition-anchor-link" href="#admonition-in-vs-ni-vs-"></a></p>
+</div>
+<div>
+<p>Bound expressions must not mix the <code>=</code>, <code>in</code> and <code>ni</code> operators for the same <code>sig</code> or field, even within a piecewise definition. It's OK to use <code>ni</code> for one field and <code>in</code> for another, but always use exactly one of them for each field. You should also not mix operators between sigs that are related by <code>extends</code>.</p>
+</div>
+</div>
+<p><strong>This style of bind expression is still allowed in Relational Forge, so if you prefer it, feel free to continue using it!</strong> </p>
+<h3 id="relational-forge-style-bind-expressions"><a class="header" href="#relational-forge-style-bind-expressions">Relational-Forge Style Bind Expressions</a></h3>
+<p>From the relational perspective, a <code>&lt;bounds-expr&gt;</code> is a union (<code>+</code>) of products (<code>-&gt;</code>) of object names (each prefixed by backquote), <code>sig</code> names, and integers. Bounds expressions must be of appropriate arity for the sig or field name they are bounding. </p>
+<div id="admonition-relational-bounds-expressions" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Relational bounds expressions</p>
+<p><a class="admonition-anchor-link" href="#admonition-relational-bounds-expressions"></a></p>
+</div>
+<div>
+<pre><code>A = `Alice+`Alex+`Adam
+f = `Alice-&gt;`Alex + 
+    `Adam-&gt;`Alex
+g in `Alice-&gt;2 
+</code></pre>
+<p>where <code>A</code> is a sig, <code>f</code> is a field of <code>A</code> with value in <code>A</code>, and <code>g</code> is a field of <code>A</code> with integer value. Note that integers should be used directly, without backquotes.</p>
+</div>
+</div>
+<div id="admonition-common-errors" class="admonition admonish-tip">
+<div class="admonition-title">
+<p>Common errors</p>
+<p><a class="admonition-anchor-link" href="#admonition-common-errors"></a></p>
+</div>
+<div>
+<p><strong>Arity mismatches between the left and right-hand sides.</strong> E.g., in a standard directed graph where <code>edges</code> is a binary relation on <code>Node</code>s:</p>
+<pre><code>edges in Node
+</code></pre>
+<p>would produce an error, even though the way you declare the field in Forge hides the extra column in the relation:</p>
+<pre><code>sig Node { edges: set Node }
+</code></pre>
+<p><strong>Leaving parent <code>sig</code>s unbounded.</strong> Forge currently (January 2024) will not permit binding a child <code>sig</code> without first binding its parent <code>sig</code>. E.g., this results in an error if <code>Student</code> is a child <code>sig</code> of <code>Person</code>:</p>
+<pre><code>Student = `Student0 + `Student1
+</code></pre>
+<p>To fix the problem, just add the same kind of bound for <code>Person</code>:</p>
+<pre><code>Student = `Student0 + `Student1
+Person = Student + `Teacher0
+</code></pre>
+</div>
+</div>
+<h3 id="inst-in-temporal-forge"><a class="header" href="#inst-in-temporal-forge"><code>inst</code> in Temporal Forge</a></h3>
+<p>Temporal Forge also supports <code>inst</code> using the same syntax above. </p>
+<div id="admonition-bounds-apply-to-all-states-at-once" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Bounds apply to all states at once!</p>
+<p><a class="admonition-anchor-link" href="#admonition-bounds-apply-to-all-states-at-once"></a></p>
+</div>
+<div>
+<p>If you use a partial instance with a Temporal Forge model, be aware that there's no way to bind sigs or fields <em>per state</em>. Each binding is applied globally, so they can be very useful for optimization, but don't try to write <code>example</code>s with <code>inst</code> in Temporal Forge---you have no recourse to temporal operators in binding expressions!</p>
+</div>
+</div>
+<h2 id="notes-on-semantics"><a class="header" href="#notes-on-semantics">Notes on Semantics</a></h2>
+<p>Bounds declarations are resolved <em>in order</em> before the problem is sent to the solver. The right-hand side of each declaration is evaluated given all preceding bounds declarations, which means that using <code>sig</code> names on the right-hand side is allowed so long as those sigs are <em>exact bounded</em> by some preceding bounds declaration. </p>
+<p>A bounds declaration cannot define bounds for a sig unless bounds for its ancestors are also defined. Bounds inconsistencies will produce an error message.</p>
+<h3 id="mixing-numeric-scope-and-inst"><a class="header" href="#mixing-numeric-scope-and-inst">Mixing Numeric Scope and <code>inst</code></a></h3>
+<p>You can mix both styles; just give the set-based bounds after the numeric ones. </p>
+<div id="admonition-example-run-mixing-both-styles" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example <code>run</code> mixing both styles</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-run-mixing-both-styles"></a></p>
+</div>
+<div>
+<pre><code>run {myPred} for 5 Person for {Class = `Class0 + `Class1}
+</code></pre>
+</div>
+</div>
+<p>However, beware of inconsistencies! Numeric and <code>inst</code> bounds are (as of January 2024) only reconciled right before the solver is invoked, so you might receive confusing error messages of &quot;last resort&quot; in case of inconsistency between the two. </p>
+<!-- The semantics of comparison commands using `=`, `in`, or `ni` are asymmetrical.  -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../running-models/bounds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../running-models/options.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../running-models/bounds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../running-models/options.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

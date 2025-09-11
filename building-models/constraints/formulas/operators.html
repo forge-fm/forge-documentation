@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Operators - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../././mdbook-admonish.css">
+        <link rel="stylesheet" href="../../.././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../../../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../../../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../../../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../../../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../../../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../../../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item expanded "><a href="../../../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item expanded "><a href="../../../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../building-models/constraints/formulas/operators.html" class="active"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../../../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../../../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../../../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../../../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../../../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../../../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../../../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../../../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../../../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../../../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../../../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../../../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../../../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../../../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../../../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../../../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../../../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="../../../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../../../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../../../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../../../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="formula-combining-operators"><a class="header" href="#formula-combining-operators">Formula-Combining Operators</a></h1>
+<p>Formula operators combine smaller formulas to produce new formulas. Many closely resemble similar operators from programming languages, like <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>.</p>
+<h2 id="list-of-available-operators"><a class="header" href="#list-of-available-operators">List of Available Operators:</a></h2>
+<p>For the following <code>&lt;fmla&gt;</code> means an arbitrary formula.</p>
+<ul>
+<li>Negation: <a href="./operators.html#not"><code>not (!)</code></a></li>
+<li>Conjunction: <a href="./operators.html#and"><code>and (&amp;&amp;)</code></a></li>
+<li>Disjunction: <a href="./operators.html#or"><code>or (||)</code></a></li>
+<li>Implication: <a href="./operators.html#implies"><code>implies (=&gt;)</code></a>
+<ul>
+<li>If-then-else: <a href="./operators.html#implies-else"><code>else</code></a></li>
+</ul>
+</li>
+<li>If-and-only-if: <a href="./operators.html#iff"><code>iff (&lt;=&gt;)</code></a></li>
+</ul>
+<div id="admonition-alternative-syntax" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Alternative syntax</p>
+<p><a class="admonition-anchor-link" href="#admonition-alternative-syntax"></a></p>
+</div>
+<div>
+<p>Some operators have alternative syntax (marked by <strong><em>alt</em></strong>) which are equivalent. Use whichever is most natural and convenient to you.</p>
+</div>
+</div>
+<hr />
+<h2 id="not-alt-"><a class="header" href="#not-alt-"><code>not</code> (<em>alt:</em> <code>!</code>)</a></h2>
+<blockquote>
+<p><code>not &lt;fmla&gt;</code></p>
+<p><code>! &lt;fmla&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when <code>&lt;fmla&gt;</code> evaluates to <strong>false</strong></p>
+<div id="admonition-example" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, <code>not (some p.spouse)</code> denotes the opposite, being true whenever <code>p</code> is <em>not</em> married.</p>
+</div>
+</div>
+<hr />
+<h2 id="and-alt-"><a class="header" href="#and-alt-"><code>and</code> (<em>alt:</em> <code>&amp;&amp;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; and &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; &amp;&amp; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when both <code>&lt;fmla-a&gt;</code> and <code>&lt;fmla-b&gt;</code> evaluate to <strong>true</strong>.</p>
+<div id="admonition-example-1" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-1"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse and p.spouse != p</code> is true exactly when <code>p</code> is married, but not to themselves.</p>
+</div>
+</div>
+<div id="admonition-implicit-and" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Implicit and</p>
+<p><a class="admonition-anchor-link" href="#admonition-implicit-and"></a></p>
+</div>
+<div>
+<p>Forge treats consecutive formulas within <code>{ ... }</code> as implicitly combined using <code>and</code>. For instance, the above example could also be written as:</p>
+<pre><code>{
+  some p.spouse
+  p.spouse != p
+}
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="or-alt-"><a class="header" href="#or-alt-"><code>or</code> (<em>alt:</em> <code>||</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; or &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; || &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when either <code>&lt;fmla-a&gt;</code> is <strong>true</strong> or <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-example-2" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-2"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse or p.spouse != p</code> is true exactly when <code>p</code> is <em>either</em>:</p>
+<ul>
+<li>married; or </li>
+<li>not married to themselves (including the case where <code>p</code> is unmarried).</li>
+</ul>
+</div>
+</div>
+<hr />
+<h2 id="implies-alt-"><a class="header" href="#implies-alt-"><code>implies</code> (<em>alt</em> <code>=&gt;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; implies &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; =&gt; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when either <code>&lt;fmla-a&gt;</code> evaluates to <strong>false</strong> or <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-example-3" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-3"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse implies p.spouse != p</code> is true exactly when <code>p</code> is <em>either</em>:</p>
+<ul>
+<li>unmarried; or </li>
+<li>not married to themselves.</li>
+</ul>
+</div>
+</div>
+<hr />
+<h3 id="implies-else-alt--else"><a class="header" href="#implies-else-alt--else"><code>implies else</code> (<em>alt:</em> <code>=&gt; else</code>)</a></h3>
+<blockquote>
+<p><code>{&lt;fmla-a&gt; implies &lt;fmla-b&gt; else &lt;fmla-c&gt;}</code></p>
+<p><code>{&lt;fmla-a&gt; =&gt; &lt;fmla-b&gt; else &lt;fmla-c&gt;}</code></p>
+</blockquote>
+<p>takes the value of <code>&lt;fmla-b&gt;</code> when <code>&lt;fmla-a&gt;</code> evaluates to <strong>true</strong>, and takes the value of <code>&lt;fmla-c&gt;</code> otherwise.</p>
+<div id="admonition-example-4" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-4"></a></p>
+</div>
+<div>
+<p>If:</p>
+<ul>
+<li><code>some p.spouse</code> is true when the person <code>p</code> is married, </li>
+<li><code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, and</li>
+<li><code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, </li>
+</ul>
+<p>then <code>some p.spouse =&gt; p.spouse != p else some p.parent1</code> is true exactly when:</p>
+<ul>
+<li><code>p</code> is married, and not to themselves; or</li>
+<li><code>p</code> is not married and have a <code>parent1</code> in the instance.</li>
+</ul>
+</div>
+</div>
+<hr />
+<h2 id="iff-alt-"><a class="header" href="#iff-alt-"><code>iff</code> (<em>alt:</em> <code>&lt;=&gt;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; iff &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; &lt;=&gt; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p>true when <code>&lt;fmla-a&gt;</code> evaluates to <strong>true</strong> exactly when <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-iff" class="admonition admonish-note">
+<div class="admonition-title">
+<p>IFF</p>
+<p><a class="admonition-anchor-link" href="#admonition-iff"></a></p>
+</div>
+<div>
+<p>The term <code>iff</code> is short for &quot;if and only if&quot;.</p>
+</div>
+</div>
+<div id="admonition-example-5" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-5"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, then <code>some p.spouse iff some p.parent1</code> is true exactly when <em>either</em>:</p>
+<ul>
+<li><code>p</code> is married and has a <code>parent1</code> in the instance; or </li>
+<li><code>p</code> is unmarried has no <code>parent1</code> in the instance.</li>
+</ul>
+</div>
+</div>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../building-models/constraints/formulas/formulas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../building-models/constraints/formulas/cardinality-membership.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../building-models/constraints/formulas/formulas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../building-models/constraints/formulas/cardinality-membership.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

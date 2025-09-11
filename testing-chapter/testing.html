@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Testing - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item expanded "><a href="../testing-chapter/testing.html" class="active"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Forge supports several different testing constructs. Chiefly:</p>
+<ul>
+<li><code>example</code>, for expressing that <em>specific instances</em> should satisfy (or not satisfy) a predicate; </li>
+<li><code>assert</code>, for expressing that a predicate should be...
+<ul>
+<li>sufficient to satisfy another (<code>is sufficient for</code>); </li>
+<li>necessary for another to be satisfied (<code>is necessary for</code>);</li>
+<li>is consistent with another, i.e., that the combination of the two predicates can be satisfied by at least one instance (<code>is consistent with</code>);</li>
+<li>is satisfiable or unsatisfiable (<code>is sat</code> and <code>is unsat</code>).</li>
+</ul>
+</li>
+</ul>
+<p>Assertions largely subsume an older testing form, <code>test expect</code> blocks, which are less structured and used mostly within Forge's internal test cases.</p>
+<p><strong>Note on terminology</strong>: we will sometimes refer to tests, particularly assertions of necessity and sufficiency, as <em>property tests</em>. This is because they can be used to express sweeping expectations about predicates, rather than just the point-wise, single-instance expectations that <code>example</code> can. We also sometimes refer to a test as a <em>test of exclusion</em> (if it asserts that some set of instances shouldn't be admitted by a predicate) or <em>test of inclusion</em> (to assert that some set of instances should be admitted, or that such an instance exists). </p>
+<div id="admonition-shared-context" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Shared Context</p>
+<p><a class="admonition-anchor-link" href="#admonition-shared-context"></a></p>
+</div>
+<div>
+<p>All the subsections below contain tests for the same small model of tic-tac-toe:</p>
+<pre><code>abstract sig Player {}
+one sig X, O extends Player {}
+sig Board { board: pfunc (Int -&gt; Int) -&gt; Player }
+pred wellformed {
+  all b: Board | all row, col: Int | {
+    (row &lt; 0 or row &gt; 2 or col &lt; 0 or col &gt; 2) implies
+      no b.board[row][col] 
+  } 
+}
+</code></pre>
+</div>
+</div>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>The <code>example</code> syntax lets you test whether a specific instance is satisfied by some predicate in your model. An <code>example</code> contains three parts:</p>
+<ul>
+<li>a name for the example;</li>
+<li>which predicate the instance should satisfy (or not satisfy); and </li>
+<li>the instance itself. </li>
+</ul>
+<div id="admonition-example" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>This <code>example</code>, named <code>diagonalPasses</code>, expresses that a board where X has moved in the upper-left, middle, and lower-right squares (and <code>O</code> has made no moves at all) should satisfy the <code>wellformed</code> predicate:</p>
+<pre><code>example diagonalPasses is {wellformed} for {
+  Board = `Board0
+  X = `X0 
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0
+  `Board0.board = (0,0)-&gt;`X + (1,1)-&gt;`X + (2,2)-&gt;`X
+}
+</code></pre>
+<p>Notice that the <code>example</code> needs to give a value for <em>all</em> <code>sig</code>s and <em>all</em> fields, even the <code>one sig</code>s.</p>
+</div>
+</div>
+<p>Examples are analogous to unit tests in Forge. Every example says that if the instance were passed to the predicate, the predicate would return true (or false). This means that examples are a great way to explore potential design choices and map out your intent when modeling.</p>
+<div id="admonition-temporal-forge" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Temporal Forge</p>
+<p><a class="admonition-anchor-link" href="#admonition-temporal-forge"></a></p>
+</div>
+<div>
+<p>The <code>example</code> keyword is not supported in Temporal Forge.</p>
+</div>
+</div>
+<h4 id="how-do-examples-work"><a class="header" href="#how-do-examples-work">How do examples work?</a></h4>
+<p>An example passes if and only if the instance given is consistent with the predicate given. </p>
+<div id="admonition-total-vs-partial-instances" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Total vs. partial instances</p>
+<p><a class="admonition-anchor-link" href="#admonition-total-vs-partial-instances"></a></p>
+</div>
+<div>
+<p>If you leave a sig or field unbound in an <code>example</code>, Forge is free to assign that sig or field in any way to achieve consistency with the predicate. The consequence is that it is possible to write apparently contradictory examples that pass. E.g., in the above example, if we left out the binding for <code>board</code>:</p>
+<pre><code>example exampleYes is {wellformed} for {
+  Board = `Board0
+  X = `X0 
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0  
+}
+example exampleNo is {not wellformed} for {
+  Board = `Board0
+  X = `X0 
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0  
+}
+</code></pre>
+<p><strong>Both</strong> of these examples would pass vs. the <code>wellformed</code> predicate, because Forge can find values for the <code>board</code> field that either satisfy or dissatisfy the <code>wellformed</code> predicate.</p>
+</div>
+</div>
+<h3 id="notes-on-example-syntax"><a class="header" href="#notes-on-example-syntax">Notes on Example Syntax</a></h3>
+<p>The block within the second pair of braces must always be a concrete instance. That is, a series of assignments for each sig and field to some set of tuples, defined over atom names. Atom names must be preceded by a backquote; this reinforces the idea that they are atoms in a specific instance, rather than names in the model. You will not be able to refer to these atoms in predicates and most other Forge syntax.</p>
+<p><em>Don't</em> try to assign to the same field twice. If you want a field to contain multiple entries, use <code>+</code> instead. Remember that <code>=</code> in the context of an instance is <em>assignment</em>, not a constraint, and that most constraints won't work inside an instance.</p>
+<p>Names of <code>sig</code>s may be used on the right-hand-side of an assignment only if the block has previously defined the value of that `sig`` exactly, allowing straightforward substitution.</p>
+<h2 id="assert"><a class="header" href="#assert">Assert</a></h2>
+<p>The <code>assert</code> syntax allows you to write tests at a more abstract level than examples do. An assert has these parts:</p>
+<ul>
+<li>an optional name, followed by a colon;</li>
+<li>an optional block of <code>all</code>-quantified variables;</li>
+<li>the keyword <code>assert</code>, followed by a predicate name or <code>{}</code>-delimited constraint block;</li>
+<li>the assertion type: <code>is necessary for</code>, <code>is sufficient for</code>, <code>is consistent with</code>, <code>is sat</code>, or <code>is unsat</code>; and </li>
+<li>for <code>is necessary for</code>, <code>is sufficient for</code>, and <code>is consistent with</code> asserts, a predicate name. </li>
+</ul>
+<div id="admonition-assertions" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Assertions</p>
+<p><a class="admonition-anchor-link" href="#admonition-assertions"></a></p>
+</div>
+<div>
+<p>If we first define these two predicates:</p>
+<pre><code>pred fullFirstRow {some b: Board | b.board[0][0] = X and b.board[0][1] = X and b.board[0][2] = X}
+pred someMoveTaken {some b: Board, row, col: Int | some b.board[row][col] }
+</code></pre>
+<p>we can then write two assertions:</p>
+<pre><code>assert fullFirstRow is sufficient for winning for 1 Board
+assert someMoveTaken is necessary for winning for 1 Board
+</code></pre>
+<p>which should both pass, since:</p>
+<ul>
+<li>if <code>X</code> occupied the entire first row, it has won; and </li>
+<li>if someone has won the game, there must be moves taken on the board.</li>
+</ul>
+<p>But surely we also wish to make sure that these don't pass only because <code>fullFirstRow</code> and <code>someMoveTaken</code> are unsatisfiable!</p>
+<pre><code>assert fullFirstRow is sat
+assert someMoveTaken is sat
+</code></pre>
+<p>or even better (and with names, too):</p>
+<pre><code>nonvacuous_fullFirstRow: assert fullFirstRow is consistent with wellformed
+nonvacuous_someMoveTaken: assert someMoveTaken is consistent with wellformed
+</code></pre>
+</div>
+</div>
+<p>Assertions also support universal quantification (i.e. <code>all</code>, but not <code>some</code>, <code>one</code>, <code>lone</code>, etc). For example, if you instead wrote the predicates:</p>
+<div id="admonition-assertionsquant" class="admonition admonish-example">
+<div class="admonition-title">
+<p>AssertionsQuant</p>
+<p><a class="admonition-anchor-link" href="#admonition-assertionsquant"></a></p>
+</div>
+<div>
+<pre><code>pred fullFirstRow[b : Board] {b.board[0][0] = X and b.board[0][1] = X and b.board[0][2] = X}
+pred someMoveTaken[b : Board, row : Int, col : Int] {some b.board[row][col] }
+</code></pre>
+<p>You could write the assertions</p>
+<pre><code>assert all b : Board | fullFirstRow[b] is sufficient for winning for 1 Board
+assert all b : Board, row, col : Int | someMoveTaken[b, row, col] is necessary for winning for 1 Board
+</code></pre>
+</div>
+</div>
+<p>Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:</p>
+<ul>
+<li>Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; </li>
+<li>for a game of chess to be won, a king must be in check; </li>
+<li>someone must first be logged into Gmail to read their mail;
+or confirm that:</li>
+<li>it is possible to generate a run of Dijkstra's algorithm in the model;</li>
+<li>it is possible to generate a chess configuration where the king is in check; or</li>
+<li>someone can log into Gmail to begin with. </li>
+</ul>
+<h3 id="notes-on-assert-syntax"><a class="header" href="#notes-on-assert-syntax">Notes on Assert Syntax</a></h3>
+<p>The right-hand-side of the assertion must be a predicate name. That is, you <em>cannot</em> provide arbitrary formulas enclosed in brackets to an <code>assert</code>. This restriction eases some analysis but also encourages you to create reusable predicates.</p>
+<h2 id="suites-organizing-your-tests"><a class="header" href="#suites-organizing-your-tests">Suites: Organizing Your Tests</a></h2>
+<p>You should organize your tests into <code>test suite</code>s for each predicate you plan to test.</p>
+<div id="admonition-test-suite" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Test Suite</p>
+<p><a class="admonition-anchor-link" href="#admonition-test-suite"></a></p>
+</div>
+<div>
+<p>For example, you could combine all the above forms into one suite for the <code>winning</code> predicate:</p>
+<pre><code>test suite for winning {
+  assert fullFirstRow is sufficient for winning for 1 Board
+  assert someMoveTaken is necessary for winning for 1 Board
+  
+  test expect { possibleToWin_withoutFullFirstRow: {winning and not fullFirstRow} is sat } 
+  
+  example diagonalWin is {winning} for {
+    Board = `Board0
+    X = `X0 
+    O = `O0
+    A = `A0
+    B = `B0
+    C = `C0
+    `Board0.board = (0,0)-&gt;`X + (1,1)-&gt;`X + (2,2)-&gt;`X
+  }
+}   
+</code></pre>
+</div>
+</div>
+<h2 id="test-expect-blocks"><a class="header" href="#test-expect-blocks">Test-Expect Blocks</a></h2>
+<p>We generally suggest using assertions rather than test-expect blocks if you can do so. </p>
+<p>Every <code>test expect</code> contains a set of individual checks. Each has:</p>
+<ul>
+<li>an optional test name;</li>
+<li>a predicate block; and </li>
+<li>an intention (<code>is sat</code>, <code>is unsat</code>, <code>is checked</code>, or <code>is forge_error</code>). </li>
+</ul>
+<p>The meaning of each intention is:</p>
+<ul>
+<li><code>is sat</code>: the predicate block is satisfiable under the given bounds; </li>
+<li><code>is unsat</code>: the predicate block is unsatisfiable under the given bounds; and </li>
+<li><code>is checked</code>: the predicate block's <em>negation</em> is unsatisfiable under the given bounds.</li>
+<li><code>is forge_error</code>: the predicate block produces a forge error when run.</li>
+</ul>
+<p>Like the other test forms, each test may be accompanied by numeric scopes and <code>inst</code> bounds.</p>
+<div id="admonition-test-expect" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Test expect</p>
+<p><a class="admonition-anchor-link" href="#admonition-test-expect"></a></p>
+</div>
+<div>
+<p>This expresses that it's possible to satisfy the <code>someMoveTaken</code> predicate:</p>
+<pre><code>test expect { possibleToMove: {someMoveTaken} is sat }  
+</code></pre>
+</div>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../running-models/optimization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../forge-standard-library/integers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../running-models/optimization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../forge-standard-library/integers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

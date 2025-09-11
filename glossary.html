@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Glossary - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="././mdbook-admonish.css">
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item expanded "><a href="glossary.html" class="active"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
+<p>This glossary is meant to cover terms that aren't easily searched for via the search bar. E.g., it lists &quot;arity&quot; but not specific Forge language constructs like <code>pred</code> or <code>sig</code>. </p>
+<h2 id="terms"><a class="header" href="#terms">Terms</a></h2>
+<p>The <em>arity</em> of a relation is the number of columns in the relation; that is, the number of elements of a tuple in that relation. </p>
+<p>An <em>atom</em> is a distinct object within an instance. </p>
+<p>An <a href="https://csci1710.github.io/forge-documentation/building-models/overview.html"><em>instance</em></a> is a concrete scenario that abides by the rules of a model, containing specific <em>atoms</em> and their relationships to each other.</p>
+<p>A <a href="https://csci1710.github.io/forge-documentation/building-models/overview.html"><em>model</em></a> is a representation of a system. In Forge, a model comprises a set of <code>sig</code> and <code>field</code> definitions, along with constraints.</p>
+<h2 id="glossary-of-errors"><a class="header" href="#glossary-of-errors">Glossary of Errors</a></h2>
+<p>This section contains tips related to some error terminology in Forge. </p>
+<h3 id="errors-related-to-bounds"><a class="header" href="#errors-related-to-bounds">Errors Related to Bounds</a></h3>
+<h4 id="please-specify-an-upper-bound-for-ancestors-of-"><a class="header" href="#please-specify-an-upper-bound-for-ancestors-of-">Please specify an upper bound for ancestors of ...</a></h4>
+<p>If <code>A</code> is a <code>sig</code>, and you get an error that says &quot;Please specify an upper bound for ancestors of A&quot;, this means that, while you've defined the contents of <code>A</code>, Forge cannot infer corresponding contents for the parent <code>sig</code> of <code>A</code> and needs you to provide a binding. </p>
+<div id="admonition-example" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>Given this definition:</p>
+<pre><code>sig Course {}
+sig Intro, Intermediate, UpperLevel extends Course {} 
+</code></pre>
+<p>and this example:</p>
+<pre><code>example someIntro is {wellformed} for {
+    Intro = `CSCI0150
+}
+</code></pre>
+<p>the above error will be produced. Add a bound for <code>Course</code>:</p>
+<pre><code>example someIntro is {wellformed} for {
+    Intro = `CSCI0150
+    Course = `CSCI0150
+}
+</code></pre>
+</div>
+</div>
+<h3 id="errors-related-to-testing"><a class="header" href="#errors-related-to-testing">Errors Related to Testing</a></h3>
+<h4 id="invalid-example--the-instance-specified-is-impossible-"><a class="header" href="#invalid-example--the-instance-specified-is-impossible-">Invalid example ... the instance specified is impossible ...</a></h4>
+<p>If an example fails, Forge will attempt to disambiguate between:</p>
+<ul>
+<li>it actually fails the <em>predicate under test</em>; and </li>
+<li>it fails because it violates the type declarations for sigs and fields. </li>
+</ul>
+<p>Consider this example:</p>
+<div id="admonition-impossible-instance" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Impossible Instance</p>
+<p><a class="admonition-anchor-link" href="#admonition-impossible-instance"></a></p>
+</div>
+<div>
+<pre><code>#lang forge/bsl 
+
+abstract sig Grade {} 
+one sig A, B, C, None extends Grade {} 
+sig Course {} 
+sig Person { 
+    grades: func Course -&gt; Grade,
+    spouse: lone Person 
+}
+
+pred wellformed { 
+    all p: Person | p != p.spouse 
+    all p1,p2: Person | p1 = p2.spouse implies p2 = p1.spouse
+}
+
+example selfloopNotWellformed is {wellformed} for {
+    Person = `Tim + `Nim 
+    Course = `CSCI1710 + `CSCI0320
+    A = `A   B = `B   C = `C   None = `None 
+    Grade = A + B + C + None
+
+    -- this violates wellformed
+    `Tim.spouse = `Tim 
+    
+    -- but this violates the definition: &quot;grades&quot; is a total function
+    -- from courses to grades; there's no entry for `CSCI0320.
+    `Tim.grades = (`CSCI1710) -&gt; B
+    
+}
+</code></pre>
+</div>
+</div>
+<p>If you receive this message, it means your example does something like the above, where some type declaration unrelated to the predicate under test is being violated.</p>
+<h3 id="errors-related-to-syntax"><a class="header" href="#errors-related-to-syntax">Errors related to syntax</a></h3>
+<h4 id="unexpected-type-or-contract-violation"><a class="header" href="#unexpected-type-or-contract-violation">Unexpected type or Contract Violation</a></h4>
+<p>In Forge there are 2 kinds of constraint syntax for use in predicates:</p>
+<ul>
+<li>formulas, which evaluate to true or false; and </li>
+<li>expressions, which evaluate to values like specific atoms. </li>
+</ul>
+<p>If you write something like this:</p>
+<div id="admonition-contract-violation" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Contract Violation</p>
+<p><a class="admonition-anchor-link" href="#admonition-contract-violation"></a></p>
+</div>
+<div>
+<pre><code>#lang forge/bsl 
+sig Person {spouse: lone Person}
+run { some p: Person | p.spouse}
+</code></pre>
+<p>produces:</p>
+<pre><code>some: contract violation
+  expected: formula?
+  given: (join p (Relation spouse))
+</code></pre>
+</div>
+</div>
+<p>The syntax is invalid: the <code>some</code> quantifier expects a <em>formula</em> after its such-that bar, but <code>p.spouse</code> is an expression. Something like <code>some p.spouse</code> is OK. (The phrase &quot;contract violation&quot; in this case just means &quot;I was passed something I didn't expect.&quot;)</p>
+<p>Likewise: </p>
+<div id="admonition-unexpected-type" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Unexpected Type</p>
+<p><a class="admonition-anchor-link" href="#admonition-unexpected-type"></a></p>
+</div>
+<div>
+<pre><code>sig Person {spouse: lone Person}
+run { all p1,p2: Person | p1.spouse = p2.spouse implies p2.spouse}
+</code></pre>
+<p>results in:</p>
+<pre><code>=&gt;: argument to =&gt; had unexpected type. 
+  expected #&lt;procedure:node/formula?&gt;,
+  got (join p2 (Relation spouse))
+</code></pre>
+</div>
+</div>
+<p>Since <code>implies</code> is a boolean operator, it takes a <em>formula</em> as its argument. Unfortunately, <code>p2.spouse</code> is an expression, not a formula. To fix this, express what you really meant was <em>implied</em>. </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="dsl/abac.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="dsl/abac.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

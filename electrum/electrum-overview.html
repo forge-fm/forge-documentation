@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Temporal Forge Overview and Operators - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item expanded "><a href="../electrum/electrum-overview.html" class="active"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="temporal-forge-overview"><a class="header" href="#temporal-forge-overview">Temporal Forge Overview</a></h1>
+<p>Temporal mode extends Forge with temporal operators to ease specification and checking of dynamic systems. This mode draws heavily on the <a href="http://haslab.github.io/Electrum/">Electrum work</a> by INESC TEC and ONERA, and the newer Alloy 6 version, but there are (slight) differences.</p>
+<p>To use Temporal Forge, just use <code>#lang forge/temporal</code>. This will cause a number of changes in how Forge processes your models, the largest one being that it will now always search for <strong>lasso traces</strong> (see below) rather than arbitrary instances. The maximum length of the trace is given by <code>option max_tracelength &lt;k&gt;</code> and defaults to <code>5</code>. The minimum length of the trace is given by <code>option min_tracelength &lt;k&gt;</code> and defaults to <code>1</code>. </p>
+<div id="admonition-using-minimum-trace-length" class="admonition admonish-info">
+<div class="admonition-title">
+<p>Using Minimum Trace Length</p>
+<p><a class="admonition-anchor-link" href="#admonition-using-minimum-trace-length"></a></p>
+</div>
+<div>
+<p>The temporal solver works by iterative deepening: try length 1, then length 2, ... and so <em>sometimes</em> (not always) a longer minimum trace length can speed up the process.</p>
+</div>
+</div>
+<h2 id="variable-state-var"><a class="header" href="#variable-state-var">Variable state (<code>var</code>)</a></h2>
+<p>Temporal Forge allows <code>var</code> annotations to be placed on <code>sig</code> and field definitions. Such an annotation indicates that the contents of the corresponding relation may vary over time. Any sigs or fields that are not declared <code>var</code> will <em>not</em> vary over time.</p>
+<div id="admonition-importance-of-var" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Importance of <code>var</code></p>
+<p><a class="admonition-anchor-link" href="#admonition-importance-of-var"></a></p>
+</div>
+<div>
+<p>If no sigs or fields are declared <code>var</code>, the temporal solver cannot change anything from state to state.</p>
+</div>
+</div>
+<div id="admonition-var-declarations" class="admonition admonish-example">
+<div class="admonition-title">
+<p><code>var</code> declarations</p>
+<p><a class="admonition-anchor-link" href="#admonition-var-declarations"></a></p>
+</div>
+<div>
+<p>Writing <code>sig Vertex { var edges: set Vertex }</code> defines a directed graph whose edge relation may vary. </p>
+<p>Writing <code>var sig Student {}</code> denotes that the set of students need not remain constant.</p>
+</div>
+</div>
+<h2 id="temporal-mode-semantics-informally"><a class="header" href="#temporal-mode-semantics-informally">Temporal Mode Semantics (Informally)</a></h2>
+<p>When the temporal solver is enabled, instances are always traces, and a trace is an <strong>infinite</strong> object, containing a state for every natural number <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>. However, the solver underlying Forge needs to finitize the problem in order to solve it. The solution to this, given a finite state-space, is to invoke the Pigeonhole Principle and seek traces that end in a loop: &quot;lassos&quot;.</p>
+<div id="admonition-lassos-must-loop-back" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Lassos must loop back!</p>
+<p><a class="admonition-anchor-link" href="#admonition-lassos-must-loop-back"></a></p>
+</div>
+<div>
+<p>If your system needs more steps before it loops back than the maximum trace length (e.g., an integer counter that overflows with a small trace length), Forge may tell you that there are no traces. Always pay attention to your <code>max_tracelength</code> option, and be convinced that it is sufficient to include the lassos you're interested in.</p>
+</div>
+</div>
+<p>Temporal formulas and expressions are always evaluated with respect to a state index. At the top level of any formula, the index is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> (the first state of the trace). Temporal operators either change or &quot;fan out&quot; across multiple state indexes to let you express things like:</p>
+<ul>
+<li>&quot;in the next state, ...&quot; (add 1 to the state index)</li>
+<li>at some point in the future, ... (search for <code>some</code> state index)</li>
+<li>at all points in the future, ... (check <code>all</code> future indexes)</li>
+<li>...</li>
+</ul>
+<h2 id="added-relational-operators-priming"><a class="header" href="#added-relational-operators-priming">Added relational operators: priming</a></h2>
+<p>Temporal Forge adds one relational operator: priming (<code>'</code>). Any relational expression that is primed implicitly means &quot;this expression <strong>in the next state</strong>&quot;. Thus, you can use priming to concisely write transition effects. </p>
+<div id="admonition-priming" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Priming</p>
+<p><a class="admonition-anchor-link" href="#admonition-priming"></a></p>
+</div>
+<div>
+<p>Writing <code>cookies' in cookies</code> would mean that in every transition, the set of <code>cookies</code> never grows over time (will either shrink or remain the same).</p>
+</div>
+</div>
+<h2 id="added-formula-operators"><a class="header" href="#added-formula-operators">Added formula operators</a></h2>
+<p>Temporal Forge adds a number of formula operators, corresponding to those present in Linear Temporal Logic (LTL) and Past-Time Linear Temporal Logic.</p>
+<h3 id="traditional-ltl-future-time"><a class="header" href="#traditional-ltl-future-time">Traditional LTL (future time)</a></h3>
+<h4 id="next-state"><a class="header" href="#next-state">Next State</a></h4>
+<ul>
+<li><code>next_state &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in state <code>i+1</code>.</li>
+</ul>
+<div id="admonition-next_state" class="admonition admonish-example">
+<div class="admonition-title">
+<p>next_state</p>
+<p><a class="admonition-anchor-link" href="#admonition-next_state"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>next_state no Nim.cookies</code> expresses the sad fact that, in the next state, Nim has no cookies.</p>
+</div>
+</div>
+<div id="admonition-let-and-temporal-operators" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Let and temporal operators</p>
+<p><a class="admonition-anchor-link" href="#admonition-let-and-temporal-operators"></a></p>
+</div>
+<div>
+<p>Don't try to write something like:</p>
+<pre><code>let oldCount = Counter.count | 
+    next_state Counter.count = add[oldCount, 1]
+</code></pre>
+<p>The <code>let</code> construct is implemented with substitution, and so the above will be rewritten to:</p>
+<pre><code>next_state Counter.count = add[Counter.count, 1]
+</code></pre>
+<p>which expresses that, in the next state, the counter must be one greater than itself. This will be unsatisfiable.</p>
+</div>
+</div>
+<h4 id="always-now-and-in-the-future"><a class="header" href="#always-now-and-in-the-future">Always (now and in the future)</a></h4>
+<ul>
+<li><code>always &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in every state <code>&gt;=i</code>.</li>
+</ul>
+<div id="admonition-always" class="admonition admonish-example">
+<div class="admonition-title">
+<p>always</p>
+<p><a class="admonition-anchor-link" href="#admonition-always"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>always no Nim.cookies</code> expresses an alarming universal truth: from now on, Nim will never have any cookies.</p>
+<p>Of course, operators like <code>always</code> can be used inside other operators. So this lamentable destiny might be avoided. E.g., <code>not always no Nim.cookies</code> would mean the reverse: at some point, Nim will in fact have cookies.</p>
+</div>
+</div>
+<h4 id="eventually-now-or-sometime-in-the-future"><a class="header" href="#eventually-now-or-sometime-in-the-future">Eventually (now or sometime in the future)</a></h4>
+<ul>
+<li><code>eventually &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in some state <code>&gt;=i</code>.</li>
+</ul>
+<div id="admonition-eventually" class="admonition admonish-example">
+<div class="admonition-title">
+<p>eventually</p>
+<p><a class="admonition-anchor-link" href="#admonition-eventually"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>eventually no Nim.cookies</code> expresses that at some point either now or in the future, Nim will lack cookies. Before and after that point, nothing prevents Nim from acquiring cookies.</p>
+</div>
+</div>
+<h4 id="until-and-release-obligations"><a class="header" href="#until-and-release-obligations">Until and Release (obligations)</a></h4>
+<ul>
+<li><code>&lt;fmla-a&gt; until &lt;fmla-b&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla-b</code> holds in some state <code>j&gt;=i</code> and <code>fmla-a</code> holds in all states <code>k</code> where <code>i &lt;= k &lt; j</code>. Note that the obligation to see <code>fmla-a</code> ceases in the state where <code>fmla-b</code> holds.</li>
+</ul>
+<div id="admonition-until" class="admonition admonish-example">
+<div class="admonition-title">
+<p>until</p>
+<p><a class="admonition-anchor-link" href="#admonition-until"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>no Nim.cookies until some Nim.vegetables</code> expresses that, <em>starting at this point in time</em>, Nim must have no cookies until they also have vegetables. Once Nim obtains vegetables (including at this point in time), the obligation ends (and thus after that point Nim may have only cookies but no vegetables).</p>
+</div>
+</div>
+<p>A natural question to ask is: what happens if <code>fmla-b</code> holds at multiple points in the future? However, this turns out not to matter: the definition says that the <code>until</code> formula is true in the current state if <code>fmla-b</code> holds at <strong>some</strong> point in the future (and <code>fmla-a</code> holds until then).</p>
+<p>There is an alternative way to express obligations, which we won't use much:</p>
+<ul>
+<li><code>&lt;fmla-a&gt; releases &lt;fmla-b&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla-a</code> holds in some state <code>j&gt;=i</code> and <code>fmla-b</code> holds in all states <code>k</code> where <code>i &lt;= k &lt;= j</code>, or <code>fmla-a</code> never occurs in a later state and <code>fmla-b</code> holds forever after. Note that the intuitive role of the two formulas is reversed between <code>until</code> and <code>releases</code>, and that, unlike <code>until</code>, the obligation extends to the state where <code>fmla-a</code> holds.</li>
+</ul>
+<h3 id="past-time-ltl"><a class="header" href="#past-time-ltl">Past-time LTL</a></h3>
+<p><em>Past-time</em> operators are useful for concisely expressing some constraints. They don't add more expressive power to the temporal language, but they do sometimes make it easier to avoid adding state, etc.</p>
+<h4 id="previous-state"><a class="header" href="#previous-state">Previous State</a></h4>
+<ul>
+<li><code>prev_state &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in state <code>i-1</code>. </li>
+</ul>
+<div id="admonition-there-is-nothing-before-the-first-state" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>There is nothing before the first state</p>
+<p><a class="admonition-anchor-link" href="#admonition-there-is-nothing-before-the-first-state"></a></p>
+</div>
+<div>
+<p>The formula <code>prev_state &lt;fmla&gt;</code> is canonically false if <code>i=0</code>, since there is no prior state. This holds regardless of what <code>&lt;fmla&gt;</code> contains; <code>prev_state</code> asserts the existence of a prior state.</p>
+</div>
+</div>
+<h4 id="historically-always-in-the-past"><a class="header" href="#historically-always-in-the-past">Historically (always in the past)</a></h4>
+<ul>
+<li><code>historically &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in every state <code>&lt;=i</code>.</li>
+</ul>
+<h4 id="once-at-some-point-in-the-past"><a class="header" href="#once-at-some-point-in-the-past">Once (at some point in the past)</a></h4>
+<ul>
+<li><code>once &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in some state <code>&lt;=i</code>.</li>
+</ul>
+<h2 id="note-for-alloy-users"><a class="header" href="#note-for-alloy-users">Note for Alloy Users</a></h2>
+<p>Alloy 6 and Electrum use the keywords <code>after</code> and <code>before</code> where Forge uses <code>next_state</code> and <code>prev_state</code>. We changed Forge to use these (admittedly more verbose) keywords in the hopes they are more clear. For example, <code>after</code> sounds like it could be a binary operator; in English, we might say &quot;turn left after 3 stops&quot;. Also, <code>next_state</code> is definitely a formula about the following state whereas <code>after</code> does not communicate the same sense of immediacy.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../forge-standard-library/helpers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../sterling/cnd.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../forge-standard-library/helpers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../sterling/cnd.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>D3FX JavaScript Helpers - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item expanded "><a href="../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sterling/d3fx_apr23.html" class="active"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="d3fx-helpers"><a class="header" href="#d3fx-helpers">D3FX Helpers</a></h1>
+<p>The D3FX helpers library was designed as an interface between Sterling users and the D3 visualization library in Javascript. D3 was originally the primary way that Forge users wrote custom visualizations. However, we have found that using D3 in Sterling can involve a large amount of learning and prep time--especially for those without much experience with JavaScript.</p>
+<p>D3FX was created to ease writing custom visualizations in Sterling. It contains a library of shapes and objects that were commonly used in the past, such as grid layouts and labeled arrows. Since custom visualizations are still written in JavaScript, using D3FX requires some knowledge of the language, but its object-oriented design is meant to ease basic use for those who might be familiar with languages like Java or Python.</p>
+<p>This page contains documentation for all classes in D3FX, along with small examples of how to create and work with them. Complete, runnable examples can be found in the Forge repository's <a href="https://github.com/tnelson/Forge/tree/dev/viz-examples"><code>viz-examples</code> directory</a>. </p>
+<div id="admonition-warning" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning"></a></p>
+</div>
+<div>
+<p>There has been one major change in the library since the start of Spring 2023. Constructors now take a single object, rather than a varying number of parameters. This makes it easier to add new parameters without breaking existing code, and avoids confusion about how to order parameters. However, this required a one-time breaking change. </p>
+<p>If you've already written some visualizations based on the old method, converting should be easy. For example, our Dining Smiths lab visualization created a new text box with: </p>
+<pre><code>new TextBox(`State:${idx}${lb}`,{x:0,y:0},'black',16)
+</code></pre>
+<p>This would need to be updated to :</p>
+<pre><code>new TextBox({text: `State:${idx}${lb}`, coords: {x:0,y:0}, color: 'black', fontSize: 16})
+</code></pre>
+</div>
+</div>
+<h2 id="further-resources"><a class="header" href="#further-resources">Further Resources</a></h2>
+<p>In addition to this page, you can view supplementary examples in the Forge repository <a href="https://github.com/tnelson/Forge/tree/dev/viz-examples">here</a>. Each contains both a Forge model to run (<code>.frg</code>) and the corresponding script file (<code>.js</code>).</p>
+<h2 id="the-stage-and-visualobjects"><a class="header" href="#the-stage-and-visualobjects">The <code>Stage</code> and <code>VisualObjects</code></a></h2>
+<p>Every element D3FX displays on the screen is represented by a <code>VisualObject</code>, which includes shapes like squares or circles, as well as more complicated objects like grids or trees.</p>
+<p>To render visual objects, a <code>Stage</code> object needs to be created to contain them. After creating, the user can call <code>stage.add(...)</code> to place the visual object in the stage. To render all added <code>VisualObject</code>s, call <code>stage.render(...)</code>. Below is some important information for interacting with these objects, specifically for those without JavaScript experience.</p>
+<div id="admonition-note" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Most commonly, <code>render</code> takes two parameters which are already defined in the script environment: <code>stage.render(svg, document)</code>.</p>
+</div>
+</div>
+<h3 id="props-and-optional-parameters"><a class="header" href="#props-and-optional-parameters">Props and Optional Parameters</a></h3>
+<p>All <code>VisualObject</code>s will take in a <em>props</em> (short for &quot;properties&quot;) object. Props objects have a number of fields with designated types. These fields can be entered in any order with their corresponding names. For example:</p>
+<pre><code>new Rectangle({
+    height: 100,
+    width: 200,
+    coords: {x: 100, y: 50},
+    color: 'red',
+    label: 'Hello'
+})
+</code></pre>
+<p>For ease of use, we've written out a template for each of these props objects in terms of an <code>interface</code>, like the following:</p>
+<pre><code>interface Coords {
+    x: number,
+    y: number
+}
+</code></pre>
+<p>Fields in such interface declarations may include a <code>?</code>. This denotes that the field is <em>optional</em>.</p>
+<div id="admonition-warning-1" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning-1"></a></p>
+</div>
+<div>
+<p>While these definitions are useful tools, and these <code>interface</code> structures do exist in TypeScript (the language we wrote D3FX in), they <strong>do not</strong> exist in the raw JavaScript you'll use to write your visualizations! </p>
+<p>That said, instantiating a props object with <code>{field1: value, field2: value, ...}</code> will still be understood by the library as if JavaScript understood this wider interface system. Just don't include types, or try to reference the interfaces directly.</p>
+</div>
+</div>
+<div id="admonition-note-1" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>When implementing one of the classes listed later on, you may be prompted with a type hint of the form <code>text: string | () =&gt; string</code>. This means that the field <code>text</code> can take in either or a string, or an anonymous funtion that produces a string. For simple use, you can more or less ignore this distinction, and choose only to pass in a string. For ease of reading, any type of this form (<code>T | () =&gt; T</code>) has been collapsed to just <code>T</code> in all library documentation.</p>
+</div>
+</div>
+<h2 id="primitive-objects"><a class="header" href="#primitive-objects">Primitive Objects</a></h2>
+<p>A <em>primitive</em> object is one that doesn't visually contain any other D3FX objects. </p>
+<h3 id="textbox"><a class="header" href="#textbox"><code>TextBox</code></a></h3>
+<p>Text boxes render text to the screen at a given location. Their constructor accepts a props object of the following form:</p>
+<pre><code>interface TextBoxProps {
+    text? : string,
+    coords?: Coords,
+    color?: string,
+    fontSize?: number
+}
+</code></pre>
+<p>Here is an example <code>TextBox</code> using these props:</p>
+<pre><code>let text = new TextBox({
+    text: 'hello',
+    coords: {x: 50, y:50},
+    color: 'black',
+    fontSize: 12
+}) 
+</code></pre>
+<div id="admonition-note-2" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+</div>
+<div>
+<p>All parameters can be changed after initiation with corresponding setter methods. These methods are in the typical OO style of <code>setX(newValue: Type)</code>, and should be suggested by the text editor for ease of use.</p>
+</div>
+</div>
+<p>Additionally, <code>TextBox</code> supports script-defined callbacks. You can register <em>events</em> using the <code>events</code> prop. Supported events are described <a href="https://developer.mozilla.org/en-US/docs/Web/Events">here</a>.</p>
+<div id="admonition-textbox-with-events" class="admonition admonish-example">
+<div class="admonition-title">
+<p>TextBox with events</p>
+<p><a class="admonition-anchor-link" href="#admonition-textbox-with-events"></a></p>
+</div>
+<div>
+<pre><code>new TextBox({
+    text: 'hello',
+    coords: {x: 50, y:50},
+    color: 'black',
+    fontSize: 12,
+    events: [
+        {event: 'click', callback: () =&gt; {console.log('clicked!')}}
+    ]
+}) 
+</code></pre>
+</div>
+</div>
+<h3 id="imagebox"><a class="header" href="#imagebox">ImageBox</a></h3>
+<p>An <code>ImageBox</code> contains an image loaded from a URL. </p>
+<div id="admonition-imagebox" class="admonition admonish-example">
+<div class="admonition-title">
+<p>ImageBox</p>
+<p><a class="admonition-anchor-link" href="#admonition-imagebox"></a></p>
+</div>
+<div>
+<pre><code>const stage = new Stage()
+const box = new ImageBox({
+    coords: {x:100,y:100}, 
+    url: &quot;https://csci1710.github.io/2024/static/media/LFS_FROG.8de0a0795d10898e5fe9.png&quot;, 
+    width:200, 
+    height:200})
+stage.add(box)
+stage.render(svg)
+</code></pre>
+</div>
+</div>
+<h3 id="primitive-shapes"><a class="header" href="#primitive-shapes">Primitive Shapes</a></h3>
+<p>The primitive object types <code>Rectangle</code>, <code>Circle</code>, and <code>Polygon</code> are all instances of a wider class called <code>Shape</code>. As a result, their props objects all implement the following interface:</p>
+<pre><code>interface ShapeProps {
+  color?: string,
+  borderWidth?: number,
+  borderColor?: string,
+  label?: string,
+  labelColor?: string,
+  labelSize?: number,
+  opacity?: number
+}
+</code></pre>
+<p>For ease of reading, these fields will be rewritten later on where applicable.</p>
+<h4 id="rectangle"><a class="header" href="#rectangle"><code>Rectangle</code></a></h4>
+<p>Rectangles take in a pair of coordinates corresponding to the top left corner of the shape, along with a width and height. The props object is of the following form:</p>
+<pre><code>interface RectangleProps extends shape {
+    height: number,
+    width: number,
+    labelLocation?: string,
+    coords?: Coords,
+
+    // Borrowed from shape
+    color?: string,
+    borderWidth?: number,
+    borderColor?: string,
+    label?: string,
+    labelColor?: string,
+    labelSize?: number,
+    opacity?: number
+}
+</code></pre>
+<p>The value of <code>label-location</code> can be <code>&quot;center&quot;</code> (default). Other options include <code>&quot;topLeft&quot;</code>, <code>&quot;topRight&quot;</code>, <code>&quot;bottomLeft&quot;</code>, and <code>&quot;bottomRight&quot;</code>, which will generate text outside the rectangle in these locations. </p>
+<p>Here is an example <code>Rectangle</code> using these props:</p>
+<pre><code>let rect = new Rectangle({
+    coords: {x: 100, y:100},
+    height: 20,
+    width: 20,
+    color: &quot;pink&quot;,
+    borderColor: &quot;black&quot;,
+    borderWidth: 2,
+    label: &quot;5&quot;
+})
+</code></pre>
+<p>Which renders the following:</p>
+<p><img src="../images/d3-examples/rectangle.png" alt="Small, light blue circle." /></p>
+<h4 id="circle"><a class="header" href="#circle"><code>Circle</code></a></h4>
+<p>Circles take in a pair of coordinates as the center and a radius, along with the rest of the following props object:</p>
+<pre><code>interface CircleProps extends ShapeProps {
+    radius: number,
+
+    // Borrowed from shape
+    color?: string,
+    borderWidth?: number,
+    borderColor?: string,
+    label?: string,
+    labelColor?: string,
+    labelSize?: number,
+    opacity?: number
+}
+</code></pre>
+<p>The text in the <code>label</code> will render in the center of the circle. Here is an example circle:</p>
+<pre><code>let circ = new Circle({
+    radius: 10, 
+    center: {x: 100, y:100}, 
+    color: 'aqua', 
+    borderWidth: 2, 
+    borderColor: 'black', 
+}); 
+</code></pre>
+<p>Which renders the following:</p>
+<p><img src="../images/d3-examples/circle.png" alt="Small, light blue circle." /></p>
+<h4 id="polygon"><a class="header" href="#polygon"><code>Polygon</code></a></h4>
+<p>Polygons are the most generic of the primitive shapes offered in D3FX. They take in any list of points and create a shape with those points on the perimeter. The props are of the form:</p>
+<pre><code>export interface PolygonProps extends ShapeProps {
+    points: Coords[]
+
+    // Borrowed from shape
+    color?: string,
+    borderWidth?: number,
+    borderColor?: string,
+    label?: string,
+    labelColor?: string,
+    labelSize?: number,
+    opacity?: number
+}
+</code></pre>
+<p>The label will be generated in roughly the center of the shape (the mean of the points entered). Here is an example of a polygon being used to create a (nonconvex) pentagon. </p>
+<pre><code>polypoints = [
+    {x:100, y:200},
+    {x:200, y:200},
+    {x:175, y:150},
+    {x:200, y:100},
+    {x:100, y:100}
+]
+
+let poly = new Polygon({
+    points: polypoints, 
+    color: 'orange', 
+    borderWidth: 2, 
+    borderColor: 'black', 
+    label: &quot;Hi!&quot;,
+    labelColor: &quot;black&quot; ,
+    opacity: 0.7
+});
+</code></pre>
+<p>Which will render the following pentagon:</p>
+<p><img src="../images/d3-examples/polygon.png" alt="Concave pentagon labelled 'Hi!'." /></p>
+<h4 id="line"><a class="header" href="#line"><code>Line</code></a></h4>
+<p>A <code>Line</code> takes in a series of points and creates a line passing through said points. </p>
+<pre><code>interface LineProps {
+  points?: Coords[], 
+  arrow?: boolean,
+  color?: string, 
+  width?: number,
+  opacity?: number
+  style?: string
+}
+</code></pre>
+<p>If <code>arrow</code> is true, the end of the line will have a small arrowhead. Style can take the values of <code>'dotted'</code> or <code>'dashed'</code>Here's an example line:</p>
+<pre><code>polypoints = [
+    {x:100, y:100},
+    {x:125, y:100},
+    {x:150, y:75},
+    {x:200, y:125},
+    {x:225, y:100},
+    {x:250, y:100}
+]
+
+let line = new Line({
+    points: polypoints, 
+    color: 'black', 
+    width: 2, 
+    labelColor: &quot;blue&quot;,
+    arrow: true,
+    style: &quot;dotted&quot;
+});
+</code></pre>
+<p>Which will render:</p>
+<p><img src="../images/d3-examples/line.png" alt="Jagged, dotted line with an arrowhead." /></p>
+<h2 id="compound-objects"><a class="header" href="#compound-objects">Compound Objects</a></h2>
+<p>While the above objects are good for simple visualizations, managing the relationship between many primitive objects manually can be difficult.  With this in mind, D3FX provides a number of <em>compound</em> objects, which automatically group their child objects in a particular way. </p>
+<div id="admonition-warning-2" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning-2"></a></p>
+</div>
+<div>
+<p>Compound objects are responsible for rendering their children. If an object is a child of another object, don't <code>add</code> it to the stage as well. If you do so, there may be unexpected consequences when rendering, since the child object would then be rendered twice in two different contexts.</p>
+<p>In other words, avoid code like the following:</p>
+<pre><code>circ = new Circle({...})
+comp = new SomeCompoundObject({innerObject: circ, ...}) // circ is a child object
+
+stage.add(comp) // the stage will render comp, which then renders its child circ
+stage.add(circ) // the stage will render circ (again)
+</code></pre>
+</div>
+</div>
+<h3 id="grid"><a class="header" href="#grid"><code>Grid</code></a></h3>
+<p>Grids place visual objects into a 2-dimensional arrangement of cells. The grid constructor takes in the following props:</p>
+<pre><code>interface gridProps {
+    grid_location: Coords, // Top left corner
+    cell_size:{
+        x_size:number,
+        y_size:number
+    },
+    grid_dimensions:{
+        x_size:number,
+        y_size:number
+    },
+}
+</code></pre>
+<p>The <code>grid_dimensions</code> field should be a pair of positive integers, referring to the horizontal and vertical capacity of the array, respectively. The <code>cell_size</code>, in pixels, will be the size allocated for each of these objects in the rendered grid. Grids also offer the <code>add</code> method to fill these cells with <code>VisualObject</code>s:</p>
+<pre><code>add(
+    coords: Coords, 
+    add_object:VisualObject, 
+    ignore_warning?:boolean
+)
+</code></pre>
+<p>The coordinates should be integers designating which row and column of the grid to add the child object to. Notably, <em>the child object's visual location will immediately be adjusted to fit the cell.</em></p>
+<p>Adding a child object will produce an error if the child object does not fit into the given cell. To ignore this error, set the <code>ignore_warning</code> prop to true. </p>
+<p>Here is an example of a simple grid:</p>
+<pre><code>let grid = new Grid({
+    grid_location: {x: 50, y:50},
+    cell_size: {x_size: 30, y_size: 30},
+    grid_dimensions: {x_size: 4, y_size: 5}
+})
+
+grid.add({x: 0, y: 1}, new Circle({radius: 10, color: &quot;red&quot;}))
+grid.add({x: 3, y: 3}, new Circle({radius: 10, color: &quot;blue&quot;}))
+</code></pre>
+<p>Here we have a 4x4 grid of 30x30 pixel squares, into two of which we place circles. Note that the circles added to the grid do not have coordinates. This is because the coordinates of these shapes are immediately changed to be in the center of the given squares in the grid. This renders as follows:</p>
+<p><img src="../images/d3-examples/grid.png" alt="Example grid with circles at (0, 1) and (3, 3)." /></p>
+<h3 id="tree"><a class="header" href="#tree"><code>Tree</code></a></h3>
+<p>The <code>Tree</code> object renders a branching data structure. While in principle Sterling's default visualization can produce trees, the <code>Tree</code> object in D3FX allows a finer degree of control. </p>
+<p>The nodes in a <code>Tree</code> object are themselves visual objects, which will then automatically be rendered with lines between them. The props for <code>Tree</code> are as follows:</p>
+<pre><code>interface TreeProps {
+    root: VisTree, 
+    height: number, 
+    width: number, 
+    coords?: Coords, 
+    edgeColor?: string, 
+    edgeWidth?: number
+}
+</code></pre>
+<p>Where the <code>VisTree</code> interface logically represents a tree and its subtrees in recursive fashion:</p>
+<pre><code>interface VisTree{
+    visualObject: VisualObject,
+    children: VisTree[]
+}
+</code></pre>
+<p>When rendered, the tree will be adjusted to exactly fit into the box with top-left corner designated by <code>coords</code> and dimensions designated by <code>height</code> and <code>width</code>. Here is an example tree with four layers:</p>
+<pre><code>let obj1 = new Circle({radius: 10, color: 'red', borderColor: &quot;black&quot;, label: '1'});
+let obj2 = new Circle({radius: 10, color: 'red', borderColor: &quot;black&quot;, label: '2'});
+let obj3 = new Rectangle({height: 20, width: 20, color: 'green', borderColor: &quot;black&quot;, label: '3'});
+let obj4 = new Circle({radius: 10, color: 'red', borderColor: &quot;black&quot;, label: '4'});
+let obj5 = new Circle({radius: 10, color: 'red', borderColor: &quot;black&quot;, label: '5'});
+let obj6 = new Circle({radius: 10, color: 'red', borderColor: &quot;black&quot;, label: '6'});
+let obj7 = new Circle({radius: 10, color: 'blue', borderColor: &quot;black&quot;, label: '7'});
+let obj8 = new Circle({radius: 10, color: 'blue', borderColor: &quot;black&quot;, label: '8'});
+
+let visTree = {
+  visualObject: obj1,
+  children: [
+    {
+      visualObject: obj2,
+      children: [
+        { visualObject: obj4, children: [] },
+        {
+          visualObject: obj5,
+          children: [{ visualObject: obj8, children: [] }]
+        },
+        { visualObject: obj7, children: [] }
+      ]
+    },
+    {
+      visualObject: obj3,
+      children: [{ visualObject: obj6, children: [] }]
+    }
+  ]
+};
+
+let tree = new Tree({
+    root: visTree, 
+    height: 200, 
+    width: 200, 
+    coords: { x: 100, y: 100 }
+    });
+</code></pre>
+<p>which renders as:</p>
+<p><img src="../images/d3-examples/tree.png" alt="A rendering of a grid with 7 circles and 1 square, arranged as stated in the code." /></p>
+<h3 id="edge"><a class="header" href="#edge"><code>Edge</code></a></h3>
+<p>Edges display relationships between objects, without requiring manual management of those objects' locations---unlike the primitive <code>Line</code>. Edge objects take in the following props:</p>
+<pre><code>export interface EdgeProps {
+  obj1: VisualObject;
+  obj2: VisualObject;
+  lineProps: LineProps;
+  textProps: TextBoxProps;
+  textLocation: string;
+}
+</code></pre>
+<p>Here, <code>obj1</code> represents the first visual object, or the source of the edge, and <code>obj2</code> is the sink. Styling, color, width, and more attributes of the edge itself can be designated in <code>lineProps</code>, which contains all the information that would normally be passed to a <code>Line</code>.  Similarly, the label for the line is designated by <code>textProps</code>, which supports all relevant features used in the label's underlying <code>TextBox</code> object.</p>
+<div id="admonition-warning-3" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="#admonition-warning-3"></a></p>
+</div>
+<div>
+<p>Unlike with other compound objects, <code>Edge</code> <em>does not</em> render its children. This is because each object should only be rendered once, but an object might be referenced by multiple edges, such as in visualizing a graph. </p>
+<p>Thus, the objects that an edge spans must still be added to the stage, or to some other appropriate and unique container.</p>
+</div>
+</div>
+<p>Lastly, <code>textLocation</code> allows for freedom in determining the location of the label. By default, the label will appear in the exact center of the line. However, passing in <code>right</code>, <code>left</code>, <code>above</code>, or <code>below</code> will offset the location by whatever orthogonal direction closest to the input. There is also support for <code>clockwise</code> or <code>counterclockwise</code>, which place the label in the stated location from the perspective of the source object. Here is an example of a few edges between visualObjects:</p>
+<pre><code>const rect = new Rectangle({width: 20, height: 20, coords: {x:200, y:50}})
+const circ1 = new Circle({radius: 10, center: {x:150, y:200}})
+const circ2 = new Circle({radius: 10, center: {x:250, y:200}})
+
+const edge1 = new Edge({
+    obj1: rect, obj2: circ1,
+    textProps: {text: &quot;e1&quot;, fontSize: 11},
+    textLocation: &quot;above&quot;
+})
+const edge2 = new Edge({obj1: circ1, obj2: rect,
+    textProps: {text: &quot;e2&quot;, fontSize: 11},
+    textLocation: &quot;below&quot;})
+const edge3 = new Edge({obj1: circ1, obj2: circ2,
+    textProps: {text: &quot;e3&quot;, fontSize: 11},
+    lineProps: {color: &quot;green&quot;},
+    textLocation: &quot;above&quot;})
+const edge4 = new Edge({obj1: rect, obj2: circ2,
+    lineProps: {arrow: true},
+    textProps: {text: &quot;e4&quot;, fontSize: 11},
+    textLocation: &quot;above&quot;})
+
+// Adding all objects and circles to the stage individually before rendering. 
+</code></pre>
+<p>This renders as:</p>
+<p><img src="../images/d3-examples/edges.png" alt="A rendering of a rectangle and two circles, with edges between them as specified in the above code." /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../sterling/custom-basics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../sterling/svg-tips.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../sterling/custom-basics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../sterling/svg-tips.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

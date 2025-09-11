@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JavaScript Custom Visualization Basics - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item expanded "><a href="../sterling/custom-basics.html" class="active"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="custom-visualization-basics"><a class="header" href="#custom-visualization-basics">Custom Visualization Basics</a></h1>
+<p>As seen in the <a href="../running-models/sterling-visualizer.html">Sterling Visualizer</a> section, Forge uses an adapted version of the <a href="https://sterling-js.github.io/">Sterling</a> visualization tool. One of the advantages of using Sterling is that users can create their own custom visualization scripts.</p>
+<h2 id="script-view-and-modes"><a class="header" href="#script-view-and-modes">Script View and Modes</a></h2>
+<p>When viewing an instance in Sterling, there are three options for viewing an instance: Graph, Table, and Script. To swap to script-view mode, click on Script. Most of the screen will be taken up by 3 new panes:</p>
+<ul>
+<li>the visualization canvas (blank by default); </li>
+<li>the script editor; and </li>
+<li>a list of available variables that are available for scripts to use.</li>
+</ul>
+<p>Where the &quot;Next&quot; button was in the graph visualizer, there will now be 4 more buttons: </p>
+<ul>
+<li>Run executes the visualization script when clicked.</li>
+<li><code>&lt;div&gt;</code>, <code>&lt;canvas&gt;</code> and <code>&lt;svg&gt;</code> swap between visualization modes. The default is <code>&lt;svg&gt;</code>. 
+This documentation focuses on the <code>&lt;svg&gt;</code> mode, because that is where most of the library support is. </li>
+</ul>
+<div id="admonition-a-basic-script" class="admonition admonish-example">
+<div class="admonition-title">
+<p>A Basic Script</p>
+<p><a class="admonition-anchor-link" href="#admonition-a-basic-script"></a></p>
+</div>
+<div>
+<p>Try entering some visualization code in the script window and clicking &quot;Run&quot;:</p>
+<pre><code>const stage = new Stage()
+stage.add(new TextBox({
+  text: 'Hello!', 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16
+}))
+stage.render(svg, document)
+</code></pre>
+<p>This will create a <code>TextBox</code> in the visualization area that says &quot;Hello!&quot;.</p>
+</div>
+</div>
+<p>Custom scripts are written in JavaScript. JavaScript constructs like looping, mapping over lists, etc. are all available for your use.</p>
+<div id="admonition-javascript" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>JavaScript</p>
+<p><a class="admonition-anchor-link" href="#admonition-javascript"></a></p>
+</div>
+<div>
+<p>At the moment (February 2023), the script editor works only with &quot;vanilla&quot; JavaScript; Sterling will not run (e.g.) a TypeScript compiler on the code. Moreover, importing external libraries is somewhat restricted.</p>
+</div>
+</div>
+<h2 id="working-with-an-instance"><a class="header" href="#working-with-an-instance">Working with an Instance</a></h2>
+<p>Sterling uses a number of JavaScript classes to represent an instance. <a href="https://alloy-js.github.io/alloy-ts/">The <code>alloy-ts</code> library documentation</a> describes these in more detail, but you should be aware of the following:</p>
+<h3 id="the-instance"><a class="header" href="#the-instance">The Instance</a></h3>
+<p>The <code>instance</code> variable provides access to the current instance. If temporal mode is active, <code>instance</code> will refer to the current state; to get the entire list of states, use <code>instances</code> instead (which is only available in temporal mode). </p>
+<h3 id="accessing-sigs-and-fields"><a class="header" href="#accessing-sigs-and-fields">Accessing Sigs and Fields</a></h3>
+<p>You can use the <code>.signature(name)</code> method of an instance to obtain an object representing a <code>sig</code> in the instance. Likewise, <code>.field(name)</code> will yield an object representing a particular field. </p>
+<div id="admonition-a-basic-script-1" class="admonition admonish-example">
+<div class="admonition-title">
+<p>A Basic Script</p>
+<p><a class="admonition-anchor-link" href="#admonition-a-basic-script-1"></a></p>
+</div>
+<div>
+<p>If you're viewing an instance of the <a href="https://csci1710.github.io/2023/livecode/feb15_feb17_binarysearch.frg">binary search model</a> from class, you can run this script directly. (If you use this model, uncomment the <code>run</code> at the bottom of the file!)</p>
+<pre><code>const stage = new Stage()
+stage.add(new TextBox({
+  text: `${instance.signature('IntArray')}`, 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16
+}))
+stage.render(svg, document)
+</code></pre>
+<p>This will create a <code>TextBox</code> in the visualization area whose text is a string representation of the <code>Int</code> sig in whatever instance you're viewing. The string won't be very useful yet; it will be something like &quot;[IntArray]&quot;. Next, change <code>instance.signature('IntArray')</code> to <code>instance.signature('IntArray').atoms()[0]</code>---the first (and in this case, only) <code>IntArray</code> object in the instance. You'll see the sig name become an object id like <code>[IntArray0]</code>.</p>
+<p>All <code>IntArray</code> objects have an <code>elements</code> field. We can get access to the field and print its contents by <em>joining</em> the object to its field:</p>
+<pre><code>const stage = new Stage()
+const theArray = instance.signature('IntArray').atoms()[0]
+const elementsField = instance.field('elements')
+stage.add(new TextBox({
+  text: `${theArray.join(elementsField)}`, 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16}))
+stage.render(svg, document)
+</code></pre>
+<p>This should display something like &quot;1, 7 2, 7 3, 7 4, 7 5, 7 6, 7 7, 7&quot;. Again, not very useful. Sterling is printing the contents of the array in <code>index,value</code> form, but separating elements with space. We can fix this, though!</p>
+</div>
+</div>
+<hr />
+<h2 id="built-in-library-shapes"><a class="header" href="#built-in-library-shapes">Built-in Library Shapes</a></h2>
+<p>Scripts in <code>&lt;svg&gt;</code> mode use the <a href="https://d3-graph-gallery.com/graph/shape.html">D3 visualization library</a> by default. However, D3 can be fairly complex to use, and so various <a href="./d3fx.html">built-in helpers</a> are also available. We encourage using the helper library, although in more advanced cases you may wish to use D3 directly.</p>
+<hr />
+<h2 id="potential-pitfalls-and-debugging"><a class="header" href="#potential-pitfalls-and-debugging">Potential Pitfalls and Debugging</a></h2>
+<p>Sterling presents a &quot;full Forge&quot; view of instances, and one that's closer to the way the solver works. All sigs and fields are represented as <em>sets</em> in the instance. Each set contains <code>AlloyTuple</code> objects, which themselves contain lists of <code>AlloyAtom</code>s. Because (at the moment) there is no support for types in the script editor, it can sometimes be troublesome to remember which kind of datum you're working with. The <code>alloy-ts</code> docs below provide much more detail, but in brief:</p>
+<ul>
+<li>if the object has an <code>.atoms()</code> method, it's an <code>AlloyTuple</code>;</li>
+<li>if the object has an <code>.id()</code> method, it's an <code>AlloyAtom</code>; and</li>
+<li>signatures, fields, tuples, and atoms are all <code>AlloySets</code> and provide a <code>.tuples()</code> method.</li>
+</ul>
+<p>In order to do a Froglet-style field access, you should use the <code>.join</code> method. (E.g., in the example above, we wrote <code>theArray.join(elementsField)</code> rather than <code>theArray.elementsField</code> or <code>theArray.elements</code>.)</p>
+<p>We suggest using <code>TextBox</code>es to visualize debugging information. As a fallback, you can also use <code>console.log(...)</code> as normally in JavaScript, but the web-developer console in Sterling can be somewhat congested. Printing raw <code>AlloySet</code> objects via <code>console.log</code> will also not be immediately useful, since Sterling uses a proxy to manage the difference between the set as <em>Forge syntax</em> and the set as <em>a value in the instance</em>.</p>
+<hr />
+<h2 id="further-resources-and-examples"><a class="header" href="#further-resources-and-examples">Further Resources and Examples</a></h2>
+<p>Further chapters:</p>
+<ul>
+<li><a href="./d3fx_apr23.html">Visualization Helper Library</a> describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.</li>
+<li><a href="./svg-tips.html">Working with SVG and Imports</a> explains how to (e.g.) increase the size of the rendering area.</li>
+</ul>
+<p>External resources:</p>
+<ul>
+<li><a href="https://www.w3schools.com/graphics/svg_intro.asp">What is the SVG format?</a></li>
+<li><a href="https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e">D3FX helpers design documentation</a>---<strong>beware, this is actively being worked on and edited, and thus subject to change!</strong></li>
+</ul>
+<p>Examples using D3:</p>
+<ul>
+<li><a href="https://github.com/miasantomauro/lets-get-visual">Mia Santomauro's 2021 Guide</a> for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.</li>
+<li>Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:
+<ul>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz">Sudoku Synthesizer</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/queue">Queue</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/lights_puzzle">Lights Puzzle (temporal mode)</a> </li>
+</ul>
+</li>
+<li>Tim and Mia also wrote a <a href="https://github.com/miasantomauro/mia-isp-spring-2021/tree/main/musical%20scales">&quot;visualizer&quot; that plays musical scales</a> generated by a model Tim wrote to understand music a bit better.</li>
+</ul>
+<div id="admonition-collaborators" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Collaborators</p>
+<p><a class="admonition-anchor-link" href="#admonition-collaborators"></a></p>
+</div>
+<div>
+<p>Work on custom visualization in Sterling is an ongoing collaborative effort. We are grateful to Tristan Dyer for working to expand Sterling for Forge. We are also grateful for contributions from (in alphabetic order):</p>
+<ul>
+<li>Ethan Bove</li>
+<li>Sidney LeVine</li>
+<li>Mia Santomauro</li>
+</ul>
+</div>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../sterling/cnd.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../sterling/d3fx_apr23.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../sterling/cnd.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../sterling/d3fx_apr23.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

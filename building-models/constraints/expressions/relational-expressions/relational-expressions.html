@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Relational Operators - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../../favicon.png">
+        <link rel="stylesheet" href="../../../../css/variables.css">
+        <link rel="stylesheet" href="../../../../css/general.css">
+        <link rel="stylesheet" href="../../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../../highlight.css">
+        <link rel="stylesheet" href="../../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../../././mdbook-admonish.css">
+        <link rel="stylesheet" href="../../../.././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../../../home.html">Home</a></li><li class="chapter-item affix "><li class="part-title">Getting Started</li><li class="chapter-item "><a href="../../../../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Building Models</li><li class="chapter-item "><a href="../../../../building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item "><a href="../../../../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item "><a href="../../../../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item "><a href="../../../../building-models/sigs/multiplicity.html"><strong aria-hidden="true">3.3.</strong> Field Multiplicity</a></li><li class="chapter-item "><a href="../../../../building-models/sigs/advanced.html"><strong aria-hidden="true">3.4.</strong> Advanced: Sigs and fields, under-the-hood</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../building-models/constraints/instances.html"><strong aria-hidden="true">4.1.</strong> Instances</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.2.</strong> Formulas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.2.1.</strong> Operators</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.2.2.</strong> Cardinality and Membership</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.2.3.</strong> Quantifiers</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.2.4.</strong> Predicates</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.3.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../building-models/constraints/expressions/relational-expressions/relational-expressions.html" class="active"><strong aria-hidden="true">4.3.1.</strong> Relational Operators</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.3.2.</strong> Functions</a></li><li class="chapter-item "><a href="../../../../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.3.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item affix "><li class="part-title">Running Models</li><li class="chapter-item "><a href="../../../../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item "><a href="../../../../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item "><a href="../../../../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item "><a href="../../../../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item "><a href="../../../../running-models/optimization.html"><strong aria-hidden="true">10.</strong> Optimization</a></li><li class="chapter-item affix "><li class="part-title">Testing</li><li class="chapter-item "><a href="../../../../testing-chapter/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item "><a href="../../../../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item "><a href="../../../../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item "><a href="../../../../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item affix "><li class="part-title">Temporal Forge</li><li class="chapter-item "><a href="../../../../electrum/electrum-overview.html"><strong aria-hidden="true">15.</strong> Temporal Forge Overview and Operators</a></li><li class="chapter-item affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item "><a href="../../../../sterling/cnd.html"><strong aria-hidden="true">16.</strong> Lightweight Customization with CnD</a></li><li class="chapter-item "><a href="../../../../sterling/custom-basics.html"><strong aria-hidden="true">17.</strong> JavaScript Custom Visualization Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../../sterling/d3fx_apr23.html"><strong aria-hidden="true">17.1.</strong> D3FX JavaScript Helpers</a></li><li class="chapter-item "><a href="../../../../sterling/svg-tips.html"><strong aria-hidden="true">17.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item "><li class="part-title">Domain-Specific Input</li><li class="chapter-item "><a href="../../../../dsl/abac.html"><strong aria-hidden="true">18.</strong> Attribute-Based Access Control</a></li><li class="chapter-item affix "><li class="part-title">Glossary of Terms and Errors</li><li class="chapter-item "><a href="../../../../glossary.html"><strong aria-hidden="true">19.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="relational-operators"><a class="header" href="#relational-operators">Relational Operators</a></h1>
+<p><em>Relational Operators</em> produce expressions (not formulas) from other expressions. </p>
+<div id="admonition-froglet" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Froglet</p>
+<p><a class="admonition-anchor-link" href="#admonition-froglet"></a></p>
+</div>
+<div>
+<p>If you are using Froglet, not all of these operators are available.</p>
+</div>
+</div>
+<div id="admonition-relational-forge" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Relational Forge</p>
+<p><a class="admonition-anchor-link" href="#admonition-relational-forge"></a></p>
+</div>
+<div>
+<p>Recall that Forge treats every field of a sig as a relation of arity 1 higher than the arity of the field itself, with the object the field belongs to as the added left-most column. E.g., in this sig definition:</p>
+<pre><code>sig City {
+    roads: set City
+}
+</code></pre>
+<p>the relation <code>roads</code> is an arity-2 set which contains ordered pairs of <code>City</code> objects.</p>
+<p>This is what allows the dot operator in Forge to act as if it is field access when it is actually a <a href="./relational-expressions.html#-join">relational join</a>.</p>
+</div>
+</div>
+<h3 id="list-of-relational-expression-operators"><a class="header" href="#list-of-relational-expression-operators">List of Relational Expression Operators:</a></h3>
+<ul>
+<li><a href="./relational-expressions.html#-union"><code>+ (union)</code></a></li>
+<li><a href="./relational-expressions.html#--set-difference"><code>- (set difference)</code></a></li>
+<li><a href="./relational-expressions.html#intersection"><code>&amp; (intersection)</code></a></li>
+<li><a href="./relational-expressions.html#-and--relational-join"><code>.  [] (relational join)</code></a></li>
+<li><a href="./relational-expressions.html#--cross-product"><code>-&gt; (cross product)</code></a></li>
+<li><a href="./relational-expressions.html#-transpose"><code>~ (transpose)</code></a></li>
+<li><a href="./relational-expressions.html#-transitive-closure"><code>^ (transitive closure)</code></a></li>
+<li><a href="./relational-expressions.html#-reflexive-transitive-closure"><code>* (reflexive transitive closure)</code></a></li>
+<li><a href="./relational-expressions.html#if-then-else"><code>=&gt; else</code></a></li>
+<li><a href="./relational-expressions.html#set-comprehension"><code>set comprehension</code></a></li>
+</ul>
+<!-- (Unlike [Formula Operators](../../formulas/operators.md), the parentheticals are _not alternative syntax_. They are the mathematical names) -->
+<hr />
+<h2 id="-union"><a class="header" href="#-union"><code>+ (union)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; + &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>union</strong> of the two exprs, i.e., the set containing all elements that are in either of the two exprs.</p>
+<div id="admonition-union" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Union</p>
+<p><a class="admonition-anchor-link" href="#admonition-union"></a></p>
+</div>
+<div>
+<p>The set of employees who work at Brown CS include both faculty and staff:</p>
+<pre><code>BrownCS.employees = BrownCS.faculty + BrownCS.staff
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="--set-difference"><a class="header" href="#--set-difference"><code>- (set difference)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; - &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>set difference</strong> of the two exprs, i.e., everything in <code>expr-a</code> that is <strong>not</strong> also in <code>expr-b</code>.</p>
+<div id="admonition-difference" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Difference</p>
+<p><a class="admonition-anchor-link" href="#admonition-difference"></a></p>
+</div>
+<div>
+<p>The set of students eligible to UTA includes all students except those who are already hired as head TAs:</p>
+<pre><code>BrownCS.utaCandidates = Student - BrownCS.htaHires
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="intersection"><a class="header" href="#intersection"><code>&amp; (intersection)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; &amp; &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>intersection</strong> of the two exprs, i.e., all elements in both <code>expr-a</code> and <code>expr-b</code>.</p>
+<div id="admonition-intersection" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Intersection</p>
+<p><a class="admonition-anchor-link" href="#admonition-intersection"></a></p>
+</div>
+<div>
+<p>Students in the &quot;AI/ML&quot; pathway must take multiple intermediate courses. In this (oversimplified) example, students can use the AI/ML pathway if they've taken both linear algebra and probability:</p>
+<pre><code>BrownCS.canUseAIML = BrownCS.tookLinearAlgebra &amp; BrownCS.tookProbability 
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="--cross-product"><a class="header" href="#--cross-product"><code>-&gt; (cross product)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; -&gt; &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>cross product</strong> of the two exprs. </p>
+<div id="admonition-product-example-1" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Product (example 1)</p>
+<p><a class="admonition-anchor-link" href="#admonition-product-example-1"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> and <code>Pawtucket</code> are cities:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence, Pawtucket extends City {}
+</code></pre>
+<p>then <code>Providence -&gt; Pawtucket</code> is an arity-2, one-element set, which can be used with other operators. E.g.,  <code>roads + (Providence -&gt; Pawtucket)</code> represents the set of roads augmented with a new road (if it wasn't already there). </p>
+<p>Likewise, <code>City -&gt; City</code> will produce an arity-2 set containing every possible pair-wise combination of cities.</p>
+</div>
+</div>
+<hr />
+<h2 id="-transpose"><a class="header" href="#-transpose"><code>~ (transpose)</code></a></h2>
+<blockquote>
+<p><code>~&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the transpose of <code>&lt;expr&gt;</code>, assuming it is has arity 2. (Attempting to use transpose on a different-arity relation will produce an error.)</p>
+<div id="admonition-transpose" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Transpose</p>
+<p><a class="admonition-anchor-link" href="#admonition-transpose"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself:</p>
+<pre><code>sig City {
+    roads: set City
+}
+</code></pre>
+<p>then <code>~roads</code> is an arity-2, set that contains exactly the same elements in <code>roads</code> except reversed. E.g., if <code>Providence -&gt; Pawtucket</code> was in <code>roads</code>, then <code>Pawtucket -&gt; Providence</code> would be in <code>~roads</code>.</p>
+</div>
+</div>
+---
+<h2 id="set-comprehension"><a class="header" href="#set-comprehension">Set Comprehension</a></h2>
+<p>A set-comprehension expression <code>{x1: T1, ..., xn: Tn | &lt;fmla&gt;}</code> evaluates to a set of arity-n tuples. A tuple of objects <code>o1, ... on</code> is in the set if and only if <code>&lt;fmla&gt;</code> is satisfied when <code>x1</code> takes the value <code>o1</code>, etc. </p>
+<div id="admonition-set-comprehension" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Set Comprehension</p>
+<p><a class="admonition-anchor-link" href="#admonition-set-comprehension"></a></p>
+</div>
+<div>
+<p>In a model with sigs for <code>Student</code>, <code>Faculty</code>, and <code>Course</code>, the expression</p>
+<pre><code>{s: Student, i: Faculty | some c: Course | { some s.grades[c] and c.instructor = i} }
+</code></pre>
+<p>would evaluate to the set of student-faculty pairs where the student has taken a course from that faculty member.</p>
+</div>
+</div>
+<hr />
+<h2 id="-and--relational-join"><a class="header" href="#-and--relational-join"><code>.</code> <em>and</em> <code>[] (relational join)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; . &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>relational join</strong> of the two exprs. It combines two relations by seeking out rows with common values in their rightmost and leftmost columns. Concretely, if <code>A</code> is an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-ary relation, and <code>B</code> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span>-ary, then <code>A.B</code> equals the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>-ary relation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣∃</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord text"><span class="mord"> and </span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">}</span></span></span></span></span></p>
+<div id="admonition-product-example-1-1" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Product (example 1)</p>
+<p><a class="admonition-anchor-link" href="#admonition-product-example-1-1"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> is a city:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence extends City {}
+</code></pre>
+<p>then <code>roads.roads</code> is an arity-2 set and <code>Providence.roads</code> is an arity-1 set. </p>
+<p>In the instance:</p>
+<pre><code>inst joinExample {
+    City = `Providence + `City0 + `City2
+    roads = `Providence -&gt; `City0 +
+            `City0 -&gt; `City1 +
+            `City1 -&gt; Providence
+}
+</code></pre>
+<p><code>roads.roads</code> would contain:</p>
+<pre><code>`Providence -&gt; `City1   (because `Providence -&gt; `City0 and `City0 -&gt; `City1)
+`City0 -&gt; `Providence (because `City0 -&gt; `City1 and `City1 -&gt; `Providence)
+`City1 -&gt; `City0 (because `City1 -&gt; `Providence and `Providence -&gt; `City0)
+</code></pre>
+<p><code>Providence.roads</code> would contain:</p>
+<pre><code>`City0 (because `Providence -&gt; `City0)
+</code></pre>
+</div>
+</div>
+<div id="admonition-forge-is-not-sql" class="admonition admonish-warning">
+<div class="admonition-title">
+<p>Forge is not SQL</p>
+<p><a class="admonition-anchor-link" href="#admonition-forge-is-not-sql"></a></p>
+</div>
+<div>
+<p>Relations in Forge don't have column <em>names</em> like they do in most databases. The join is always on the innermost columns of the two relations being joined.</p>
+</div>
+</div>
+<!-- [TODOLINK]() -->
+<p><strong>Alternative syntax:</strong> <code>&lt;expr-a&gt;[&lt;expr-b&gt;]</code>: is equivalent to <code>&lt;expr-b&gt; . &lt;expr-a&gt;</code>;</p>
+<hr />
+<h2 id="-transitive-closure"><a class="header" href="#-transitive-closure"><code>^ (transitive closure)</code></a></h2>
+<blockquote>
+<p><code>^&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>^</code> to a relation of different arity will produce an error. The transitive closure of a binary relation $r$ is defined as the <em>smallest</em> relation $t$ such that:</p>
+<ul>
+<li><code>r in t</code>; and </li>
+<li>for all <code>a</code>, <code>b</code>, and <code>c</code>, if <code>a-&gt;b</code> is in <code>t</code> and <code>b-&gt;c</code> is in <code>t</code>, then <code>a-&gt;c</code> is in <code>t</code>.</li>
+</ul>
+<p>Informally, it is useful to think of <code>^r</code> as encoding <em>reachability</em> using <code>r</code>. It is equivalent to the (unbounded and thus inexpressible in Forge) union: <code>r + r.r + r.r.r + r.r.r.r + ...</code>. </p>
+<div id="admonition-transitive-closure" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Transitive Closure</p>
+<p><a class="admonition-anchor-link" href="#admonition-transitive-closure"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> is a city:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence extends City {}
+</code></pre>
+<p>then <code>^roads</code> is the <em>reachability relation</em> between cities.</p>
+</div>
+</div>
+<hr />
+<h2 id="-reflexive-transitive-closure"><a class="header" href="#-reflexive-transitive-closure"><code>* (reflexive transitive closure)</code></a></h2>
+<blockquote>
+<p><code>*&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the reflexive-transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>*</code> to a relation of different arity will produce an error.</p>
+<p>For a given 2-ary relation <code>r</code>, <code>*r</code> is equivalent to <code>^r + iden</code>. </p>
+<hr />
+<h2 id="if-then-else"><a class="header" href="#if-then-else"><code>if then else</code></a></h2>
+<blockquote>
+<p><code>{&lt;fmla&gt; =&gt; &lt;expr-a&gt; else &lt;expr-b&gt;}</code> </p>
+</blockquote>
+<p>returns <code>&lt;expr-a&gt;</code> if <code>&lt;fmla&gt;</code> evaluates to true, and <code>&lt;expr-b&gt;</code> otherwise.</p>
+<hr />
+<h2 id="caveats-alloy-support"><a class="header" href="#caveats-alloy-support">Caveats: Alloy support</a></h2>
+<p>Forge does not currently support the relational Alloy operators <code>&lt;:</code>, <code>:&gt;</code>, or <code>++</code>; if your models require them, please contact the Forge team.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../../building-models/constraints/expressions/expressions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../../building-models/constraints/expressions/functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../../building-models/constraints/expressions/expressions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../../building-models/constraints/expressions/functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../../elasticlunr.min.js"></script>
+        <script src="../../../../mark.min.js"></script>
+        <script src="../../../../searcher.js"></script>
+
+        <script src="../../../../clipboard.min.js"></script>
+        <script src="../../../../highlight.js"></script>
+        <script src="../../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
