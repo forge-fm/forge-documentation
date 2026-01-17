@@ -16,7 +16,7 @@ The remainder of this page defines instances more formally.
 
 ```admonish warning
 If you are working in Froglet, the remainder of this page may reference terms you are as yet unfamiliar with. Don't worry; this will be covered more in class. Informally, you might read "relation" as "function".
-``` 
+```
 
 ## Formal Definition of Instances
 
