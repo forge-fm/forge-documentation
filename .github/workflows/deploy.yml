@@ -1,51 +1,76 @@
-# Reference: https://github.com/rust-lang/mdBook/wiki/Automated-Deployment:-GitHub-Actions#github-pages-deploy
-name: Deploy
+name: Deploy Documentation
+
 on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'  # Deploy versioned docs on version tags
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., 5.0, 4.2)'
+        required: true
+      alias:
+        description: 'Alias (e.g., latest). Leave empty for no alias.'
+        required: false
+      set_default:
+        description: 'Set as default version?'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - name: Install mdbook
-        run: |
-          mkdir mdbook
-          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.36/mdbook-v0.4.36-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook          
-          echo `pwd`/mdbook >> $GITHUB_PATH
-      - name: Install mdbook-admonish
-        run: |
-          mkdir mdbook-admonish
-          curl -sSL https://github.com/tommilligan/mdbook-admonish/releases/download/v1.15.0/mdbook-admonish-v1.15.0-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook-admonish
-          echo `pwd`/mdbook-admonish >> $GITHUB_PATH
-      - name: Install mdbook-katex
-        run: |
-          mkdir mdbook-katex
-          curl -sSL https://github.com/lzanini/mdbook-katex/releases/download/v0.5.9/mdbook-katex-v0.5.9-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook-katex
-          echo `pwd`/mdbook-katex >> $GITHUB_PATH
-      - name: Deploy GitHub Pages
-        run: |
-          cd forge-docs-book
-          mdbook build
-          git worktree add deployed-pages
-          git config user.name "Deploy from CI"
-          git config user.email ""
-          cd deployed-pages
-          # Delete the ref to avoid keeping history.
-          git update-ref -d refs/heads/deployed-pages
-          rm -rf *
-          mv ../book/* .
-          git add .
-          git commit -m "Deploy $GITHUB_SHA to deployed-pages"
-          git push --force --set-upstream origin deployed-pages
+          fetch-depth: 0  # Needed for mike to work with git history
 
-# NOTE: `gh-pages` branch was replaced w/ `deployed-pages` b/c GitHub
-# had an un-removeable default GHAction on branch "gh-pages" that
-# over-wrote pushes from the main branch's deploy action (this script)
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-# Another note- I wish .yml had ability to have variables to avoid
-# hardcoding the "forge-docs-book" directory and branch name "deployed-pages"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Deploy based on trigger type
+
+      # Main branch push: deploy as "dev" for preview
+      - name: Deploy dev version (main branch push)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/')
+        run: |
+          mike deploy --push dev
+
+      # Version tag (e.g., v5.0.0): deploy as major.minor with "latest" alias
+      - name: Deploy tagged version
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        run: |
+          # Extract version from tag (v5.0.0 -> 5.0)
+          VERSION=$(echo ${GITHUB_REF#refs/tags/v} | sed 's/\.[0-9]*$//')
+          echo "Deploying version: $VERSION"
+          mike deploy --push --update-aliases $VERSION latest
+          mike set-default --push latest
+
+      # Manual dispatch: full control over version and alias
+      - name: Deploy manual version
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if [ -n "${{ github.event.inputs.alias }}" ]; then
+            mike deploy --push --update-aliases ${{ github.event.inputs.version }} ${{ github.event.inputs.alias }}
+          else
+            mike deploy --push ${{ github.event.inputs.version }}
+          fi
+
+          if [ "${{ github.event.inputs.set_default }}" = "true" ]; then
+            mike set-default --push ${{ github.event.inputs.version }}
+          fi

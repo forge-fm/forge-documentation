@@ -1,0 +1,154 @@
+site_name: Forge Documentation
+site_url: https://csci1710.github.io/forge-documentation/
+repo_url: https://github.com/csci1710/forge-documentation
+repo_name: csci1710/forge-documentation
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections      # Show section headers in sidebar
+    - navigation.expand        # Expand all sections by default
+    - navigation.indexes       # Section index pages
+    - navigation.top           # Back to top button
+    - search.suggest           # Search suggestions
+    - search.highlight         # Highlight search terms
+    - content.code.copy        # Copy button on code blocks
+    - toc.follow               # TOC follows scroll position
+  icon:
+    repo: fontawesome/brands/github
+
+# Extensions for admonitions, math, code highlighting, etc.
+markdown_extensions:
+  # Admonitions (note, warning, tip, etc.)
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+  # Math support (like KaTeX in mdbook)
+  - pymdownx.arithmatex:
+      generic: true
+
+  # Code blocks with highlighting
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+
+  # Tables
+  - tables
+
+  # Table of contents
+  - toc:
+      permalink: true
+
+  # Task lists, strikethrough, etc.
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.mark
+  - pymdownx.tilde
+
+  # Attribute lists (for image sizing)
+  - attr_list
+  - md_in_html
+
+# JavaScript for math rendering
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Extra CSS if needed
+extra_css:
+  - stylesheets/extra.css
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      # Minimal separator to preserve operators like + - * in search
+      separator: '[\s]+'
+
+# Version selector (mike)
+extra:
+  version:
+    provider: mike
+    default: latest
+
+# Navigation structure (matches SUMMARY.md exactly)
+nav:
+  - Home: index.md
+
+  - Getting Started:
+    - Installation: getting-started/installation.md
+
+  - Building Models:
+    - Overview: building-models/overview.md
+    - Addendum for Alloy Users: building-models/alloy-user-overview.md
+    - Sigs:
+      - building-models/sigs/sigs.md
+      - Inheritance: building-models/sigs/inheritance.md
+      - Singleton, Maybe, and Abstract Sigs: building-models/sigs/singleton-maybe-sigs.md
+      - Field Multiplicity: building-models/sigs/multiplicity.md
+      - Advanced - Sigs and fields under-the-hood: building-models/sigs/advanced.md
+    - Constraints:
+      - building-models/constraints/constraints.md
+      - Instances: building-models/constraints/instances.md
+      - Formulas:
+        - building-models/constraints/formulas/formulas.md
+        - Operators: building-models/constraints/formulas/operators.md
+        - Cardinality and Membership: building-models/constraints/formulas/cardinality-membership.md
+        - Quantifiers: building-models/constraints/formulas/quantifiers.md
+        - Predicates: building-models/constraints/formulas/predicates.md
+      - Expressions:
+        - building-models/constraints/expressions/expressions.md
+        - Relational Operators: building-models/constraints/expressions/relational-expressions/relational-expressions.md
+        - Relational Join: building-models/constraints/expressions/relational-expressions/relational-join.md
+        - Functions: building-models/constraints/expressions/functions.md
+        - Let-Expressions: building-models/constraints/expressions/let-expressions.md
+    - Comments: building-models/comments.md
+
+  - Running Models:
+    - Running: running-models/running.md
+    - Sterling Visualizer: running-models/sterling-visualizer.md
+    - Bounds: running-models/bounds.md
+    - Concrete Instance Bounds: running-models/concrete-instance-bounds.md
+    - Options: running-models/options.md
+    - Optimization: running-models/optimization.md
+
+  - Testing:
+    - Testing: testing-chapter/testing.md
+
+  - Forge Standard Library:
+    - Integers: forge-standard-library/integers.md
+    - Constants and Keywords: forge-standard-library/constants-and-keywords.md
+    - Helpers - Sequences and Reachability: forge-standard-library/helpers.md
+
+  - Temporal Forge:
+    - Overview and Operators: electrum/electrum-overview.md
+
+  - Custom Visualizations:
+    - Lightweight Customization with CnD: sterling/cnd.md
+    - JavaScript Custom Visualization Basics: sterling/custom-basics.md
+    - D3FX JavaScript Helpers: sterling/d3fx_apr23.md
+    - Working with SVG and Imports: sterling/svg-tips.md
+
+  - Domain-Specific Input:
+    - Attribute-Based Access Control: dsl/abac.md
+
+  - Glossary: glossary.md
