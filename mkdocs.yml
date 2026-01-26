@@ -1,5 +1,5 @@
 site_name: Forge Documentation
-site_url: https://csci1710.github.io/forge-documentation/
+site_url: https://forge-fm.github.io/forge-documentation
 repo_url: https://github.com/csci1710/forge-documentation
 repo_name: csci1710/forge-documentation
 
@@ -9,7 +9,7 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep purple
+      primary: deep blue
       accent: amber
       toggle:
         icon: material/brightness-7
@@ -17,7 +17,7 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
+      primary: deep blue
       accent: amber
       toggle:
         icon: material/brightness-4
