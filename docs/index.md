@@ -1,5 +1,10 @@
 # Home
 
+!!! warning "This documentation is for Forge version 5." 
+    This is the documentation page for Forge version 5. The documentation for [Forge v4.2](https://forge-fm.github.io/forge-documentation/4.2/) is preserved for those who wish to use it.
+
+
+
 Forge is a lightweight modeling language, similar to [Alloy](https://alloytools.org), that has been designed for _teaching_ modeling and lightweight formal methods. It comprises three sublanguages or modes:
 
 - **Froglet** (`#lang forge/froglet`), a language for modeling using only functions and partial functions;
