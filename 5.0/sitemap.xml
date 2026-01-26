@@ -1,159 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/glossary/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/glossary/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/alloy-user-overview/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/alloy-user-overview/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/comments/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/comments/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/overview/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/overview/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/constraints/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/constraints/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/instances/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/instances/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/expressions/expressions/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/expressions/expressions/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/expressions/functions/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/expressions/functions/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/expressions/let-expressions/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/expressions/let-expressions/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/expressions/relational-expressions/relational-expressions/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/expressions/relational-expressions/relational-expressions/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/expressions/relational-expressions/relational-join/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/expressions/relational-expressions/relational-join/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/formulas/cardinality-membership/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/formulas/cardinality-membership/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/formulas/formulas/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/formulas/formulas/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/formulas/operators/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/formulas/operators/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/formulas/predicates/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/formulas/predicates/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/constraints/formulas/quantifiers/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/constraints/formulas/quantifiers/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/sigs/advanced/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/sigs/advanced/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/sigs/inheritance/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/sigs/inheritance/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/sigs/multiplicity/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/sigs/multiplicity/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/sigs/sigs/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/sigs/sigs/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/building-models/sigs/singleton-maybe-sigs/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/building-models/sigs/singleton-maybe-sigs/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/dsl/abac/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/dsl/abac/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/electrum/electrum-overview/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/electrum/electrum-overview/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/forge-standard-library/constants-and-keywords/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/forge-standard-library/constants-and-keywords/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/forge-standard-library/helpers/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/forge-standard-library/helpers/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/forge-standard-library/integers/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/forge-standard-library/integers/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/getting-started/installation/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/getting-started/installation/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/bounds/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/bounds/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/concrete-instance-bounds/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/concrete-instance-bounds/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/optimization/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/optimization/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/options/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/options/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/running/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/running/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/running-models/sterling-visualizer/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/running-models/sterling-visualizer/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/sterling/cnd/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/sterling/cnd/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/sterling/custom-basics/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/sterling/custom-basics/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/sterling/d3fx_apr23/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/sterling/d3fx_apr23/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/sterling/svg-tips/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/sterling/svg-tips/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
-         <loc>https://csci1710.github.io/forge-documentation/5.0/testing-chapter/testing/</loc>
+         <loc>https://forge-fm.github.io/forge-documentation/5.0/testing-chapter/testing/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
 </urlset>
