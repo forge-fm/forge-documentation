@@ -9,9 +9,9 @@ The _arity_ of a relation is the number of columns in the relation; that is, the
 
 An _atom_ is a distinct object within an instance. 
 
-An [_instance_](https://csci1710.github.io/forge-documentation/building-models/overview.html) is a concrete scenario that abides by the rules of a model, containing specific _atoms_ and their relationships to each other.
+An [_instance_]({{ docs_url }}/building-models/overview) is a concrete scenario that abides by the rules of a model, containing specific _atoms_ and their relationships to each other.
 
-A [_model_](https://csci1710.github.io/forge-documentation/building-models/overview.html) is a representation of a system. In Forge, a model comprises a set of `sig` and `field` definitions, along with constraints.
+A [_model_]({{ docs_url }}/building-models/overview) is a representation of a system. In Forge, a model comprises a set of `sig` and `field` definitions, along with constraints.
 
 
 ## Glossary of Errors 
