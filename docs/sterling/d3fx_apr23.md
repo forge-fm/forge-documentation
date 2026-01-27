@@ -123,7 +123,7 @@ An `ImageBox` contains an image loaded from a URL.
     const stage = new Stage()
     const box = new ImageBox({
         coords: {x:100,y:100}, 
-        url: "{{ docs_url }}images/d3-examples/frog.png", 
+        url: "{{ docs_url }}/images/d3-examples/frog.png", 
         width:200, 
         height:200})
     stage.add(box)

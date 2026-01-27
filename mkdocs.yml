@@ -70,7 +70,6 @@ markdown_extensions:
 # JavaScript for math rendering
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Extra CSS if needed
@@ -91,7 +90,7 @@ extra:
     provider: mike
     default: latest
   # Reusable URLs - change these in one place, use everywhere with {{ docs_url }} etc.
-  docs_url: https://forge-fm.github.io/forge-documentation/4.2/
+  docs_url: https://forge-fm.github.io/forge-documentation/4.2
   course_url: https://csci1710.github.io
 
 # Navigation structure (matches SUMMARY.md exactly)
