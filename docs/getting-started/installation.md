@@ -52,14 +52,10 @@ When you run a Forge file (via `racket <filename>` at the command line), you'll 
 To get Forge's VSCode extension, open VSCode and click the Extensions button on the sidebar: 
 
 <center>
-<img src="./vscode_extension_button.png" width="10%"/>
+<img src="../vscode_extension_button.png" width="10%"/>
 </center>
 
-Then type `forge-language-server` in the search bar. You should see an extension with that title, under the developer name "Siddhartha Prasad". Install it and reload VSCode.
-
-!!! warning "For early adopters"
-    An early version of this extension was provided via Github, rather than the VSCode Marketplace. Please **use the Marketplace version** (and uninstall the other, if you have it) if for no other reason than it will automatically update when you restart VSCode.
-
+Then type `forge-fm` in the search bar. You should see an extension with that title, under the developer name "Siddhartha Prasad". Install it and reload VSCode.
 
 ### Logging in VSCode
 
