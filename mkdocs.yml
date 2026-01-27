@@ -90,7 +90,7 @@ extra:
     provider: mike
     default: latest
   # Reusable URLs - change these in one place, use everywhere with {{ docs_url }} etc.
-  docs_url: https://forge-fm.github.io/forge-documentation/latest/
+  docs_url: https://forge-fm.github.io/forge-documentation/latest
   course_url: https://csci1710.github.io
 
 # Navigation structure (matches SUMMARY.md exactly)
