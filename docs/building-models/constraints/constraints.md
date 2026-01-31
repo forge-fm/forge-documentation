@@ -50,15 +50,17 @@ Let's look more closely at the part we wrote: `s.degreeGranted = AB`. For a give
 </code>
 </pre>
 
-The <span style="color:green">green</span> syntax is about whether something is true or false. The <span style="color:red">red</span> syntax is about identifying specific atoms in an instance. By using both kinds of syntax, you can express constraints about the shape of instances. 
+The <span style="color:green">green</span> syntax is about whether something is true or false. The <span style="color:red">red</span> syntax is about identifying specific atoms in an instance. By using both kinds of syntax, you can express constraints about the shape of instances.
+
 * without <span style="color:green">boolean-valued syntax</span>, you couldn't express implications, "or", "and", etc.
 * without <span style="color:red">atom-valued syntax</span>, you could only talk about abstract boolean values, not actual atoms in the world.
 
 ### Writing Constraints: Formulas vs. Expressions
 
 The top-level constraints that Forge works with must always evaluate to booleans, but the inner workings of constraints can speak about specific objects, the values of their fields, and so on. We'll make the distinction between these two different kinds of syntax:
+
 * <span style="color:green">_Formulas_</span> always evaluate to booleans---i.e., either true or false; and
-* <span style="color:red">_Expressions_</span> always evaluate to objects or sets of objects. 
+* <span style="color:red">_Expressions_</span> always evaluate to objects or sets of objects.
 
 !!! warning "Forge isn't 'truthy'"
     Unlike what would happen in a programming language like JavaScript or Python, attempting to use an expression in place of a formula, or vice versa, will produce an error in Forge when you try to run your model. For example, if we wrote the constraint `all s: Student | s.grades`, what would that mean? That every `s` exists? That every `s` has passed some class? Something different? To avoid this ambiguity, Forge doesn't try to infer your meaning, and just gives an error. 
@@ -69,9 +71,11 @@ The top-level constraints that Forge works with must always evaluate to booleans
 ### Context for Evaluating Constraints: Instances
 
 Notice that there's always a context that helps us decide whether a constraint yields true or false. In the above example, the context is a collection of students, courses taken and degrees granted. For some other model, it might be a tic-tac-toe board, a run of a distributed system, a game of baseball, etc. We'll call these  _instances_. An instance contains:
-* a set of atoms for each `sig` definition (the objects of that type in the world); and 
-* a concrete function (or partial function) for each field of the appropriate type. 
-Together, these give the context that makes it possible to tell whether constraints have been satisfied or not. 
+
+* a set of atoms for each `sig` definition (the objects of that type in the world); and
+* a concrete function (or partial function) for each field of the appropriate type.
+
+Together, these give the context that makes it possible to tell whether constraints have been satisfied or not.
 
 !!! note
     Once you move from Froglet to Relational Forge, the value of a field might be an arbitrary relation, and not a function.

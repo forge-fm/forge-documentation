@@ -3,15 +3,15 @@
 Forge has a number of options that affect how it functions and how its solver is configured. They all have the same form: `option <key> <value>`. **Settings are case sensitive.** The available setting keys are:
 
 * `verbose`: governs the amount of information provided in the REPL. `1` is standard; `0` will omit statistical information (useful for test suites); `10` will print exceedingly verbose debugging information. Values between `1` and `10` gradually increase verbosity.
-* `solver`: sets the solver used by Forge's worker process. The default is `SAT4J`, a Java-based solver. Other solvers can be more performant, and produce different instance orderings, depending on model. The `MiniSatProver` solver will enable extraction of unsat cores. Support for native solvers varies by OS. Currently: 
-  * MacOS (x64 and arm64 `.dylib`):
-    * `MiniSat`, `MiniSatProver`, and `Glucose`
-  * Linux (`.so`): 
-    * `MiniSat`, `MiniSatProver`, and `Glucose`
-  * Windows (`.dll`):
-    * `MiniSatProver`
-  * All: 
-    * `"<path-to-solver>"`, which lets you run a solver of your own that accepts DIMACS input (see the section below for instructions). 
+* `solver`: sets the solver used by Forge's worker process. The default is `SAT4J`, a Java-based solver. Other solvers can be more performant, and produce different instance orderings, depending on model. The `MiniSatProver` solver will enable extraction of unsat cores. Support for native solvers varies by OS. Currently:
+    * MacOS (x64 and arm64 `.dylib`):
+        * `MiniSat`, `MiniSatProver`, and `Glucose`
+    * Linux (`.so`):
+        * `MiniSat`, `MiniSatProver`, and `Glucose`
+    * Windows (`.dll`):
+        * `MiniSatProver`
+    * All:
+        * `"<path-to-solver>"`, which lets you run a solver of your own that accepts DIMACS input (see the section below for instructions).
 * `logtranslation`: controls how much of the translation from Forge to boolean logic is logged. The default is `0`; must be `1` or higher to extract unsatisfiable cores.
 * `coregranularity`: controls how fine-grained an unsatisfiable core will be returned. Default is `0`. Suggested value is `1` if you want to see cores.
 * `core_minimization`: controls whether cores are guaranteed minimal. Default is `off`. For minimal cores, use `rce`; `hybrid` is not guaranteed minimal but is often better than `off` while being faster than `rce`.
@@ -65,6 +65,7 @@ option solver "<filepath-to-solver>"
 ```
 
 Note that:
+
 * the file must exist at the path specified;
 * the file must be executable;
 * the file must implement the DIMACS input/output format given in the DPLL assignment stencil;
