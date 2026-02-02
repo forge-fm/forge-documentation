@@ -2441,17 +2441,21 @@
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p>Forge is a tool (and a set of languages) that allows us to define models of systems and explore instances of those models. But <strong><em>what does that mean</em></strong>? Let's break it down:</p>
 <h2 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h2>
-<p>A <strong>system</strong> can be generally thought of as a particular way that various entities interact.  A system isn't necessarily a <em>computer</em> system, although it can be. For example:
-- The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.
-- Family trees are a system where there are people, and rules that express how they are related to each other.
-- A cryptographic protocol is a system where there are parties, messages, cryptographic primitives, and rules that govern how messages can be encrypted, decrypted, sent, and received.
-- Binary search trees are a system where there are nodes, values, connections between nodes, and rules that govern how nodes can be created, removed, and positioned relative to one another.
-<em>There is no limit to the type or complexity of a system that we can discuss</em>, although different tools and techniques are useful for working with and able to express different kinds of systems.</p>
+<p>A <strong>system</strong> can be generally thought of as a particular way that various entities interact.  A system isn't necessarily a <em>computer</em> system, although it can be. For example:</p>
+<ul>
+<li>The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.</li>
+<li>Family trees are a system where there are people, and rules that express how they are related to each other.</li>
+<li>A cryptographic protocol is a system where there are parties, messages, cryptographic primitives, and rules that govern how messages can be encrypted, decrypted, sent, and received.</li>
+<li>Binary search trees are a system where there are nodes, values, connections between nodes, and rules that govern how nodes can be created, removed, and positioned relative to one another.
+<em>There is no limit to the type or complexity of a system that we can discuss</em>, although different tools and techniques are useful for working with and able to express different kinds of systems.</li>
+</ul>
 <hr />
 <h2 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h2>
-<p>A <strong>model</strong> is a <em>representation</em> of a system that faithfully includes some but usually not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. Think about what a car company does before it produces a new car design. Among other things, it creates multiple models. E.g.,
-* it models the car in some computer-aided design tool; and then
-* creates a physical model of the car, perhaps with clay, for testing in wind tunnels etc.</p>
+<p>A <strong>model</strong> is a <em>representation</em> of a system that faithfully includes some but usually not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. Think about what a car company does before it produces a new car design. Among other things, it creates multiple models. E.g.,</p>
+<ul>
+<li>it models the car in some computer-aided design tool; and then</li>
+<li>creates a physical model of the car, perhaps with clay, for testing in wind tunnels etc.</li>
+</ul>
 <p>There may be many different models of a system, all of them focused on something different, and all of them useful for something. (As the statisticians say, "all models are wrong, but some models are useful".)</p>
 <p>Models define a notion of what kinds of things exist in the system and (some of) the "rules" governing the system. In a well-crafted model, we can explore what scenarios are possible in the system, which gives us insight and the ability to reason about the system itself---within the bounds of what the model expresses. </p>
 <h3 id="example-friends">Example: Friends<a class="headerlink" href="#example-friends" title="Permanent link">&para;</a></h3>
@@ -2472,30 +2476,40 @@
 <p>An <strong>instance</strong> is a concrete scenario that abides by the rules of a model, containing specific objects (<em>atoms</em>) and their relationships with each other.</p>
 <div class="admonition warning">
 <p class="admonition-title">Analogy to OOP</p>
-<p>We can draw a very rough analogy to object-oriented programming here. We might say:
-- a <code>sig</code> definition, along with its fields, is like a class; and
-- atoms within an instance of a model are like objects (since each atom belongs to some <code>sig</code>).
-This is a useful analogy! </p>
+<p>We can draw a very rough analogy to object-oriented programming here. We might say:</p>
+<ul>
+<li>a <code>sig</code> definition, along with its fields, is like a class; and</li>
+<li>atoms within an instance of a model are like objects (since each atom belongs to some <code>sig</code>).
+This is a useful analogy! </li>
+</ul>
 <p>Just remember that <strong>it is an analogy and not the exact truth</strong>. There are important differences. For example, you might remember the heap from Java or some other language, and wonder how atoms (analogously to objects) are created or garbage-collected. But <em>there is no heap</em> in Forge instances, only a set of atoms for each <code>sig</code>. Similarly, you might wonder how a Forge model executes. But it doesn't! A Forge model defines a set of possible instances, which the tool searches for.</p>
 </div>
-<p>Each instance shows a single way that the constraints in the model can be satisfied. Here are two example instances, described in English:
-* There are two people, <code>Tim</code> and <code>Nim</code>. <code>Tim</code> has <code>Nim</code> as a best friend, and <code>Nim</code> has <code>Tim</code> as a best friend. 
-* There is one person, <code>Nim</code>, who has <code>Nim</code> as a best friend. 
-* There are no people. </p>
-<p>Why do the second and third instance get produced? Because all we told Forge to enforce was:
-* Each <code>Person</code> must have a best friend.</p>
+<p>Each instance shows a single way that the constraints in the model can be satisfied. Here are two example instances, described in English:</p>
+<ul>
+<li>There are two people, <code>Tim</code> and <code>Nim</code>. <code>Tim</code> has <code>Nim</code> as a best friend, and <code>Nim</code> has <code>Tim</code> as a best friend. </li>
+<li>There is one person, <code>Nim</code>, who has <code>Nim</code> as a best friend. </li>
+<li>There are no people. </li>
+</ul>
+<p>Why do the second and third instance get produced? Because all we told Forge to enforce was:</p>
+<ul>
+<li>Each <code>Person</code> must have a best friend.</li>
+</ul>
 <p>If there are no people, there is nobody to be obligated to have friends. The empty instance satisfies this constraint.</p>
 <h2 id="satisfiability-and-unsatisfiability">Satisfiability and Unsatisfiability<a class="headerlink" href="#satisfiability-and-unsatisfiability" title="Permanent link">&para;</a></h2>
-<p>Semi-formally, we'll say that a model is <em>satisfied</em> by an instance if:
-* it contains sets of atoms for every <code>sig</code> in the model; 
-* each atom has fields appropriate to its <code>sig</code>; and 
-* the instance obeys all of the model's constraints. </p>
+<p>Semi-formally, we'll say that a model is <em>satisfied</em> by an instance if:</p>
+<ul>
+<li>it contains sets of atoms for every <code>sig</code> in the model; </li>
+<li>each atom has fields appropriate to its <code>sig</code>; and </li>
+<li>the instance obeys all of the model's constraints. </li>
+</ul>
 <p>A model is <em>satisfiable</em> if there exists some satisfying instance for it. A model is <em>unsatisfiable</em> if there is no instance that satisfies it. </p>
 <div class="admonition example">
 <p class="admonition-title">Another example</p>
-<p>If you play Sudoku, you might imagine modeling the game as a set of constraints. Then add:
-* constraints that express the starting puzzle; and 
-* a constraint expressing the need to populate every square in the board.</p>
+<p>If you play Sudoku, you might imagine modeling the game as a set of constraints. Then add:</p>
+<ul>
+<li>constraints that express the starting puzzle; and </li>
+<li>a constraint expressing the need to populate every square in the board.</li>
+</ul>
 <p>If the starting puzzle has a solution, the model will be satisfiable. If there is no solution, it will be unsatisfiable.</p>
 </div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>

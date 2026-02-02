@@ -2640,11 +2640,13 @@
 <p class="admonition-title">Lassos must loop back!</p>
 <p>If your system needs more steps before it loops back than the maximum trace length (e.g., an integer counter that overflows with a small trace length), Forge may tell you that there are no traces. Always pay attention to your <code>max_tracelength</code> option, and be convinced that it is sufficient to include the lassos you're interested in.</p>
 </div>
-<p>Temporal formulas and expressions are always evaluated with respect to a state index. At the top level of any formula, the index is <span class="arithmatex">\(0\)</span> (the first state of the trace). Temporal operators either change or "fan out" across multiple state indexes to let you express things like:
-* "in the next state, ..." (add 1 to the state index)
-* at some point in the future, ... (search for <code>some</code> state index)
-* at all points in the future, ... (check <code>all</code> future indexes)
-* ...</p>
+<p>Temporal formulas and expressions are always evaluated with respect to a state index. At the top level of any formula, the index is <span class="arithmatex">\(0\)</span> (the first state of the trace). Temporal operators either change or "fan out" across multiple state indexes to let you express things like:</p>
+<ul>
+<li>"in the next state, ..." (add 1 to the state index)</li>
+<li>at some point in the future, ... (search for <code>some</code> state index)</li>
+<li>at all points in the future, ... (check <code>all</code> future indexes)</li>
+<li>...</li>
+</ul>
 <h2 id="added-relational-operators-priming">Added relational operators: priming<a class="headerlink" href="#added-relational-operators-priming" title="Permanent link">&para;</a></h2>
 <p>Temporal Forge adds one relational operator: priming (<code>'</code>). Any relational expression that is primed implicitly means "this expression <strong>in the next state</strong>". Thus, you can use priming to concisely write transition effects. </p>
 <div class="admonition example">

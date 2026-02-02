@@ -2229,11 +2229,13 @@
 
 <h1 id="addendum-for-alloy-users">Addendum for Alloy Users<a class="headerlink" href="#addendum-for-alloy-users" title="Permanent link">&para;</a></h1>
 <p>All Forge languages (as of January 2024) are restricted versions of Alloy 6, with some added features. </p>
-<p>Relational Forge syntax and semantics are nearly identical to Alloy 5. Similarly, Temporal Forge approximates Alloy 6. There are some minor differences. E.g.:
-- All Forge languages eschew the <code>fact</code> construct and <code>sig</code>-facts in favor of using predicates throughout.
-- Forge disallows some complex field declarations. E.g., one cannot write a bijection as <code>f: A one -&gt; one A</code>. Instead, Forge fields always have exactly one multiplicity keyword and a product of sig names.
-- Forge introduces new <a href="../../testing-chapter/testing/">syntax for testing</a>. It also supports <a href="../../running-models/concrete-instance-bounds/">partial instances</a> via the <code>inst</code> keyword.
-- Due to user-experience concerns, we have changed the name of the <code>after</code> temporal operator to <code>next_state</code>. This avoids confusion due to Alloy (and Forge's) implicit conjunction; the <code>after</code> in <code>A after B</code> appears at first to be a binary operator, which it is not!</p>
+<p>Relational Forge syntax and semantics are nearly identical to Alloy 5. Similarly, Temporal Forge approximates Alloy 6. There are some minor differences. E.g.:</p>
+<ul>
+<li>All Forge languages eschew the <code>fact</code> construct and <code>sig</code>-facts in favor of using predicates throughout.</li>
+<li>Forge disallows some complex field declarations. E.g., one cannot write a bijection as <code>f: A one -&gt; one A</code>. Instead, Forge fields always have exactly one multiplicity keyword and a product of sig names.</li>
+<li>Forge introduces new <a href="../../testing-chapter/testing/">syntax for testing</a>. It also supports <a href="../../running-models/concrete-instance-bounds/">partial instances</a> via the <code>inst</code> keyword.</li>
+<li>Due to user-experience concerns, we have changed the name of the <code>after</code> temporal operator to <code>next_state</code>. This avoids confusion due to Alloy (and Forge's) implicit conjunction; the <code>after</code> in <code>A after B</code> appears at first to be a binary operator, which it is not!</li>
+</ul>
 
 
 

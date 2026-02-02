@@ -2526,9 +2526,11 @@ the above error will be produced. Add a bound for <code>Course</code>:
 </div>
 <h3 id="errors-related-to-testing">Errors Related to Testing<a class="headerlink" href="#errors-related-to-testing" title="Permanent link">&para;</a></h3>
 <h4 id="invalid-example-the-instance-specified-is-impossible">Invalid example ... the instance specified is impossible ...<a class="headerlink" href="#invalid-example-the-instance-specified-is-impossible" title="Permanent link">&para;</a></h4>
-<p>If an example fails, Forge will attempt to disambiguate between:
-* it actually fails the <em>predicate under test</em>; and 
-* it fails because it violates the type declarations for sigs and fields. </p>
+<p>If an example fails, Forge will attempt to disambiguate between:</p>
+<ul>
+<li>it actually fails the <em>predicate under test</em>; and </li>
+<li>it fails because it violates the type declarations for sigs and fields. </li>
+</ul>
 <p>Consider this example:</p>
 <div class="admonition example">
 <p class="admonition-title">Impossible Instance</p>
@@ -2566,9 +2568,11 @@ the above error will be produced. Add a bound for <code>Course</code>:
 <p>If you receive this message, it means your example does something like the above, where some type declaration unrelated to the predicate under test is being violated.</p>
 <h3 id="errors-related-to-syntax">Errors related to syntax<a class="headerlink" href="#errors-related-to-syntax" title="Permanent link">&para;</a></h3>
 <h4 id="unexpected-type-or-contract-violation">Unexpected type or Contract Violation<a class="headerlink" href="#unexpected-type-or-contract-violation" title="Permanent link">&para;</a></h4>
-<p>In Forge there are 2 kinds of constraint syntax for use in predicates:
-* formulas, which evaluate to true or false; and 
-* expressions, which evaluate to values like specific atoms. </p>
+<p>In Forge there are 2 kinds of constraint syntax for use in predicates:</p>
+<ul>
+<li>formulas, which evaluate to true or false; and </li>
+<li>expressions, which evaluate to values like specific atoms. </li>
+</ul>
 <p>If you write something like this:</p>
 <div class="admonition example">
 <p class="admonition-title">Contract Violation</p>

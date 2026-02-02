@@ -2690,9 +2690,11 @@ then <code>roads.roads</code> is an arity-2 set and <code>Providence.roads</code
 <blockquote>
 <p><code>^&lt;expr&gt;</code></p>
 </blockquote>
-<p>returns the transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>^</code> to a relation of different arity will produce an error. The transitive closure of a binary relation <span class="arithmatex">\(r\)</span> is defined as the <em>smallest</em> relation <span class="arithmatex">\(t\)</span> such that:
-- <code>r in t</code>; and 
-- for all <code>a</code>, <code>b</code>, and <code>c</code>, if <code>a-&gt;b</code> is in <code>t</code> and <code>b-&gt;c</code> is in <code>t</code>, then <code>a-&gt;c</code> is in <code>t</code>.</p>
+<p>returns the transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>^</code> to a relation of different arity will produce an error. The transitive closure of a binary relation <span class="arithmatex">\(r\)</span> is defined as the <em>smallest</em> relation <span class="arithmatex">\(t\)</span> such that:</p>
+<ul>
+<li><code>r in t</code>; and </li>
+<li>for all <code>a</code>, <code>b</code>, and <code>c</code>, if <code>a-&gt;b</code> is in <code>t</code> and <code>b-&gt;c</code> is in <code>t</code>, then <code>a-&gt;c</code> is in <code>t</code>.</li>
+</ul>
 <p>Informally, it is useful to think of <code>^r</code> as encoding <em>reachability</em> using <code>r</code>. It is equivalent to the (unbounded and thus inexpressible in Forge) union: <code>r + r.r + r.r.r + r.r.r.r + ...</code>. </p>
 <div class="admonition example">
 <p class="admonition-title">Transitive Closure</p>

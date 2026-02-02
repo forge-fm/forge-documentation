@@ -2377,9 +2377,11 @@
 <p>You can either use the <a href="https://marketplace.visualstudio.com/items?itemName=SiddharthaPrasad.forge-language-server">Forge VSCode extension</a>'s play button, or invoke Forge directly from the terminal via Racket:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>racket &lt;modelname.frg&gt; 
 </code></pre></div>
-<p>You can provide Forge <a href="../options/">options</a> directly by adding command-line flags:
-* The <code>-o</code> or <code>-option</code> flag will set the option, but if the file sets that option the file's version will be used.
-* The <code>-O</code> or <code>-override</code> flag will set the option, and that option will hold regardless of what may be set in the file. </p>
+<p>You can provide Forge <a href="../options/">options</a> directly by adding command-line flags:</p>
+<ul>
+<li>The <code>-o</code> or <code>-option</code> flag will set the option, but if the file sets that option the file's version will be used.</li>
+<li>The <code>-O</code> or <code>-override</code> flag will set the option, and that option will hold regardless of what may be set in the file. </li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">Setting options at the command line</p>
 <p>If <code>ring_of_lights.frg</code> is in the current directory, running:

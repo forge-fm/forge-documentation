@@ -2376,12 +2376,12 @@
 <p>Forge has a number of options that affect how it functions and how its solver is configured. They all have the same form: <code>option &lt;key&gt; &lt;value&gt;</code>. <strong>Settings are case sensitive.</strong> The available setting keys are:</p>
 <ul>
 <li><code>verbose</code>: governs the amount of information provided in the REPL. <code>1</code> is standard; <code>0</code> will omit statistical information (useful for test suites); <code>10</code> will print exceedingly verbose debugging information. Values between <code>1</code> and <code>10</code> gradually increase verbosity.</li>
-<li><code>solver</code>: sets the solver used by Forge's worker process. The default is <code>SAT4J</code>, a Java-based solver. Other solvers can be more performant, and produce different instance orderings, depending on model. The <code>MiniSatProver</code> solver will enable extraction of unsat cores. Support for native solvers varies by OS. Currently: </li>
+<li><code>solver</code>: sets the solver used by Forge's worker process. The default is <code>SAT4J</code>, a Java-based solver. Other solvers can be more performant, and produce different instance orderings, depending on model. The <code>MiniSatProver</code> solver will enable extraction of unsat cores. Support for native solvers varies by OS. Currently:<ul>
 <li>MacOS (x64 and arm64 <code>.dylib</code>):<ul>
 <li><code>MiniSat</code>, <code>MiniSatProver</code>, and <code>Glucose</code></li>
 </ul>
 </li>
-<li>Linux (<code>.so</code>): <ul>
+<li>Linux (<code>.so</code>):<ul>
 <li><code>MiniSat</code>, <code>MiniSatProver</code>, and <code>Glucose</code></li>
 </ul>
 </li>
@@ -2389,8 +2389,10 @@
 <li><code>MiniSatProver</code></li>
 </ul>
 </li>
-<li>All: <ul>
-<li><code>"&lt;path-to-solver&gt;"</code>, which lets you run a solver of your own that accepts DIMACS input (see the section below for instructions). </li>
+<li>All:<ul>
+<li><code>"&lt;path-to-solver&gt;"</code>, which lets you run a solver of your own that accepts DIMACS input (see the section below for instructions).</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><code>logtranslation</code>: controls how much of the translation from Forge to boolean logic is logged. The default is <code>0</code>; must be <code>1</code> or higher to extract unsatisfiable cores.</li>
@@ -2433,11 +2435,13 @@
 <p>To invoke a custom solver, provide a double-quoted filepath literal as the solver name:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>option solver &quot;&lt;filepath-to-solver&gt;&quot;
 </code></pre></div>
-<p>Note that:
-* the file must exist at the path specified;
-* the file must be executable;
-* the file must implement the DIMACS input/output format given in the DPLL assignment stencil;
-* if the file is a script using a <code>#!</code> preamble, the preamble must point to the correct location. E.g., if the file is a Python script that begins with <code>#!/usr/bin/python3</code>, your Python 3 executable must reside at <code>/usr/bin/python3</code>. </p>
+<p>Note that:</p>
+<ul>
+<li>the file must exist at the path specified;</li>
+<li>the file must be executable;</li>
+<li>the file must implement the DIMACS input/output format given in the DPLL assignment stencil;</li>
+<li>if the file is a script using a <code>#!</code> preamble, the preamble must point to the correct location. E.g., if the file is a Python script that begins with <code>#!/usr/bin/python3</code>, your Python 3 executable must reside at <code>/usr/bin/python3</code>. </li>
+</ul>
 <p>The solver engine doesn't return rich information in the case of failure. Should any of these conditions not be met, you'll see a generic Pardinus crash error. </p>
 <div class="admonition note">
 <p class="admonition-title">An aside for Windows users</p>

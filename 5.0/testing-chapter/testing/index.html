@@ -2477,10 +2477,12 @@
 </code></pre></div>
 </div>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<p>The <code>example</code> syntax lets you test whether a specific instance is satisfied by some predicate in your model. An <code>example</code> contains three parts:
-* a name for the example;
-* which predicate the instance should satisfy (or not satisfy); and 
-* the instance itself. </p>
+<p>The <code>example</code> syntax lets you test whether a specific instance is satisfied by some predicate in your model. An <code>example</code> contains three parts:</p>
+<ul>
+<li>a name for the example;</li>
+<li>which predicate the instance should satisfy (or not satisfy); and </li>
+<li>the instance itself. </li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>This <code>example</code>, named <code>diagonalPasses</code>, expresses that a board where X has moved in the upper-left, middle, and lower-right squares (and <code>O</code> has made no moves at all) should satisfy the <code>wellformed</code> predicate:</p>
@@ -2546,9 +2548,11 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>assert fullFirstRow is sufficient for winning for 1 Board
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>assert someMoveTaken is necessary for winning for 1 Board
 </code></pre></div>
-<p>which should both pass, since:
-* if <code>X</code> occupied the entire first row, it has won; and 
-* if someone has won the game, there must be moves taken on the board.</p>
+<p>which should both pass, since:</p>
+<ul>
+<li>if <code>X</code> occupied the entire first row, it has won; and </li>
+<li>if someone has won the game, there must be moves taken on the board.</li>
+</ul>
 <p>But surely we also wish to make sure that these don't pass only because <code>fullFirstRow</code> and <code>someMoveTaken</code> are unsatisfiable!</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>assert fullFirstRow is sat
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>assert someMoveTaken is sat
@@ -2569,14 +2573,20 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>assert all b : Board, row, col : Int | someMoveTaken[b, row, col] is necessary for winning for 1 Board
 </code></pre></div></p>
 </div>
-<p>Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:
-* Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; 
-* for a game of chess to be won, a king must be in check; 
-* someone must first be logged into Gmail to read their mail;
-or confirm that:
-* it is possible to generate a run of Dijkstra's algorithm in the model;
-* it is possible to generate a chess configuration where the king is in check; or
-* someone can log into Gmail to begin with. </p>
+<p>Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:</p>
+<ul>
+<li>Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; </li>
+<li>for a game of chess to be won, a king must be in check; </li>
+<li>
+<p>someone must first be logged into Gmail to read their mail;
+or confirm that:</p>
+</li>
+<li>
+<p>it is possible to generate a run of Dijkstra's algorithm in the model;</p>
+</li>
+<li>it is possible to generate a chess configuration where the king is in check; or</li>
+<li>someone can log into Gmail to begin with. </li>
+</ul>
 <h3 id="notes-on-assert-syntax">Notes on Assert Syntax<a class="headerlink" href="#notes-on-assert-syntax" title="Permanent link">&para;</a></h3>
 <p>The right-hand-side of the assertion must be a predicate name. That is, you <em>cannot</em> provide arbitrary formulas enclosed in brackets to an <code>assert</code>. This restriction eases some analysis but also encourages you to create reusable predicates.</p>
 <h2 id="suites-organizing-your-tests">Suites: Organizing Your Tests<a class="headerlink" href="#suites-organizing-your-tests" title="Permanent link">&para;</a></h2>
@@ -2604,15 +2614,19 @@ or confirm that:
 </div>
 <h2 id="test-expect-blocks">Test-Expect Blocks<a class="headerlink" href="#test-expect-blocks" title="Permanent link">&para;</a></h2>
 <p>We generally suggest using assertions rather than test-expect blocks if you can do so. </p>
-<p>Every <code>test expect</code> contains a set of individual checks. Each has:
-* an optional test name;
-* a predicate block; and 
-* an intention (<code>is sat</code>, <code>is unsat</code>, <code>is checked</code>, or <code>is forge_error</code>). </p>
-<p>The meaning of each intention is:
-* <code>is sat</code>: the predicate block is satisfiable under the given bounds; 
-* <code>is unsat</code>: the predicate block is unsatisfiable under the given bounds; and 
-* <code>is checked</code>: the predicate block's <em>negation</em> is unsatisfiable under the given bounds.
-* <code>is forge_error</code>: the predicate block produces a forge error when run.</p>
+<p>Every <code>test expect</code> contains a set of individual checks. Each has:</p>
+<ul>
+<li>an optional test name;</li>
+<li>a predicate block; and </li>
+<li>an intention (<code>is sat</code>, <code>is unsat</code>, <code>is checked</code>, or <code>is forge_error</code>). </li>
+</ul>
+<p>The meaning of each intention is:</p>
+<ul>
+<li><code>is sat</code>: the predicate block is satisfiable under the given bounds; </li>
+<li><code>is unsat</code>: the predicate block is unsatisfiable under the given bounds; and </li>
+<li><code>is checked</code>: the predicate block's <em>negation</em> is unsatisfiable under the given bounds.</li>
+<li><code>is forge_error</code>: the predicate block produces a forge error when run.</li>
+</ul>
 <p>Like the other test forms, each test may be accompanied by numeric scopes and <code>inst</code> bounds.</p>
 <div class="admonition example">
 <p class="admonition-title">Test expect</p>

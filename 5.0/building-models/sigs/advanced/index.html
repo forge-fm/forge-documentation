@@ -2329,9 +2329,11 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    }
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>} for exactly 4 Person
 </code></pre></div>
-<p>This model defines two sets: 
-- <code>Person</code>, of arity 1; and
-- <code>bestFriend</code>, of arity 2.</p>
+<p>This model defines two sets:</p>
+<ul>
+<li><code>Person</code>, of arity 1; and</li>
+<li><code>bestFriend</code>, of arity 2.</li>
+</ul>
 <p>Since there are exactly 4 people allowed by the <code>run</code>, the contents of <code>Person</code> is fixed. But <code>bestFriend</code> may contain any pair of <code>Person</code> objects. There are <span class="arithmatex">\(4 \times 4 = 16\)</span> possible pairs, and so there are 16 boolean variables needed to define the <code>bestFriend</code> field.</p>
 <p>You can see these reflected in the <em>primary variable</em> portion of the statistical output Forge gives when running this file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#vars: (size-variables 178); #primary: (size-primary 16); #clauses: (size-clauses 311)

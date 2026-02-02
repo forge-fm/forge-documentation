@@ -2562,9 +2562,11 @@
 <h3 id="the-evaluator-in-temporal-forge">The Evaluator in Temporal Forge<a class="headerlink" href="#the-evaluator-in-temporal-forge" title="Permanent link">&para;</a></h3>
 <p>If running in temporal mode, the evaluator is run in the context of the <em>first state</em> of the trace shown. To ask about later traces, use the <code>'</code> or <code>next_state</code> operators. Remember that <code>next_state</code> applies to formulas, and <code>'</code> applies to relational expressions. So in a directed graph you could ask whether there are <code>edges</code> in the second state via <code>some edges'</code> or <code>after some edges</code>.</p>
 <h2 id="custom-visualizations-script-view">Custom Visualizations: Script View<a class="headerlink" href="#custom-visualizations-script-view" title="Permanent link">&para;</a></h2>
-<p>Sterling also allows you to write and run scripts that produce your own custom visualizations. This documentation site contains a basic example here:
-- <a href="../../example-models/vis/ttt.js">example visualization script</a>
-- <a href="../../example-models/ttt.frg">Tic-tac-toe model to run the script with</a></p>
+<p>Sterling also allows you to write and run scripts that produce your own custom visualizations. This documentation site contains a basic example here:</p>
+<ul>
+<li><a href="../../example-models/vis/ttt.js">example visualization script</a></li>
+<li><a href="../../example-models/ttt.frg">Tic-tac-toe model to run the script with</a></li>
+</ul>
 <p>If you want to try out this example, do the following:</p>
 <p><strong>Step 1:</strong> Open the Forge model and run it (<code>racket ttt.frg</code>). Sterling should open in your web browser, defaulting to the directed-graph visualization---which isn't very useful for this model. You should see something like this: </p>
 <p><img alt="Default visualization for tic-tac-toe, comprising boxes and lines" src="../../images/ttt-viz-1.png" title="Default Visualizer" /></p>

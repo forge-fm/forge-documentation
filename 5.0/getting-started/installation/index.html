@@ -2637,9 +2637,11 @@
 <li>change directory to the repository folder (<code>cd forge</code>);</li>
 <li>install the <code>forge</code> package (<code>raco pkg install ./forge</code>).</li>
 </ul>
-<p>If you wish to switch to the development branch, you must:
-- check out the development branch (<code>git checkout dev</code>);
-- rebuild Forge (<code>raco setup forge</code>).</p>
+<p>If you wish to switch to the development branch, you must:</p>
+<ul>
+<li>check out the development branch (<code>git checkout dev</code>);</li>
+<li>rebuild Forge (<code>raco setup forge</code>).</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Using ./</p>
 <p>Note the <code>./</code> in the <code>install</code> command! If you write <code>raco pkg install forge</code>, that will install both from the package server instead of your local directory. Adding prefix <code>./</code> tells <code>raco</code> that you're talking about folders instead.</p>
@@ -2666,9 +2668,11 @@
 <p class="admonition-title">Comparison to Spring 2023</p>
 <p>In prior years, logging was done via annotations to <code>#lang</code> in homework files. We no longer do this. A major consequence is that we no longer know your identity from logs; we believe this is an improvement! However, it does mean we can't reach out if we see a problem happening. Please <em>report problems</em> if you see them.</p>
 </div>
-<p>We log primarily for two reasons. 
-* First, Forge is under active development---the majority of the codebase was written by undergraduate researchers working with Tim! This means that information about how Forge is used, what errors arise, etc. can be useful in making Forge better. 
-* Second, Forge is mainly used in the classroom. It's easy for instructors to claim, anecdotally, that students "like" something or "find it useful" based on a handful of office-hours conversations. We want to hold ourselves to a higher standard. What proportion of students <em>actually uses</em> that feature? Is the hinting we provide on some problems <em>effective</em>? Questions like these are impossible to answer without knowing something about patterns of use. </p>
+<p>We log primarily for two reasons.</p>
+<ul>
+<li>First, Forge is under active development---the majority of the codebase was written by undergraduate researchers working with Tim! This means that information about how Forge is used, what errors arise, etc. can be useful in making Forge better. </li>
+<li>Second, Forge is mainly used in the classroom. It's easy for instructors to claim, anecdotally, that students "like" something or "find it useful" based on a handful of office-hours conversations. We want to hold ourselves to a higher standard. What proportion of students <em>actually uses</em> that feature? Is the hinting we provide on some problems <em>effective</em>? Questions like these are impossible to answer without knowing something about patterns of use. </li>
+</ul>
 <!-- ## Installing VSCode Extension for GPT-3
 
 This extension allows you to write questions to GPT-3 from your editor. 
@@ -2716,9 +2720,11 @@ Queries GPT-3 with highlighted text. The response is automatically injected **be
 
 <h2 id="checking-your-installation">Checking your installation<a class="headerlink" href="#checking-your-installation" title="Permanent link">&para;</a></h2>
 <p>Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a text file <code>test.frg</code> with only the contents <code>#lang forge</code> and then, from your command line, type <code>racket test.frg</code>. If this runs without error, congratulations, Forge should now be installed!</p>
-<p>If you encounter any issues installing, please report them. We'll do our best to get you help as soon as possible.
-- If you're taking CSCI 1710 at Brown, a class that uses Forge, report bugs on EdStem. 
-- If you don't have a course-related means of reporting bugs, please mail Tim (Tim_Nelson@brown.edu).</p>
+<p>If you encounter any issues installing, please report them. We'll do our best to get you help as soon as possible.</p>
+<ul>
+<li>If you're taking CSCI 1710 at Brown, a class that uses Forge, report bugs on EdStem. </li>
+<li>If you don't have a course-related means of reporting bugs, please mail Tim (Tim_Nelson@brown.edu).</li>
+</ul>
 <h2 id="updating-forge">Updating Forge<a class="headerlink" href="#updating-forge" title="Permanent link">&para;</a></h2>
 <p><strong>Please remember to update using the method appropriate for your install.</strong></p>
 <h3 id="if-you-installed-via-rackets-package-system">If you installed via Racket's package system<a class="headerlink" href="#if-you-installed-via-rackets-package-system" title="Permanent link">&para;</a></h3>

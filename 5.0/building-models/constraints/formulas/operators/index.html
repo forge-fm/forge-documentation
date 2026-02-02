@@ -2520,10 +2520,12 @@
 <p>takes the value of <code>&lt;fmla-b&gt;</code> when <code>&lt;fmla-a&gt;</code> evaluates to <strong>true</strong>, and takes the value of <code>&lt;fmla-c&gt;</code> otherwise.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>If:
-- <code>some p.spouse</code> is true when the person <code>p</code> is married, 
-- <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, and
-- <code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, </p>
+<p>If:</p>
+<ul>
+<li><code>some p.spouse</code> is true when the person <code>p</code> is married,</li>
+<li><code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, and</li>
+<li><code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, </li>
+</ul>
 <p>then <code>some p.spouse =&gt; p.spouse != p else some p.parent1</code> is true exactly when:
 - <code>p</code> is married, and not to themselves; or
 - <code>p</code> is not married and have a <code>parent1</code> in the instance.</p>

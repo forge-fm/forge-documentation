@@ -2441,14 +2441,18 @@
 <h1 id="custom-visualization-basics">Custom Visualization Basics<a class="headerlink" href="#custom-visualization-basics" title="Permanent link">&para;</a></h1>
 <p>As seen in the <a href="../../running-models/sterling-visualizer/">Sterling Visualizer</a> section, Forge uses an adapted version of the <a href="https://sterling-js.github.io/">Sterling</a> visualization tool. One of the advantages of using Sterling is that users can create their own custom visualization scripts.</p>
 <h2 id="script-view-and-modes">Script View and Modes<a class="headerlink" href="#script-view-and-modes" title="Permanent link">&para;</a></h2>
-<p>When viewing an instance in Sterling, there are three options for viewing an instance: Graph, Table, and Script. To swap to script-view mode, click on Script. Most of the screen will be taken up by 3 new panes:
-* the visualization canvas (blank by default); 
-* the script editor; and 
-* a list of available variables that are available for scripts to use.</p>
-<p>Where the "Next" button was in the graph visualizer, there will now be 4 more buttons: 
-* Run executes the visualization script when clicked.
-* <code>&lt;div&gt;</code>, <code>&lt;canvas&gt;</code> and <code>&lt;svg&gt;</code> swap between visualization modes. The default is <code>&lt;svg&gt;</code>. 
-This documentation focuses on the <code>&lt;svg&gt;</code> mode, because that is where most of the library support is. </p>
+<p>When viewing an instance in Sterling, there are three options for viewing an instance: Graph, Table, and Script. To swap to script-view mode, click on Script. Most of the screen will be taken up by 3 new panes:</p>
+<ul>
+<li>the visualization canvas (blank by default); </li>
+<li>the script editor; and </li>
+<li>a list of available variables that are available for scripts to use.</li>
+</ul>
+<p>Where the "Next" button was in the graph visualizer, there will now be 4 more buttons:</p>
+<ul>
+<li>Run executes the visualization script when clicked.</li>
+<li><code>&lt;div&gt;</code>, <code>&lt;canvas&gt;</code> and <code>&lt;svg&gt;</code> swap between visualization modes. The default is <code>&lt;svg&gt;</code>. 
+This documentation focuses on the <code>&lt;svg&gt;</code> mode, because that is where most of the library support is. </li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">A Basic Script</p>
 <p>Try entering some visualization code in the script window and clicking "Run":
@@ -2505,33 +2509,43 @@ This should display something like "1, 7 2, 7 3, 7 4, 7 5, 7 6, 7 7, 7". Again, 
 <p>Scripts in <code>&lt;svg&gt;</code> mode use the <a href="https://d3-graph-gallery.com/graph/shape.html">D3 visualization library</a> by default. However, D3 can be fairly complex to use, and so various <a href="../d3fx_apr23/">built-in helpers</a> are also available. We encourage using the helper library, although in more advanced cases you may wish to use D3 directly.</p>
 <hr />
 <h2 id="potential-pitfalls-and-debugging">Potential Pitfalls and Debugging<a class="headerlink" href="#potential-pitfalls-and-debugging" title="Permanent link">&para;</a></h2>
-<p>Sterling presents a "full Forge" view of instances, and one that's closer to the way the solver works. All sigs and fields are represented as <em>sets</em> in the instance. Each set contains <code>AlloyTuple</code> objects, which themselves contain lists of <code>AlloyAtom</code>s. Because (at the moment) there is no support for types in the script editor, it can sometimes be troublesome to remember which kind of datum you're working with. The <code>alloy-ts</code> docs below provide much more detail, but in brief:
-* if the object has an <code>.atoms()</code> method, it's an <code>AlloyTuple</code>;
-* if the object has an <code>.id()</code> method, it's an <code>AlloyAtom</code>; and
-* signatures, fields, tuples, and atoms are all <code>AlloySets</code> and provide a <code>.tuples()</code> method.</p>
+<p>Sterling presents a "full Forge" view of instances, and one that's closer to the way the solver works. All sigs and fields are represented as <em>sets</em> in the instance. Each set contains <code>AlloyTuple</code> objects, which themselves contain lists of <code>AlloyAtom</code>s. Because (at the moment) there is no support for types in the script editor, it can sometimes be troublesome to remember which kind of datum you're working with. The <code>alloy-ts</code> docs below provide much more detail, but in brief:</p>
+<ul>
+<li>if the object has an <code>.atoms()</code> method, it's an <code>AlloyTuple</code>;</li>
+<li>if the object has an <code>.id()</code> method, it's an <code>AlloyAtom</code>; and</li>
+<li>signatures, fields, tuples, and atoms are all <code>AlloySets</code> and provide a <code>.tuples()</code> method.</li>
+</ul>
 <p>In order to do a Froglet-style field access, you should use the <code>.join</code> method. (E.g., in the example above, we wrote <code>theArray.join(elementsField)</code> rather than <code>theArray.elementsField</code> or <code>theArray.elements</code>.)</p>
 <p>We suggest using <code>TextBox</code>es to visualize debugging information. As a fallback, you can also use <code>console.log(...)</code> as normally in JavaScript, but the web-developer console in Sterling can be somewhat congested. Printing raw <code>AlloySet</code> objects via <code>console.log</code> will also not be immediately useful, since Sterling uses a proxy to manage the difference between the set as <em>Forge syntax</em> and the set as <em>a value in the instance</em>.</p>
 <hr />
 <h2 id="further-resources-and-examples">Further Resources and Examples<a class="headerlink" href="#further-resources-and-examples" title="Permanent link">&para;</a></h2>
-<p>Further chapters:
-* <a href="../d3fx_apr23/">Visualization Helper Library</a> describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.
-* <a href="../svg-tips/">Working with SVG and Imports</a> explains how to (e.g.) increase the size of the rendering area.</p>
-<p>External resources:
-* <a href="https://www.w3schools.com/graphics/svg_intro.asp">What is the SVG format?</a>
-* <a href="https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e">D3FX helpers design documentation</a>---<strong>beware, this is actively being worked on and edited, and thus subject to change!</strong></p>
-<p>Examples using D3:
-* <a href="https://github.com/miasantomauro/lets-get-visual">Mia Santomauro's 2021 Guide</a> for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.
-* Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:
-  * <a href="https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz">Sudoku Synthesizer</a>
-  * <a href="https://github.com/csci1710/public-examples/tree/main/2022/queue">Queue</a>
-  * <a href="https://github.com/csci1710/public-examples/tree/main/2022/lights_puzzle">Lights Puzzle (temporal mode)</a> 
-* Tim and Mia also wrote a <a href="https://github.com/miasantomauro/mia-isp-spring-2021/tree/main/musical%20scales">"visualizer" that plays musical scales</a> generated by a model Tim wrote to understand music a bit better.</p>
+<p>Further chapters:</p>
+<ul>
+<li><a href="../d3fx_apr23/">Visualization Helper Library</a> describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.</li>
+<li><a href="../svg-tips/">Working with SVG and Imports</a> explains how to (e.g.) increase the size of the rendering area.</li>
+</ul>
+<p>External resources:</p>
+<ul>
+<li><a href="https://www.w3schools.com/graphics/svg_intro.asp">What is the SVG format?</a></li>
+<li><a href="https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e">D3FX helpers design documentation</a>---<strong>beware, this is actively being worked on and edited, and thus subject to change!</strong></li>
+</ul>
+<p>Examples using D3:</p>
+<ul>
+<li><a href="https://github.com/miasantomauro/lets-get-visual">Mia Santomauro's 2021 Guide</a> for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.</li>
+<li>Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:</li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz">Sudoku Synthesizer</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/queue">Queue</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/lights_puzzle">Lights Puzzle (temporal mode)</a> </li>
+<li>Tim and Mia also wrote a <a href="https://github.com/miasantomauro/mia-isp-spring-2021/tree/main/musical%20scales">"visualizer" that plays musical scales</a> generated by a model Tim wrote to understand music a bit better.</li>
+</ul>
 <div class="admonition thanks">
 <p class="admonition-title">Collaborators</p>
-<p>Work on custom visualization in Sterling is an ongoing collaborative effort. We are grateful to Tristan Dyer for working to expand Sterling for Forge. We are also grateful for contributions from (in alphabetic order):
-* Ethan Bove
-* Sidney LeVine
-* Mia Santomauro</p>
+<p>Work on custom visualization in Sterling is an ongoing collaborative effort. We are grateful to Tristan Dyer for working to expand Sterling for Forge. We are also grateful for contributions from (in alphabetic order):</p>
+<ul>
+<li>Ethan Bove</li>
+<li>Sidney LeVine</li>
+<li>Mia Santomauro</li>
+</ul>
 </div>
 
 

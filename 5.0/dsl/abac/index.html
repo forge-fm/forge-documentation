@@ -2463,10 +2463,12 @@
 <h1 id="attribute-based-access-control">Attribute-Based Access Control<a class="headerlink" href="#attribute-based-access-control" title="Permanent link">&para;</a></h1>
 <p>The Attribute-Based Access Control (ABAC) language can be enabled via <code>#lang forge/domains/abac</code> on the first line of a file. The syntax of the language is totally distinct from Froglet, Relational Forge, and Temporal forge. </p>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>ABAC policies describe whether <em>requests</em> should be permitted or denied. Requests comprise three <em>variables</em>:
-- <code>s</code>: the subject (i.e., the individual or program making the request);
-- <code>a</code>: the action (i.e., the type of access being requested); and
-- <code>r</code>: the resource (i.e., the file or other object being acted upon by the request).</p>
+<p>ABAC policies describe whether <em>requests</em> should be permitted or denied. Requests comprise three <em>variables</em>:</p>
+<ul>
+<li><code>s</code>: the subject (i.e., the individual or program making the request);</li>
+<li><code>a</code>: the action (i.e., the type of access being requested); and</li>
+<li><code>r</code>: the resource (i.e., the file or other object being acted upon by the request).</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">ABAC Policy</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>policy original
@@ -2493,17 +2495,21 @@
 <p>A rule contains a decision and a sequence of conditions, terminated by a period. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;DECISION&gt; if: &lt;CONDITION1&gt;, &lt;CONDITION2&gt;, ... .
 </code></pre></div>
-<p>Decisions may be either:
-- <code>permit</code>; or 
-- <code>deny</code>. </p>
+<p>Decisions may be either:</p>
+<ul>
+<li><code>permit</code>; or </li>
+<li><code>deny</code>. </li>
+</ul>
 <h2 id="condition-syntax">Condition Syntax<a class="headerlink" href="#condition-syntax" title="Permanent link">&para;</a></h2>
 <p>Finally, a condition expresses a requirement involving one of the three request variables. If the condition involves only one variable, it takes the form <code>&lt;var&gt; is &lt;attribute&gt;</code>. If the condition involves two variables, it takes the form <code>&lt;var 2&gt; is &lt;attribute&gt; &lt;var 2&gt;</code>.</p>
-<p>For the moment, the ABAC language is built for a specific assignment. Thus, the vocabulary of the language is restricted to the following attributes: 
-- for subjects: <code>admin</code>, <code>accountant</code>, and <code>customer</code>;
-- for actions: <code>read</code> and <code>write</code>;
-- for resources: <code>file</code>. 
-- for resources (not exclusive with <code>file</code>): <code>under-audit</code>.
-- for combinations of subject and resource: <code>owned-by</code>.</p>
+<p>For the moment, the ABAC language is built for a specific assignment. Thus, the vocabulary of the language is restricted to the following attributes:</p>
+<ul>
+<li>for subjects: <code>admin</code>, <code>accountant</code>, and <code>customer</code>;</li>
+<li>for actions: <code>read</code> and <code>write</code>;</li>
+<li>for resources: <code>file</code>. </li>
+<li>for resources (not exclusive with <code>file</code>): <code>under-audit</code>.</li>
+<li>for combinations of subject and resource: <code>owned-by</code>.</li>
+</ul>
 <h2 id="analysis-commands">Analysis Commands<a class="headerlink" href="#analysis-commands" title="Permanent link">&para;</a></h2>
 <p>For the purposes of this assignment, only one command should be necessary:</p>
 <h3 id="comparing-policies">Comparing Policies<a class="headerlink" href="#comparing-policies" title="Permanent link">&para;</a></h3>

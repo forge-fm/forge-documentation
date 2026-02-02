@@ -2321,17 +2321,23 @@
 <p>Forge provides a few built-in constants:</p>
 <ul>
 <li><code>univ</code> (arity 1): the set of all objects in the universe (including <code>Int</code>s);</li>
-<li><code>none</code> (arity 1): the empty set (to produce higher-arity empty relations, use the <code>-&gt;</code> operator. E.g., a 2-ary empty relation would be represented as <code>none -&gt; none</code> 
-);</li>
-<li><code>iden</code>: the identity relation (a total function from all objects in the universe to themselves, including <code>Ints</code>);</li>
+<li>
+<p><code>none</code> (arity 1): the empty set (to produce higher-arity empty relations, use the <code>-&gt;</code> operator. E.g., a 2-ary empty relation would be represented as <code>none -&gt; none</code> 
+);</p>
+</li>
+<li>
+<p><code>iden</code>: the identity relation (a total function from all objects in the universe to themselves, including <code>Ints</code>);</p>
+</li>
 <li><code>Int</code>: the set of available integer objects. By default it contains <code>-8</code> to <code>7</code> inclusive, since the default bitwidth is <code>4</code>. See <a href="../integers/">Integers</a> for more information.</li>
 </ul>
 <h2 id="keywords">Keywords<a class="headerlink" href="#keywords" title="Permanent link">&para;</a></h2>
-<p>The following is a list of keywords in Forge that may not be used as names for relations, sigs, predicates, and runs. These include:
-- <code>state</code>, <code>transition</code> (reserved for future use)
-- <code>sig</code>, <code>pred</code>, <code>fun</code>
-- <code>test</code>, <code>expect</code>, <code>assert</code>, <code>run</code>, <code>check</code>, <code>is</code>, <code>for</code>
-- names of arithmetic operators, helpers, and built-in constants (e.g., <code>add</code>, <code>univ</code>, and <code>reachable</code>)</p>
+<p>The following is a list of keywords in Forge that may not be used as names for relations, sigs, predicates, and runs. These include:</p>
+<ul>
+<li><code>state</code>, <code>transition</code> (reserved for future use)</li>
+<li><code>sig</code>, <code>pred</code>, <code>fun</code></li>
+<li><code>test</code>, <code>expect</code>, <code>assert</code>, <code>run</code>, <code>check</code>, <code>is</code>, <code>for</code></li>
+<li>names of arithmetic operators, helpers, and built-in constants (e.g., <code>add</code>, <code>univ</code>, and <code>reachable</code>)</li>
+</ul>
 
 
 

@@ -2458,9 +2458,11 @@
 <li>A set of bounds on sigs and relations (the <strong>bounds</strong> of the problem).</li>
 </ul>
 <h2 id="partial-instances">Partial Instances<a class="headerlink" href="#partial-instances" title="Permanent link">&para;</a></h2>
-<p>Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by <code>sig</code> and <code>pred</code> declarations. The third concern is often addressed by numeric bounds (also called "scope"), but numeric bounds are always converted (usually invisibly to the user!) into set-based bounds that concretely specify:
-- the <em>lower</em> bounds, what <em>must</em> be in an instance; and 
-- the <em>upper</em> bounds, what <em>may</em> be in an instance.</p>
+<p>Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by <code>sig</code> and <code>pred</code> declarations. The third concern is often addressed by numeric bounds (also called "scope"), but numeric bounds are always converted (usually invisibly to the user!) into set-based bounds that concretely specify:</p>
+<ul>
+<li>the <em>lower</em> bounds, what <em>must</em> be in an instance; and </li>
+<li>the <em>upper</em> bounds, what <em>may</em> be in an instance.</li>
+</ul>
 <p>The <code>inst</code> syntax provides the ability to manipulate these set-based bounds directly, instead of indirectly via numeric bounds. The same syntax is used in <code>example</code> tests. Because bounds declarations interface more directly with the solver than constraints, at times they can yield performance improvements.</p>
 <p>Finally, because bounds declarations can concretely refer to atoms in the world, we will often refer to them as <em>partial instances</em>.</p>
 <h2 id="inst-syntax"><code>inst</code> Syntax<a class="headerlink" href="#inst-syntax" title="Permanent link">&para;</a></h2>
@@ -2474,22 +2476,28 @@
 <li><code>r is linear</code> : use bounds-based symmetry breaking to make sure field <code>r</code> is a linear ordering on its types (useful for optimizing model-checking queries in Forge); and</li>
 <li><code>r is plinear</code> : similar to <code>r is linear</code>, but possibly not involving the entire contents of the sig. I.e., a total linear order on <code>A'</code>-&gt;<code>A'</code> for some subset <code>A'</code> of <code>A</code>.</li>
 </ul>
-<p>When binding fields, the binding can also be given <em>piecewise</em> per atom. Keep in mind that atom names should be prefixed by a backquote:
-- <code>AtomName.f in &lt;bounds-expr&gt;</code> (upper bound, restricted to <code>AtomName</code>);
-- <code>AtomName.f ni &lt;bounds-expr&gt;</code> (lower bound, restricted to <code>AtomName</code>);
-- <code>AtomName.f = &lt;bounds-expr&gt;</code> (exact bound, restricted to <code>AtomName</code>); and
-- <code>no AtomName.f</code> (exact bound <em>contains nothing</em>, restricted to <code>AtomName</code>).
-Piecewise bindings add no restrictions to <em>other</em> atoms, only those mentioned. They can improve readability if you're defining a field for many different atoms. There is an example below.</p>
+<p>When binding fields, the binding can also be given <em>piecewise</em> per atom. Keep in mind that atom names should be prefixed by a backquote:</p>
+<ul>
+<li><code>AtomName.f in &lt;bounds-expr&gt;</code> (upper bound, restricted to <code>AtomName</code>);</li>
+<li><code>AtomName.f ni &lt;bounds-expr&gt;</code> (lower bound, restricted to <code>AtomName</code>);</li>
+<li><code>AtomName.f = &lt;bounds-expr&gt;</code> (exact bound, restricted to <code>AtomName</code>); and</li>
+<li><code>no AtomName.f</code> (exact bound <em>contains nothing</em>, restricted to <code>AtomName</code>).
+Piecewise bindings add no restrictions to <em>other</em> atoms, only those mentioned. They can improve readability if you're defining a field for many different atoms. There is an example below.</li>
+</ul>
 <p>The specifics of <code>&lt;bounds-expr&gt;</code> depend on which Forge language you are using. </p>
 <div class="admonition warning">
 <p class="admonition-title">Bounds aren't the same as constraints!</p>
 <p>The syntax of partial <code>inst</code>ances is very similar to the syntax you use to write constraints in <code>pred</code>icates. Always keep in mind that <strong>they are not the same</strong>; bindings have a far more restrictive syntax but allow you to refer to atoms directly---something constraints don't allow.</p>
 </div>
 <h3 id="froglet-style-bind-expressions">Froglet Style Bind Expressions<a class="headerlink" href="#froglet-style-bind-expressions" title="Permanent link">&para;</a></h3>
-<p>In Froglet:
-- a <code>&lt;bounds-expr&gt;</code> for a <code>sig</code> is a <code>+</code>-separated list of atom names (each prefixed by backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes).
-- a <code>&lt;bounds-expr&gt;</code> for a field is a <code>+</code>-separated list of entries in that field, using atom names (each prefixed by a backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes). Entries are defined using the <code>(arg1, arg2, ...) -&gt; result</code> syntax, and may be either complete or piecewise. 
-    - a <em>complete</em> bind for a field </p>
+<p>In Froglet:</p>
+<ul>
+<li>a <code>&lt;bounds-expr&gt;</code> for a <code>sig</code> is a <code>+</code>-separated list of atom names (each prefixed by backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes).</li>
+<li>a <code>&lt;bounds-expr&gt;</code> for a field is a <code>+</code>-separated list of entries in that field, using atom names (each prefixed by a backquote), <code>sig</code> names that have already been bounded, and integers (without backquotes). Entries are defined using the <code>(arg1, arg2, ...) -&gt; result</code> syntax, and may be either complete or piecewise. <ul>
+<li>a <em>complete</em> bind for a field </li>
+</ul>
+</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">Froglet-style bounds</p>
 <p>Suppose you have a Forge model like this:
