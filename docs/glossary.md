@@ -52,6 +52,7 @@ If `A` is a `sig`, and you get an error that says "Please specify an upper bound
 #### Invalid example ... the instance specified is impossible ... 
 
 If an example fails, Forge will attempt to disambiguate between:
+
 * it actually fails the _predicate under test_; and 
 * it fails because it violates the type declarations for sigs and fields. 
 
@@ -99,6 +100,7 @@ If you receive this message, it means your example does something like the above
 #### Unexpected type or Contract Violation
 
 In Forge there are 2 kinds of constraint syntax for use in predicates:
+
 * formulas, which evaluate to true or false; and 
 * expressions, which evaluate to values like specific atoms. 
 

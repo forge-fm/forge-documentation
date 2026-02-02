@@ -71,6 +71,7 @@ If running in temporal mode, the evaluator is run in the context of the _first s
 ## Custom Visualizations: Script View
 
 Sterling also allows you to write and run scripts that produce your own custom visualizations. This documentation site contains a basic example here:
+
 - [example visualization script](../example-models/vis/ttt.js)
 - [Tic-tac-toe model to run the script with](../example-models/ttt.frg)
 

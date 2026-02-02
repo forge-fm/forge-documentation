@@ -189,6 +189,7 @@ $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A 
 > `^<expr>`
 
 returns the transitive closure of `<expr>`, assuming it is has arity 2. Attempting to apply `^` to a relation of different arity will produce an error. The transitive closure of a binary relation $r$ is defined as the _smallest_ relation $t$ such that:
+
 - `r in t`; and 
 - for all `a`, `b`, and `c`, if `a->b` is in `t` and `b->c` is in `t`, then `a->c` is in `t`.
 

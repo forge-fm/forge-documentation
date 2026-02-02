@@ -98,7 +98,8 @@ takes the value of `<fmla-b>` when `<fmla-a>` evaluates to **true**, and takes t
 
 !!! example
     If:
-    - `some p.spouse` is true when the person `p` is married, 
+
+    - `some p.spouse` is true when the person `p` is married,
     - `p.spouse != p` is true when `p` is not married to themselves, and
     - `some p.parent1` is true when `p` has a `parent1` in the instance, 
 

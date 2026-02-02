@@ -9,6 +9,7 @@ racket <modelname.frg>
 ```
 
 You can provide Forge [options](../running-models/options.md) directly by adding command-line flags:
+
 * The `-o` or `-option` flag will set the option, but if the file sets that option the file's version will be used.
 * The `-O` or `-override` flag will set the option, and that option will hold regardless of what may be set in the file. 
 

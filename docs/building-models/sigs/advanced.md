@@ -44,7 +44,8 @@ Because every `run` is always equipped with a finite bound on every sig, the sol
     } for exactly 4 Person
     ```
 
-    This model defines two sets: 
+    This model defines two sets:
+
     - `Person`, of arity 1; and
     - `bestFriend`, of arity 2.
 

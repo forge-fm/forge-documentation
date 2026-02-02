@@ -5,11 +5,13 @@ As seen in the [Sterling Visualizer](../running-models/sterling-visualizer.md) s
 ## Script View and Modes
 
 When viewing an instance in Sterling, there are three options for viewing an instance: Graph, Table, and Script. To swap to script-view mode, click on Script. Most of the screen will be taken up by 3 new panes:
+
 * the visualization canvas (blank by default); 
 * the script editor; and 
 * a list of available variables that are available for scripts to use.
 
-Where the "Next" button was in the graph visualizer, there will now be 4 more buttons: 
+Where the "Next" button was in the graph visualizer, there will now be 4 more buttons:
+
 * Run executes the visualization script when clicked.
 * `<div>`, `<canvas>` and `<svg>` swap between visualization modes. The default is `<svg>`. 
 This documentation focuses on the `<svg>` mode, because that is where most of the library support is. 
@@ -87,6 +89,7 @@ Scripts in `<svg>` mode use the [D3 visualization library](https://d3-graph-gall
 ## Potential Pitfalls and Debugging
 
 Sterling presents a "full Forge" view of instances, and one that's closer to the way the solver works. All sigs and fields are represented as _sets_ in the instance. Each set contains `AlloyTuple` objects, which themselves contain lists of `AlloyAtom`s. Because (at the moment) there is no support for types in the script editor, it can sometimes be troublesome to remember which kind of datum you're working with. The `alloy-ts` docs below provide much more detail, but in brief:
+
 * if the object has an `.atoms()` method, it's an `AlloyTuple`;
 * if the object has an `.id()` method, it's an `AlloyAtom`; and
 * signatures, fields, tuples, and atoms are all `AlloySets` and provide a `.tuples()` method.
@@ -100,14 +103,17 @@ We suggest using `TextBox`es to visualize debugging information. As a fallback, 
 ## Further Resources and Examples
 
 Further chapters:
+
 * [Visualization Helper Library](./d3fx_apr23.md) describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.
 * [Working with SVG and Imports](./svg-tips.md) explains how to (e.g.) increase the size of the rendering area.
 
 External resources:
+
 * [What is the SVG format?](https://www.w3schools.com/graphics/svg_intro.asp)
 * [D3FX helpers design documentation](https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e)---**beware, this is actively being worked on and edited, and thus subject to change!**
 
 Examples using D3:
+
 * [Mia Santomauro's 2021 Guide](https://github.com/miasantomauro/lets-get-visual) for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.
 * Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:
   * [Sudoku Synthesizer](https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz)
@@ -117,6 +123,7 @@ Examples using D3:
 
 !!! thanks "Collaborators"
     Work on custom visualization in Sterling is an ongoing collaborative effort. We are grateful to Tristan Dyer for working to expand Sterling for Forge. We are also grateful for contributions from (in alphabetic order):
+
     * Ethan Bove
     * Sidney LeVine
     * Mia Santomauro

@@ -25,6 +25,7 @@ To install via Git, open a terminal window. Then:
 - install the `forge` package (`raco pkg install ./forge`).
 
 If you wish to switch to the development branch, you must:
+
 - check out the development branch (`git checkout dev`);
 - rebuild Forge (`raco setup forge`).
 
@@ -65,7 +66,8 @@ If you're working in a file with the `.frg` extension, you should see an eye ico
     In prior years, logging was done via annotations to `#lang` in homework files. We no longer do this. A major consequence is that we no longer know your identity from logs; we believe this is an improvement! However, it does mean we can't reach out if we see a problem happening. Please _report problems_ if you see them.
 
 
-We log primarily for two reasons. 
+We log primarily for two reasons.
+
 * First, Forge is under active development---the majority of the codebase was written by undergraduate researchers working with Tim! This means that information about how Forge is used, what errors arise, etc. can be useful in making Forge better. 
 * Second, Forge is mainly used in the classroom. It's easy for instructors to claim, anecdotally, that students "like" something or "find it useful" based on a handful of office-hours conversations. We want to hold ourselves to a higher standard. What proportion of students _actually uses_ that feature? Is the hinting we provide on some problems _effective_? Questions like these are impossible to answer without knowing something about patterns of use. 
 
@@ -123,6 +125,7 @@ Queries GPT-3 with highlighted text. The response is automatically injected **be
 Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a text file `test.frg` with only the contents `#lang forge` and then, from your command line, type `racket test.frg`. If this runs without error, congratulations, Forge should now be installed!
 
 If you encounter any issues installing, please report them. We'll do our best to get you help as soon as possible.
+
 - If you're taking CSCI 1710 at Brown, a class that uses Forge, report bugs on EdStem. 
 - If you don't have a course-related means of reporting bugs, please mail Tim (Tim_Nelson@brown.edu).
 

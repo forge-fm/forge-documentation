@@ -9,6 +9,7 @@ The types of problems that Forge creates and solves consist of 3 mathematical ob
 ## Partial Instances
 
 Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by `sig` and `pred` declarations. The third concern is often addressed by numeric bounds (also called "scope"), but numeric bounds are always converted (usually invisibly to the user!) into set-based bounds that concretely specify:
+
 - the _lower_ bounds, what _must_ be in an instance; and 
 - the _upper_ bounds, what _may_ be in an instance.
 
@@ -29,6 +30,7 @@ An `inst` declaration contains a `{}`-enclosed sequence of bind declarations.  A
 - `r is plinear` : similar to `r is linear`, but possibly not involving the entire contents of the sig. I.e., a total linear order on `A'`->`A'` for some subset `A'` of `A`.
 
 When binding fields, the binding can also be given _piecewise_ per atom. Keep in mind that atom names should be prefixed by a backquote:
+
 - `AtomName.f in <bounds-expr>` (upper bound, restricted to `AtomName`);
 - `AtomName.f ni <bounds-expr>` (lower bound, restricted to `AtomName`);
 - `AtomName.f = <bounds-expr>` (exact bound, restricted to `AtomName`); and
@@ -44,6 +46,7 @@ The specifics of `<bounds-expr>` depend on which Forge language you are using.
 ### Froglet Style Bind Expressions 
 
 In Froglet:
+
 - a `<bounds-expr>` for a `sig` is a `+`-separated list of atom names (each prefixed by backquote), `sig` names that have already been bounded, and integers (without backquotes).
 - a `<bounds-expr>` for a field is a `+`-separated list of entries in that field, using atom names (each prefixed by a backquote), `sig` names that have already been bounded, and integers (without backquotes). Entries are defined using the `(arg1, arg2, ...) -> result` syntax, and may be either complete or piecewise. 
     - a _complete_ bind for a field 

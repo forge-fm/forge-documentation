@@ -5,6 +5,7 @@ Forge is a tool (and a set of languages) that allows us to define models of syst
 ## Systems
 
 A **system** can be generally thought of as a particular way that various entities interact.  A system isn't necessarily a _computer_ system, although it can be. For example:
+
 - The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.
 - Family trees are a system where there are people, and rules that express how they are related to each other.
 - A cryptographic protocol is a system where there are parties, messages, cryptographic primitives, and rules that govern how messages can be encrypted, decrypted, sent, and received.
@@ -16,6 +17,7 @@ _There is no limit to the type or complexity of a system that we can discuss_, a
 ## Models
 
 A **model** is a _representation_ of a system that faithfully includes some but usually not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. Think about what a car company does before it produces a new car design. Among other things, it creates multiple models. E.g.,
+
 * it models the car in some computer-aided design tool; and then
 * creates a physical model of the car, perhaps with clay, for testing in wind tunnels etc.
 
@@ -51,6 +53,7 @@ An **instance** is a concrete scenario that abides by the rules of a model, cont
 
 !!! warning "Analogy to OOP"
     We can draw a very rough analogy to object-oriented programming here. We might say:
+
     - a `sig` definition, along with its fields, is like a class; and
     - atoms within an instance of a model are like objects (since each atom belongs to some `sig`).
     This is a useful analogy! 
@@ -59,11 +62,13 @@ An **instance** is a concrete scenario that abides by the rules of a model, cont
 
 
 Each instance shows a single way that the constraints in the model can be satisfied. Here are two example instances, described in English:
+
 * There are two people, `Tim` and `Nim`. `Tim` has `Nim` as a best friend, and `Nim` has `Tim` as a best friend. 
 * There is one person, `Nim`, who has `Nim` as a best friend. 
 * There are no people. 
 
 Why do the second and third instance get produced? Because all we told Forge to enforce was:
+
 * Each `Person` must have a best friend.
 
 If there are no people, there is nobody to be obligated to have friends. The empty instance satisfies this constraint.
@@ -71,6 +76,7 @@ If there are no people, there is nobody to be obligated to have friends. The emp
 ## Satisfiability and Unsatisfiability 
 
 Semi-formally, we'll say that a model is _satisfied_ by an instance if:
+
 * it contains sets of atoms for every `sig` in the model; 
 * each atom has fields appropriate to its `sig`; and 
 * the instance obeys all of the model's constraints. 
@@ -79,6 +85,7 @@ A model is _satisfiable_ if there exists some satisfying instance for it. A mode
 
 !!! example "Another example"
     If you play Sudoku, you might imagine modeling the game as a set of constraints. Then add:
+
     * constraints that express the starting puzzle; and 
     * a constraint expressing the need to populate every square in the board.
 

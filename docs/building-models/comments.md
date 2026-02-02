@@ -1,6 +1,7 @@
 # Comments
 
 Forge models support 3 different syntactic styles of comment:
+
 - lines beginning with `--` are ignored;
 - lines beginning with `//` are ignored; and 
 - all text between `/*` and `*/` are ignored. 

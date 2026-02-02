@@ -32,6 +32,7 @@ Assertions largely subsume an older testing form, `test expect` blocks, which ar
 ## Examples
 
 The `example` syntax lets you test whether a specific instance is satisfied by some predicate in your model. An `example` contains three parts:
+
 * a name for the example;
 * which predicate the instance should satisfy (or not satisfy); and 
 * the instance itself. 
@@ -124,6 +125,7 @@ The `assert` syntax allows you to write tests at a more abstract level than exam
     ```
 
     which should both pass, since:
+
     * if `X` occupied the entire first row, it has won; and 
     * if someone has won the game, there must be moves taken on the board.
 
@@ -159,10 +161,12 @@ Assertions also support universal quantification (i.e. `all`, but not `some`, `o
 
 
 Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:
+
 * Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; 
 * for a game of chess to be won, a king must be in check; 
 * someone must first be logged into Gmail to read their mail;
 or confirm that:
+
 * it is possible to generate a run of Dijkstra's algorithm in the model;
 * it is possible to generate a chess configuration where the king is in check; or
 * someone can log into Gmail to begin with. 
@@ -205,11 +209,13 @@ You should organize your tests into `test suite`s for each predicate you plan to
 We generally suggest using assertions rather than test-expect blocks if you can do so. 
 
 Every `test expect` contains a set of individual checks. Each has:
+
 * an optional test name;
 * a predicate block; and 
 * an intention (`is sat`, `is unsat`, `is checked`, or `is forge_error`). 
 
 The meaning of each intention is:
+
 * `is sat`: the predicate block is satisfiable under the given bounds; 
 * `is unsat`: the predicate block is unsatisfiable under the given bounds; and 
 * `is checked`: the predicate block's *negation* is unsatisfiable under the given bounds.

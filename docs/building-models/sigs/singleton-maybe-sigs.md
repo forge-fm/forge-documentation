@@ -1,6 +1,7 @@
 # Singleton and Maybe Sigs
 
 A sig declaration can be annotated to indicate:
+
 - that there is always exactly one object of that sig (`one sig`);
 - that there is never more than one object of that sig (`lone sig`); or
 - that any object of that sig must also be a member of some child sig (`abstract sig`).
