@@ -1057,8 +1057,6 @@
       
         
       
-        
-      
     
     
     
@@ -1146,34 +1144,6 @@
     
   
     Relational Operators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../building-models/constraints/expressions/relational-expressions/relational-join/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Relational Join
   
 
     
@@ -2551,7 +2521,7 @@
 <p><img alt="The trace viewer shows a cycle of 4 states, with the final state looping back to the first. A header says &quot;State 1 of 4&quot; between a forward and backward button." src="../../images/temporal-minimap.png" title="The trace viewer for temporal Forge" /></p>
 <h2 id="the-evaluator">The Evaluator<a class="headerlink" href="#the-evaluator" title="Permanent link">&para;</a></h2>
 <p>The evaluator provides a prompt that lets you query instances with Forge expressions. You can open the evaluator by clicking the "Evaluator" drawer on the far right of the Sterling window. Type a Forge expression and the evaluator will return its value in the current instance (assuming that Forge is still running). E.g.:</p>
-<p><img alt="Evaluating an expression: the evaluator is open, and the user has just evaluated the expression \Board1.places. The result,((A0 C0 X0))`, appears beneath the input box." src="../../images/eval-ttt-places.png" title="Evaluating an Expression" /></p>
+<p><img alt="Evaluating an expression: the evaluator is open, and the user has just evaluated the expression `Board1.places. The result, ((A0 C0 X0)), appears beneath the input box." src="../../images/eval-ttt-places.png" title="Evaluating an Expression" /></p>
 <p>Because the evaluator works with respect to a single instance, exact values of expressions are returned. These expressions are (as of January 2024) not always Forge syntax. E.g., relations are displayed using nested parentheses, and <code>false</code> is written as <code>#f</code>. Fields are displayed in row form, with every entry in the field grouped into a parenthesis; in the example above, the meaning is that there's only one move on the board: <code>X</code> moved at row <code>A</code>, column <code>C</code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Atoms can be referenced</p>

@@ -14,7 +14,7 @@
         <link rel="prev" href="../../expressions/">
       
       
-        <link rel="next" href="../relational-join/">
+        <link rel="next" href="../../functions/">
       
       
         
@@ -1059,8 +1059,6 @@
       
         
       
-        
-      
     
     
     
@@ -1308,10 +1306,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#if-then-else" class="md-nav__link">
+  <a href="#if-then-else-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        if then else
+        If-then-else Expressions
       
     </span>
   </a>
@@ -1322,7 +1320,7 @@
   <a href="#caveats-alloy-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Caveats: Alloy support
+        Caveats: Alloy Support
       
     </span>
   </a>
@@ -1333,34 +1331,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../relational-join/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Relational Join
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2495,10 +2465,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#if-then-else" class="md-nav__link">
+  <a href="#if-then-else-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        if then else
+        If-then-else Expressions
       
     </span>
   </a>
@@ -2509,7 +2479,7 @@
   <a href="#caveats-alloy-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Caveats: Alloy support
+        Caveats: Alloy Support
       
     </span>
   </a>
@@ -2562,13 +2532,13 @@ the relation <code>roads</code> is an arity-2 set which contains ordered pairs o
 <li><a href="#transpose"><code>~ (transpose)</code></a></li>
 <li><a href="#transitive-closure"><code>^ (transitive closure)</code></a></li>
 <li><a href="#reflexive-transitive-closure"><code>* (reflexive transitive closure)</code></a></li>
-<li><a href="#if-then-else"><code>=&gt; else</code></a></li>
+<li><a href="#if-then-else-expressions"><code>=&gt; else</code></a></li>
 <li><a href="#set-comprehension"><code>set comprehension</code></a></li>
 </ul>
 <!-- (Unlike [Formula Operators](../../formulas/operators.md), the parentheticals are _not alternative syntax_. They are the mathematical names) -->
 
 <hr />
-<h2 id="union"><code>+ (union)</code><a class="headerlink" href="#union" title="Permanent link">&para;</a></h2>
+<h2 id="union"><code>+</code> (union)<a class="headerlink" href="#union" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>&lt;expr-a&gt; + &lt;expr-b&gt;</code></p>
 </blockquote>
@@ -2580,7 +2550,7 @@ the relation <code>roads</code> is an arity-2 set which contains ordered pairs o
 </code></pre></div></p>
 </div>
 <hr />
-<h2 id="-set-difference"><code>- (set difference)</code><a class="headerlink" href="#-set-difference" title="Permanent link">&para;</a></h2>
+<h2 id="-set-difference"><code>-</code> (set difference)<a class="headerlink" href="#-set-difference" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>&lt;expr-a&gt; - &lt;expr-b&gt;</code></p>
 </blockquote>
@@ -2592,7 +2562,7 @@ the relation <code>roads</code> is an arity-2 set which contains ordered pairs o
 </code></pre></div></p>
 </div>
 <hr />
-<h2 id="intersection"><code>&amp; (intersection)</code><a class="headerlink" href="#intersection" title="Permanent link">&para;</a></h2>
+<h2 id="intersection"><code>&amp;</code> (intersection)<a class="headerlink" href="#intersection" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>&lt;expr-a&gt; &amp; &lt;expr-b&gt;</code></p>
 </blockquote>
@@ -2604,7 +2574,7 @@ the relation <code>roads</code> is an arity-2 set which contains ordered pairs o
 </code></pre></div></p>
 </div>
 <hr />
-<h2 id="-cross-product"><code>-&gt; (cross product)</code><a class="headerlink" href="#-cross-product" title="Permanent link">&para;</a></h2>
+<h2 id="-cross-product"><code>-&gt;</code> (cross product)<a class="headerlink" href="#-cross-product" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>&lt;expr-a&gt; -&gt; &lt;expr-b&gt;</code></p>
 </blockquote>
@@ -2621,7 +2591,7 @@ then <code>Providence -&gt; Pawtucket</code> is an arity-2, one-element set, whi
 <p>Likewise, <code>City -&gt; City</code> will produce an arity-2 set containing every possible pair-wise combination of cities.</p>
 </div>
 <hr />
-<h2 id="transpose"><code>~ (transpose)</code><a class="headerlink" href="#transpose" title="Permanent link">&para;</a></h2>
+<h2 id="transpose"><code>~</code> (transpose)<a class="headerlink" href="#transpose" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>~&lt;expr&gt;</code></p>
 </blockquote>
@@ -2646,14 +2616,14 @@ then <code>~roads</code> is an arity-2, set that contains exactly the same eleme
 would evaluate to the set of student-faculty pairs where the student has taken a course from that faculty member.</p>
 </div>
 <hr />
-<h2 id="and-relational-join"><code>.</code> <em>and</em> <code>[] (relational join)</code><a class="headerlink" href="#and-relational-join" title="Permanent link">&para;</a></h2>
+<h2 id="and-relational-join"><code>.</code> <em>and</em> <code>[]</code> (relational join)<a class="headerlink" href="#and-relational-join" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>&lt;expr-a&gt; . &lt;expr-b&gt;</code></p>
 </blockquote>
 <p>returns the <strong>relational join</strong> of the two exprs. It combines two relations by seeking out rows with common values in their rightmost and leftmost columns. Concretely, if <code>A</code> is an <span class="arithmatex">\(n\)</span>-ary relation, and <code>B</code> is <span class="arithmatex">\(m\)</span>-ary, then <code>A.B</code> equals the <span class="arithmatex">\(n+m-2\)</span>-ary relation:</p>
 <div class="arithmatex">\[\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A \text{ and } (x, b_2, ..., b_m) \in B\}\]</div>
 <div class="admonition example">
-<p class="admonition-title">Product (example 1)</p>
+<p class="admonition-title">Relational Join</p>
 <p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> is a city:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sig City {
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    roads: set City
@@ -2682,11 +2652,9 @@ then <code>roads.roads</code> is an arity-2 set and <code>Providence.roads</code
 <p class="admonition-title">Forge is not SQL</p>
 <p>Relations in Forge don't have column <em>names</em> like they do in most databases. The join is always on the innermost columns of the two relations being joined.</p>
 </div>
-<!-- [TODOLINK]() -->
-
 <p><strong>Alternative syntax:</strong> <code>&lt;expr-a&gt;[&lt;expr-b&gt;]</code>: is equivalent to <code>&lt;expr-b&gt; . &lt;expr-a&gt;</code>;</p>
 <hr />
-<h2 id="transitive-closure"><code>^ (transitive closure)</code><a class="headerlink" href="#transitive-closure" title="Permanent link">&para;</a></h2>
+<h2 id="transitive-closure"><code>^</code> (transitive closure)<a class="headerlink" href="#transitive-closure" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>^&lt;expr&gt;</code></p>
 </blockquote>
@@ -2707,27 +2675,30 @@ then <code>roads.roads</code> is an arity-2 set and <code>Providence.roads</code
 then <code>^roads</code> is the <em>reachability relation</em> between cities.</p>
 </div>
 <hr />
-<h2 id="reflexive-transitive-closure"><code>* (reflexive transitive closure)</code><a class="headerlink" href="#reflexive-transitive-closure" title="Permanent link">&para;</a></h2>
+<h2 id="reflexive-transitive-closure"><code>*</code> (reflexive transitive closure)<a class="headerlink" href="#reflexive-transitive-closure" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>*&lt;expr&gt;</code></p>
 </blockquote>
 <p>returns the reflexive-transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>*</code> to a relation of different arity will produce an error.</p>
 <p>For a given 2-ary relation <code>r</code>, <code>*r</code> is equivalent to <code>^r + iden</code>. </p>
 <hr />
-<h2 id="if-then-else"><code>if then else</code><a class="headerlink" href="#if-then-else" title="Permanent link">&para;</a></h2>
+<h2 id="if-then-else-expressions">If-then-else Expressions<a class="headerlink" href="#if-then-else-expressions" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>{&lt;fmla&gt; =&gt; &lt;expr-a&gt; else &lt;expr-b&gt;}</code> </p>
 </blockquote>
 <p>returns <code>&lt;expr-a&gt;</code> if <code>&lt;fmla&gt;</code> evaluates to true, and <code>&lt;expr-b&gt;</code> otherwise.</p>
 <hr />
-<h2 id="caveats-alloy-support">Caveats: Alloy support<a class="headerlink" href="#caveats-alloy-support" title="Permanent link">&para;</a></h2>
-<p>Forge does not currently support the relational Alloy operators <code>&lt;:</code>, <code>:&gt;</code>, or <code>++</code>; if your models require them, please contact the Forge team.</p>
+<h2 id="caveats-alloy-support">Caveats: Alloy Support<a class="headerlink" href="#caveats-alloy-support" title="Permanent link">&para;</a></h2>
+<p>Forge's support for the relational Alloy operators <code>&lt;:</code>, <code>:&gt;</code>, and <code>++</code> is limited. If your models require them, please contact the Forge team.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

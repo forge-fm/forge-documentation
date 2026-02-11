@@ -1057,8 +1057,6 @@
       
         
       
-        
-      
     
     
     
@@ -1146,34 +1144,6 @@
     
   
     Relational Operators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../building-models/constraints/expressions/relational-expressions/relational-join/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Relational Join
   
 
     
@@ -2354,15 +2324,15 @@
 <h2 id="expanding-the-svg-region">Expanding the SVG Region<a class="headerlink" href="#expanding-the-svg-region" title="Permanent link">&para;</a></h2>
 <p>If the default <code>svg</code> area is not the right size for your needs, you can change its dimensions. </p>
 <p>The <code>&lt;svg&gt;</code> element that scripts render to is contained within an element called <code>svg-container</code>, whose only child is the render area. Thus, the render area can be obtained with:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>const renderArea = document.getElementById(&#39;svg-container&#39;).getElementsByTagName(&#39;svg&#39;)[0]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">renderArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;svg-container&#39;</span><span class="p">).</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;svg&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
 </code></pre></div>
 You can then set the <code>style.width</code> and <code>style.height</code> attributes of the rendering area. </p>
 <div class="admonition example">
 <p class="admonition-title">Changing the rendering area size</p>
 <p>This code changes the available space in the <code>&lt;svg&gt;</code> element, giving us 5 times the original vertical space to work with: 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>const svgContainer = document.getElementById(&#39;svg-container&#39;)
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>svgContainer.getElementsByTagName(&#39;svg&#39;)[0].style.height = &#39;500%&#39;
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>svgContainer.getElementsByTagName(&#39;svg&#39;)[0].style.width = &#39;100%&#39;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">svgContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;svg-container&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">svgContainer</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;svg&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;500%&#39;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">svgContainer</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;svg&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;100%&#39;</span>
 </code></pre></div></p>
 </div>
 <div class="admonition warning">
@@ -2373,14 +2343,14 @@ You can then set the <code>style.width</code> and <code>style.height</code> attr
 <p>You also have access to set the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"><code>viewBox</code> attribute</a> of the <code>&lt;svg&gt;</code> region. However, we don't suggest making this specific kind of low-level change if you're working only with D3FX.</p>
 <div class="admonition example">
 <p class="admonition-title">1000 by 1000 viewbox</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>require(&#39;d3&#39;)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>d3.select(svg).attr(&quot;viewBox&quot;, &quot;0 0 1000 1000&quot;)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;d3&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">svg</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;viewBox&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0 0 1000 1000&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="importing-modules">Importing modules<a class="headerlink" href="#importing-modules" title="Permanent link">&para;</a></h2>
 <p>Sterling uses the <a href="https://github.com/d3/d3-require"><code>d3-require</code></a> and <a href="https://www.jsdelivr.com/">jsdelivr</a> systems to import external libraries. These should be given in the first lines of the script (before any comments!) and be enclosed in a single <code>require</code> form per library. E.g., to import the <code>d3-array</code> and <code>d3-format</code> libraries:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>require(&quot;d3-array&quot;)
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>require(&quot;d3-format&quot;)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;d3-array&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;d3-format&quot;</span><span class="p">)</span>
 </code></pre></div></p>
 
 
