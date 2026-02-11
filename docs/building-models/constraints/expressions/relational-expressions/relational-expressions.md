@@ -139,7 +139,7 @@ returns the **relational join** of the two exprs. It combines two relations by s
 
 $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A \text{ and } (x, b_2, ..., b_m) \in B\}$$
 
-!!! example "Product (example 1)"
+!!! example "Relational Join"
     If `roads` is a binary relation between `City` and itself, and `Providence` is a city:
     ~~~
     sig City {
@@ -174,7 +174,6 @@ $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A 
     Relations in Forge don't have column _names_ like they do in most databases. The join is always on the innermost columns of the two relations being joined.
 
 
-<!-- [TODOLINK]() -->
 
 
 

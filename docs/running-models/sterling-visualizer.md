@@ -50,7 +50,7 @@ In temporal mode, when the trace found is of length greater than 1, Sterling wil
 
 The evaluator provides a prompt that lets you query instances with Forge expressions. You can open the evaluator by clicking the "Evaluator" drawer on the far right of the Sterling window. Type a Forge expression and the evaluator will return its value in the current instance (assuming that Forge is still running). E.g.:
 
-![Evaluating an expression: the evaluator is open, and the user has just evaluated the expression `\`Board1.places`. The result, `((A0 C0 X0))`, appears beneath the input box.](../images/eval-ttt-places.png "Evaluating an Expression")
+![Evaluating an expression: the evaluator is open, and the user has just evaluated the expression `Board1.places. The result, ((A0 C0 X0)), appears beneath the input box.](../images/eval-ttt-places.png "Evaluating an Expression")
 
 
 Because the evaluator works with respect to a single instance, exact values of expressions are returned. These expressions are (as of January 2024) not always Forge syntax. E.g., relations are displayed using nested parentheses, and `false` is written as `#f`. Fields are displayed in row form, with every entry in the field grouped into a parenthesis; in the example above, the meaning is that there's only one move on the board: `X` moved at row `A`, column `C`.

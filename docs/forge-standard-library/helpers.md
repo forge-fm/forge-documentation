@@ -1,6 +1,6 @@
 # Helpers
 
-Forge and Frglet provide a number of built-in helpers to ease your work in the language.
+Forge and Froglet provide a number of built-in helpers to ease your work in the language.
 
 ## Sequences
 
@@ -44,12 +44,12 @@ Forge provides a convenient way to speak of an object being reachable via fields
 - `reachable[a, b, f]`: object `a` is reachable from `b` through recursively applying field `f`. This predicate only works if `a.f` is well-defined.
 - `reachable[a, b, f1, f2, ...]`: an extended version of `reachable` which supports using more than one field to reach `a` from `b`.
 
-The extended version of reachable is useful if you wish to model, e.g., binary trees where nodes have a `left` and `right` field. In such a model, if you want to quantify over all descendents of a `parent` node, you might write `all n: Node | reachable[n, parent, left, right]`.
+The extended version of reachable is useful if you wish to model, e.g., binary trees where nodes have a `left` and `right` field. In such a model, if you want to quantify over all descendants of a `parent` node, you might write `all n: Node | reachable[n, parent, left, right]`.
 
-!!! title "Order matters!"
+!!! warning "Order matters!"
     Beware: the order of arguments in `reachable` matters! The first argument is the object _to be reached_, and the second argument is the _starting object_. Getting these reversed is a common source of errors.
 
 
-!!! title "The value `none` is reachable from anything"
+!!! warning "The value `none` is reachable from anything"
     Beware: if you pass something that might be `none` as the first argument of `reachable`, in such cases `reachable` will evaluate to true. E.g., `reachable[p.spouse, p, father]` will evaluate to true if `p` happens to be unmarried.
 

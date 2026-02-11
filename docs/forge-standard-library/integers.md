@@ -13,7 +13,7 @@ Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not cont
 
     **Example**: With a bitwidth of `4`, `add[7, 1]` evaluates to `-8`.
 
-    For more on integer bounds, see \[\[Bounds|Bounds]].
+    For more on integer bounds, see [Bounds](../running-models/bounds.md).
 
 
 ## Remark
