@@ -88,14 +88,14 @@ In Froglet:
     `Person1.gradeIn = `Course2 -> `C
     no `Person2.gradeIn
     ```
-    Note that in the piecewise version, we need to explicitly say that `\`Person2` hasn't taken courses; in the all-at-once version, that's implicit.
+    Note that in the piecewise version, we need to explicitly say that `` `Person2 `` hasn't taken courses; in the all-at-once version, that's implicit.
 
     *This model is available in full [here](../example-models/piecewise-bounds.frg).*
 
 
 
 !!! warning "Atom names"
-    Identifiers prefixed by a backquote (`\`) always denote atom names. You cannot name atoms like this in ordinary constraints! (Thus, in the example above there is no `one sig A extends Grade {}`; there is only the atom `\`A`.)
+    Identifiers prefixed by a backquote (`` ` ``) always denote atom names. You cannot name atoms like this in ordinary constraints! (Thus, in the example above there is no `one sig A extends Grade {}`; there is only the atom `` `A ``.)
 
 
 
