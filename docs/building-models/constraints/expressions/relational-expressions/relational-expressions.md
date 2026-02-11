@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Relational Operators
 
 _Relational Operators_ produce expressions (not formulas) from other expressions. 

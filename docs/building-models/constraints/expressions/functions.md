@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Functions
 
 In the same way that [predicates](../formulas/predicates.md) define reusable formulas, _functions_ define reusable expressions in Relational and Temporal Forge. Define functions with the `fun` keyword:

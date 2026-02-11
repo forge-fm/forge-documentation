@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Integers
 
 Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not contain an infinite set of mathematical integers. Rather, an instance's `Int` sig contains a representation of a _subset_ of the integers following [two's-complement encoding](https://en.wikipedia.org/wiki/Two%27s_complement) for a specific number of bits. Concretely, if the bitwidth is $k$, the integers in an instance will be the interval $[-2^{k-1}, 2^{k-1}-1]$. The default bitwidth is 4.
@@ -22,21 +27,41 @@ There are _technically_ two types of "integers" in Forge: integer **values** (e.
 
 ## Integer Operators
 
-In the following, `<atoms>` represents a set of integer atoms and `<value>`, `<value-a>` and `<value-b>` are integer values. 
+In the following, `<atoms>` represents a set of integer atoms and `<value>`, `<value-a>` and `<value-b>` are integer values.
 
-- `add[<value-a>, <value-b> ...]`: returns the value of the sum `value-a` + `value-b` + ...
-- `subtract[<value-a>, <value-a> ...]`: returns the value of the difference `value-a` - `value-b` - ... 
-- `multiply[<value-a>, <value-b> ...]`: returns the value of the product `value-a` \* `value-b` \* ...
-- `divide[<value-a>, <value-b> ...]`: returns the value of the left-associative integer quotient (`value-a` / `value-b`) / ...
-- `remainder[<value-a>, <value-b>]`: returns the remainder for doing integer division. Note that if `value-a` is negative, the result will also be negative, and that integer wrap-around may affect the answer.
-- `abs[<value>]`: returns the absolute value of `value`
-- `sign[<value>]`: returns 1 if `value` is > 0, 0 if `value` is 0, and -1 if `value` is < 0
+### `add` (integer addition)
 
-## Comparison operators on values
+`add[<value-a>, <value-b> ...]`: returns the value of the sum `value-a` + `value-b` + ...
+
+### `subtract` (integer subtraction)
+
+`subtract[<value-a>, <value-a> ...]`: returns the value of the difference `value-a` - `value-b` - ...
+
+### `multiply` (integer multiplication)
+
+`multiply[<value-a>, <value-b> ...]`: returns the value of the product `value-a` * `value-b` * ...
+
+### `divide` (integer division)
+
+`divide[<value-a>, <value-b> ...]`: returns the value of the left-associative integer quotient (`value-a` / `value-b`) / ...
+
+### `remainder` (integer modulo)
+
+`remainder[<value-a>, <value-b>]`: returns the remainder for doing integer division. Note that if `value-a` is negative, the result will also be negative, and that integer wrap-around may affect the answer.
+
+### `abs` (absolute value)
+
+`abs[<value>]`: returns the absolute value of `value`.
+
+### `sign`
+
+`sign[<value>]`: returns 1 if `value` is > 0, 0 if `value` is 0, and -1 if `value` is < 0.
+
+## Comparison Operators (`=`, `<`, `<=`, `>`, `>=`)
 
 You can compare integer values using the usual `=`, `<`, `<=`, `>`, and `>=`.
 
-## Counting 
+## Counting
 
 Given an arbitrary expression `e`, the expression `#e` evaluates to the cardinality of (i.e., number of elements in) `e`. In Froglet, this is nearly always either `0` or `1`, although full Forge allows expressions that evaluate to sets of arbitrary size.
 
@@ -46,28 +71,39 @@ Given an arbitrary expression `e`, the expression `#e` evaluates to the cardinal
 
 ### Counting in Froglet
 
-It is often useful to count even in Froglet, where expressions usually evaluate to either `none` or some singleton object. For example, in a tic-tac-toe model we might want to count the number of `X` entries on the board. In both Froglet and Forge, we can write this using a combination of `#` and [set comprehension](../building-models/constraints/expressions/relational-expressions/relational-expressions.md) (normally not available in Froglet): `#{row, col: Int | b.board[row][col] = X}`. 
+It is often useful to count even in Froglet, where expressions usually evaluate to either `none` or some singleton object. For example, in a tic-tac-toe model we might want to count the number of `X` entries on the board. In both Froglet and Forge, we can write this using a combination of `#` and [set comprehension](../building-models/constraints/expressions/relational-expressions/relational-expressions.md) (normally not available in Froglet): `#{row, col: Int | b.board[row][col] = X}`.
 
 Concretely:
 
-> `#{x1: T1, ..., xn: Tn | <fmla>}` 
+> `#{x1: T1, ..., xn: Tn | <fmla>}`
 
-evaluates to an integer value reflecting the number of tuples `o1, ... on` where `<fmla>` is satisfied when `x1` takes the value `o1`, etc. 
+evaluates to an integer value reflecting the number of tuples `o1, ... on` where `<fmla>` is satisfied when `x1` takes the value `o1`, etc.
 
-## Aggregation and Conversion 
+## Aggregation and Conversion
 
-To convert between sets of integer atoms and integer values there are the following operations:
+To convert between sets of integer atoms and integer values there are the following operations.
 
-- `sing[<value>]`: returns an integer atom representing the given value;
-- `sum[<atoms>]`: returns an integer value: the sum of the values that are represented by each of the int atoms in the set;
-- `max[<atoms>]`: returns an integer value: the maximum of all the values represented by the int atoms in the set; and
-- `min[<atoms>]`: returns an integer value: the minimum of all the values represented by the int atoms in the set.
+### `sum` (integer sum)
+
+`sum[<atoms>]`: returns an integer value: the sum of the values that are represented by each of the int atoms in the set.
+
+### `max` (integer maximum)
+
+`max[<atoms>]`: returns an integer value: the maximum of all the values represented by the int atoms in the set.
+
+### `min` (integer minimum)
+
+`min[<atoms>]`: returns an integer value: the minimum of all the values represented by the int atoms in the set.
+
+### `sing` (singleton integer)
+
+`sing[<value>]`: returns an integer atom representing the given value.
 
 While you might use `sum`, `max`, and `min`, you shouldn't need to use `sing`---Forge automatically converts between integer values and integer objects. If you do find you need to use `sing`, notify us ASAP!
 
 ## Sum Aggregator
 
-You should be cautious using `sum[...]` once you start using the Relational Forge language. Suppose you have `sig A { i: one Int }`, and want to sum over all of the `i` values for every `A`. Duplicate values for `i` may exist across multiple `A` atoms. Then `sum[A.i]` would _not_ count duplicates separately, since `A.i` evaluates to a _set_, which can have no duplicates!  
+You should be cautious using `sum[...]` once you start using the Relational Forge language. Suppose you have `sig A { i: one Int }`, and want to sum over all of the `i` values for every `A`. Duplicate values for `i` may exist across multiple `A` atoms. Then `sum[A.i]` would _not_ count duplicates separately, since `A.i` evaluates to a _set_, which can have no duplicates!
 
 Because of this problem, Forge provides a second way to use `sum` which does count duplicates:
 

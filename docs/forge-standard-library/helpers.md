@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Helpers
 
 Forge and Froglet provide a number of built-in helpers to ease your work in the language.
@@ -14,35 +19,59 @@ You can think of sequences as roughly analogous to fixed-size arrays in a langua
 
 Hint: make sure that you use `isSeqOf` in any test or run that you want to enforce that `f` is a sequence. The `isSeqOf` predicate is just another constraint: it's not a persistent declaration like `pfunc` is.
 
-#### isSeqOf
+### `isSeqOf` (sequence predicate)
 
-- `isSeqOf[f, A]`: a predicate that holds if and only if `f` is a sequence of values in `A`.
+`isSeqOf[f, A]`: a predicate that holds if and only if `f` is a sequence of values in `A`.
 
-### Sequence Helpers
+### Sequence Helper Functions
 
-The following helpers are also available, but should only be used when `f` is a sequence:
+The following helpers are also available, but should only be used when `f` is a sequence.
 
-#### Sequence Helper Functions:
+#### `seqFirst` (first element)
 
-- `seqFirst[f]`: returns the first element of `f`, i.e. `f[0]`.
-- `seqLast[f]`: returns the last element of `f`.
-- `indsOf[f, e]`: returns all the indices of `e` in `f`.
-- `idxOf[f, e]`: returns the first index of `e` in `f`.
-- `lastIdxOf[f, e]`: returns the last index of `e` in `f`.
-- `elems[f]`: returns all the elements of `f`.
-- `inds[f]`: returns all the indices of `f`.
+`seqFirst[f]`: returns the first element of `f`, i.e. `f[0]`.
 
-#### Sequence Helper Predicates:
+#### `seqLast` (last element)
 
-- `isEmpty[f]`: true if and only if sequence `f` is empty.
-- `hasDups[f]`: true if and only if sequence `f` has duplicates (i.e., there are at least two indices that point to the same value).
+`seqLast[f]`: returns the last element of `f`.
 
-## Reachability
+#### `indsOf` (all indices of element)
+
+`indsOf[f, e]`: returns all the indices of `e` in `f`.
+
+#### `idxOf` (first index of element)
+
+`idxOf[f, e]`: returns the first index of `e` in `f`.
+
+#### `lastIdxOf` (last index of element)
+
+`lastIdxOf[f, e]`: returns the last index of `e` in `f`.
+
+#### `elems` (all elements)
+
+`elems[f]`: returns all the elements of `f`.
+
+#### `inds` (all indices)
+
+`inds[f]`: returns all the indices of `f`.
+
+### Sequence Helper Predicates
+
+#### `isEmpty` (empty sequence)
+
+`isEmpty[f]`: true if and only if sequence `f` is empty.
+
+#### `hasDups` (has duplicates)
+
+`hasDups[f]`: true if and only if sequence `f` has duplicates (i.e., there are at least two indices that point to the same value).
+
+## `reachable` (reachability)
 
 Forge provides a convenient way to speak of an object being reachable via fields of other objects.
 
-- `reachable[a, b, f]`: object `a` is reachable from `b` through recursively applying field `f`. This predicate only works if `a.f` is well-defined.
-- `reachable[a, b, f1, f2, ...]`: an extended version of `reachable` which supports using more than one field to reach `a` from `b`.
+`reachable[a, b, f]`: object `a` is reachable from `b` through recursively applying field `f` one or more times. Note (see caveat below): if `a` is an expression that evaluates to `none`, `reachable` will evaluate to true.
+
+`reachable[a, b, f1, f2, ...]`: an extended version of `reachable` which supports using more than one field to reach `a` from `b`.
 
 The extended version of reachable is useful if you wish to model, e.g., binary trees where nodes have a `left` and `right` field. In such a model, if you want to quantify over all descendants of a `parent` node, you might write `all n: Node | reachable[n, parent, left, right]`.
 

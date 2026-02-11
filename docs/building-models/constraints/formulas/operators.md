@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Formula-Combining Operators
 
 Formula operators combine smaller formulas to produce new formulas. Many closely resemble similar operators from programming languages, like `&&`, `||`, and `!`.

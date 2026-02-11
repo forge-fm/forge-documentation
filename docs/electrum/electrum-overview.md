@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Temporal Forge Overview
 
 Temporal mode extends Forge with temporal operators to ease specification and checking of dynamic systems. This mode draws heavily on the [Electrum work](http://haslab.github.io/Electrum/) by INESC TEC and ONERA, and the newer Alloy 6 version, but there are (slight) differences.

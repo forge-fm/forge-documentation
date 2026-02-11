@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Sigs
 
 _Sigs_ (short for "signatures") are the basic building block of any model in Forge. They represent the types of the system being modeled. To declare one, use the `sig` keyword. 
