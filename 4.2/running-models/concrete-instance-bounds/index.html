@@ -2516,12 +2516,12 @@ you might define bounds for the <code>gradeIn</code> field of <code>Person</code
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>`Person1.gradeIn = `Course2 -&gt; `C
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>no `Person2.gradeIn
 </code></pre></div>
-Note that in the piecewise version, we need to explicitly say that <code>\</code>Person2` hasn't taken courses; in the all-at-once version, that's implicit.</p>
+Note that in the piecewise version, we need to explicitly say that <code>`Person2</code> hasn't taken courses; in the all-at-once version, that's implicit.</p>
 <p><em>This model is available in full <a href="../../example-models/piecewise-bounds.frg">here</a>.</em></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Atom names</p>
-<p>Identifiers prefixed by a backquote (<code>\</code>) always denote atom names. You cannot name atoms like this in ordinary constraints! (Thus, in the example above there is no <code>one sig A extends Grade {}</code>; there is only the atom <code>\</code>A`.)</p>
+<p>Identifiers prefixed by a backquote (<code>`</code>) always denote atom names. You cannot name atoms like this in ordinary constraints! (Thus, in the example above there is no <code>one sig A extends Grade {}</code>; there is only the atom <code>`A</code>.)</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><code>in</code> vs. <code>ni</code> vs. <code>=</code></p>
@@ -2579,6 +2579,9 @@ To fix the problem, just add the same kind of bound for <code>Person</code>:
 
 
 
+
+  
+  
 
 
 
