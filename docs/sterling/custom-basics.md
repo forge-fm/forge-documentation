@@ -50,7 +50,7 @@ The `instance` variable provides access to the current instance. If temporal mod
 You can use the `.signature(name)` method of an instance to obtain an object representing a `sig` in the instance. Likewise, `.field(name)` will yield an object representing a particular field. 
 
 !!! example "A Basic Script"
-    If you're viewing an instance of the [binary search model](https://csci1710.github.io/2023/livecode/feb15_feb17_binarysearch.frg) from class, you can run this script directly. (If you use this model, uncomment the `run` at the bottom of the file!)
+    If you're viewing an instance of the [binary search model](../examples/binarysearch.frg), you can run this script directly. (If you use this model, uncomment the `run` at the bottom of the file!)
     ~~~
     const stage = new Stage()
     stage.add(new TextBox({

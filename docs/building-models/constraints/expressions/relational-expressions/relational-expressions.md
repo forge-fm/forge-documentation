@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Relational Operators
 
 _Relational Operators_ produce expressions (not formulas) from other expressions. 
@@ -28,13 +33,13 @@ _Relational Operators_ produce expressions (not formulas) from other expressions
 - [`~ (transpose)`](#transpose)
 - [`^ (transitive closure)`](#transitive-closure)
 - [`* (reflexive transitive closure)`](#reflexive-transitive-closure)
-- [`=> else`](#if-then-else)
+- [`=> else`](#if-then-else-expressions)
 - [`set comprehension`](#set-comprehension)
 <!-- (Unlike [Formula Operators](../../formulas/operators.md), the parentheticals are _not alternative syntax_. They are the mathematical names) -->
 
 ---
 
-## `+ (union)`
+## `+` (union)
 
 > `<expr-a> + <expr-b>`
 
@@ -49,7 +54,7 @@ returns the **union** of the two exprs, i.e., the set containing all elements th
 
 ---
 
-## `- (set difference)`
+## `-` (set difference)
 
 > `<expr-a> - <expr-b>`
 
@@ -64,7 +69,7 @@ returns the **set difference** of the two exprs, i.e., everything in `expr-a` th
 
 ---
 
-## `& (intersection)`
+## `&` (intersection)
 
 > `<expr-a> & <expr-b>`
 
@@ -79,7 +84,7 @@ returns the **intersection** of the two exprs, i.e., all elements in both `expr-
 
 ---
 
-## `-> (cross product)`
+## `->` (cross product)
 
 > `<expr-a> -> <expr-b>`
 
@@ -100,7 +105,7 @@ returns the **cross product** of the two exprs.
 
 ---
 
-## `~ (transpose)`
+## `~` (transpose)
 
 > `~<expr>`
 
@@ -131,7 +136,7 @@ A set-comprehension expression `{x1: T1, ..., xn: Tn | <fmla>}` evaluates to a s
 
 ---
 
-## `.` _and_ `[] (relational join)`
+## `.` _and_ `[]` (relational join)
 
 > `<expr-a> . <expr-b>`
 
@@ -139,7 +144,7 @@ returns the **relational join** of the two exprs. It combines two relations by s
 
 $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A \text{ and } (x, b_2, ..., b_m) \in B\}$$
 
-!!! example "Product (example 1)"
+!!! example "Relational Join"
     If `roads` is a binary relation between `City` and itself, and `Providence` is a city:
     ~~~
     sig City {
@@ -174,8 +179,6 @@ $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A 
     Relations in Forge don't have column _names_ like they do in most databases. The join is always on the innermost columns of the two relations being joined.
 
 
-<!-- [TODOLINK]() -->
-
 
 
 **Alternative syntax:** `<expr-a>[<expr-b>]`: is equivalent to `<expr-b> . <expr-a>`;
@@ -184,7 +187,7 @@ $$\{a_1, ..., a_{n-1}, b_2, ..., b_m | \exists x | (a_1, ..., a_{n-1}, x) \in A 
 
 ---
 
-## `^ (transitive closure)`
+## `^` (transitive closure)
 
 > `^<expr>`
 
@@ -208,7 +211,7 @@ Informally, it is useful to think of `^r` as encoding _reachability_ using `r`. 
 
 ---
 
-## `* (reflexive transitive closure)`
+## `*` (reflexive transitive closure)
 
 > `*<expr>`
 
@@ -218,7 +221,7 @@ For a given 2-ary relation `r`, `*r` is equivalent to `^r + iden`.
 
 ---
 
-## `if then else`
+## If-then-else Expressions
 
 > `{<fmla> => <expr-a> else <expr-b>}` 
 
@@ -226,7 +229,7 @@ returns `<expr-a>` if `<fmla>` evaluates to true, and `<expr-b>` otherwise.
 
 ---
 
-## Caveats: Alloy support
+## Caveats: Alloy Support
 
-Forge does not currently support the relational Alloy operators `<:`, `:>`, or `++`; if your models require them, please contact the Forge team.
+Forge's support for the relational Alloy operators `<:`, `:>`, and `++` is limited. If your models require them, please contact the Forge team.
 

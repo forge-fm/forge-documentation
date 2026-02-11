@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Let-Expressions
 
 You can bind an expression to an identifier locally by using a `let` form:

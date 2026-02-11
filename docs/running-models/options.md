@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Options
 
 Forge has a number of options that affect how it functions and how its solver is configured. They all have the same form: `option <key> <value>`. **Settings are case sensitive.** The available setting keys are:

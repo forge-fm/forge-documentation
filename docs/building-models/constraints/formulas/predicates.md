@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Predicates
 
 If you have a set of constraints that you use often, or that you'd like to give a name to, you can define a _predicate_ using the `pred` keyword. A predicate has the following form:

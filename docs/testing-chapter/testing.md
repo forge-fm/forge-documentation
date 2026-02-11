@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Testing
 
 Forge supports several different testing constructs. Chiefly:

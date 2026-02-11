@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Cardinality and Membership
 
 The following operators produce formulas from smaller expression arguments:

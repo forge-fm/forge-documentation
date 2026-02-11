@@ -1,6 +1,11 @@
+---
+search:
+  boost: 2
+---
+
 # Bounds
 
-Forge is a _bounded_ model finder, meaning it can only look for instances up to a certain bound. You can specify bounds in two seperate ways in Forge: using numeric bounds or instance bounds.
+Forge is a _bounded_ model finder, meaning it can only look for instances up to a certain bound. You can specify bounds in two separate ways in Forge: using numeric bounds or instance bounds.
 
 ---
 

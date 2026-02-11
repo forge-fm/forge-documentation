@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Field Multiplicity
 
 While types define what kinds of data can fit into a specific field, _multiplicities_ define how that data can be arranged. For example, multiplicities will say whether or not a field can be empty.

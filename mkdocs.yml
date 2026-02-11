@@ -121,7 +121,6 @@ nav:
       - Expressions:
         - building-models/constraints/expressions/expressions.md
         - Relational Operators: building-models/constraints/expressions/relational-expressions/relational-expressions.md
-        - Relational Join: building-models/constraints/expressions/relational-expressions/relational-join.md
         - Functions: building-models/constraints/expressions/functions.md
         - Let-Expressions: building-models/constraints/expressions/let-expressions.md
     - Comments: building-models/comments.md

@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Concrete Instance Bounds
 
 The types of problems that Forge creates and solves consist of 3 mathematical objects:

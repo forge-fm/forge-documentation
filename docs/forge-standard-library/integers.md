@@ -1,3 +1,8 @@
+---
+search:
+  boost: 3
+---
+
 # Integers
 
 Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not contain an infinite set of mathematical integers. Rather, an instance's `Int` sig contains a representation of a _subset_ of the integers following [two's-complement encoding](https://en.wikipedia.org/wiki/Two%27s_complement) for a specific number of bits. Concretely, if the bitwidth is $k$, the integers in an instance will be the interval $[-2^{k-1}, 2^{k-1}-1]$. The default bitwidth is 4.
@@ -13,7 +18,7 @@ Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not cont
 
     **Example**: With a bitwidth of `4`, `add[7, 1]` evaluates to `-8`.
 
-    For more on integer bounds, see \[\[Bounds|Bounds]].
+    For more on integer bounds, see [Bounds](../running-models/bounds.md).
 
 
 ## Remark
@@ -22,17 +27,37 @@ There are _technically_ two types of "integers" in Forge: integer **values** (e.
 
 ## Integer Operators
 
-In the following, `<atoms>` represents a set of integer atoms and `<value>`, `<value-a>` and `<value-b>` are integer values. 
+In the following, `<atoms>` represents a set of integer atoms and `<value>`, `<value-a>` and `<value-b>` are integer values.
 
-- `add[<value-a>, <value-b> ...]`: returns the value of the sum `value-a` + `value-b` + ...
-- `subtract[<value-a>, <value-a> ...]`: returns the value of the difference `value-a` - `value-b` - ... 
-- `multiply[<value-a>, <value-b> ...]`: returns the value of the product `value-a` \* `value-b` \* ...
-- `divide[<value-a>, <value-b> ...]`: returns the value of the left-associative integer quotient (`value-a` / `value-b`) / ...
-- `remainder[<value-a>, <value-b>]`: returns the remainder for doing integer division. Note that if `value-a` is negative, the result will also be negative, and that integer wrap-around may affect the answer.
-- `abs[<value>]`: returns the absolute value of `value`
-- `sign[<value>]`: returns 1 if `value` is > 0, 0 if `value` is 0, and -1 if `value` is < 0
+### `add` (integer addition)
 
-## Comparison operators on values
+`add[<value-a>, <value-b> ...]`: returns the value of the sum `value-a` + `value-b` + ...
+
+### `subtract` (integer subtraction)
+
+`subtract[<value-a>, <value-a> ...]`: returns the value of the difference `value-a` - `value-b` - ...
+
+### `multiply` (integer multiplication)
+
+`multiply[<value-a>, <value-b> ...]`: returns the value of the product `value-a` * `value-b` * ...
+
+### `divide` (integer division)
+
+`divide[<value-a>, <value-b> ...]`: returns the value of the left-associative integer quotient (`value-a` / `value-b`) / ...
+
+### `remainder` (integer modulo)
+
+`remainder[<value-a>, <value-b>]`: returns the remainder for doing integer division. Note that if `value-a` is negative, the result will also be negative, and that integer wrap-around may affect the answer.
+
+### `abs` (absolute value)
+
+`abs[<value>]`: returns the absolute value of `value`.
+
+### `sign`
+
+`sign[<value>]`: returns 1 if `value` is > 0, 0 if `value` is 0, and -1 if `value` is < 0.
+
+## Comparison Operators (`=`, `<`, `<=`, `>`, `>=`)
 
 You can compare integer values using the usual `=`, `<`, `<=`, `>`, and `>=`.
 
@@ -54,16 +79,28 @@ Concretely:
 
 evaluates to an integer value reflecting the number of tuples `o1, ... on` where `<fmla>` is satisfied when `x1` takes the value `o1`, etc. 
 
-## Aggregation and Conversion 
+## Aggregation and Conversion
 
-To convert between sets of integer atoms and integer values there are the following operations:
+To convert between sets of integer atoms and integer values there are the following operations.
 
-- `sing[<value>]`: returns an integer atom representing the given value;
-- `sum[<atoms>]`: returns an integer value: the sum of the values that are represented by each of the int atoms in the set;
-- `max[<atoms>]`: returns an integer value: the maximum of all the values represented by the int atoms in the set; and
-- `min[<atoms>]`: returns an integer value: the minimum of all the values represented by the int atoms in the set.
+### `sum` (integer sum)
 
-While you might use `sum`, `max`, and `min`, you shouldn't need to use `sing`---Forge automatically converts between integer values and integer objects. If you do find you need to use `sing`, notify us ASAP!
+`sum[<atoms>]`: returns an integer value: the sum of the values that are represented by each of the int atoms in the set.
+
+### `max` (integer maximum)
+
+`max[<atoms>]`: returns an integer value: the maximum of all the values represented by the int atoms in the set.
+
+### `min` (integer minimum)
+
+`min[<atoms>]`: returns an integer value: the minimum of all the values represented by the int atoms in the set.
+
+### `sing` (singleton integer)
+
+`sing[<value>]`: returns an integer atom representing the given value.
+
+!!! note
+    While you might use `sum`, `max`, and `min`, you shouldn't need to use `sing`---Forge automatically converts between integer values and integer objects. If you do find you need to use `sing`, notify us ASAP!
 
 ## Sum Aggregator
 
@@ -95,6 +132,6 @@ Above, `x` is a variable name, `set` is the set you are quantifying over (curren
     The `sum` aggregator doesn't support multiple variables at once. If you want to express something like `sum x, y: A | ...`, write `sum x: A | sum y : A | ...` instead.
 
 
-## The Successor Relation
+## `succ` (successor relation)
 
 Forge also provides a successor relation, `succ` (`Int -> Int`) where each `Int` atom points to its successor (e.g. the `Int` atom 4 points to 5). The maximum `Int` atom does not point to anything.
