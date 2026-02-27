@@ -8,7 +8,7 @@ search:
 Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not contain an infinite set of mathematical integers. Rather, an instance's `Int` sig contains a representation of a _subset_ of the integers following [two's-complement encoding](https://en.wikipedia.org/wiki/Two%27s_complement) for a specific number of bits. Concretely, if the bitwidth is $k$, the integers in an instance will be the interval $[-2^{k-1}, 2^{k-1}-1]$. The default bitwidth is 4.
 
 !!! example "Bitwidths"
-    If we run with a bitwidth of `2`, we only expect $2^2 = 4$ available integers: `-2` through `1`, inclusive.
+    If we run with a bitwidth of `2` (e.g., `run { ... } for 2 Int`), we only expect $2^2 = 4$ available integers: `-2` through `1`, inclusive.
 
 
 !!! warning "Bounded integers and overflow"
@@ -19,6 +19,15 @@ Forge supports _bit-vector_ integers. That is, the Forge `Int` sig does not cont
     **Example**: With a bitwidth of `4`, `add[7, 1]` evaluates to `-8`.
 
     For more on integer bounds, see [Bounds](../running-models/bounds.md).
+
+!!! tip "When to increase the integer bitwidth"
+    You may need to increase the bitwidth above the default of `4` if your model counts more than 7 things or performs arithmetic that exceeds the range $[-8, 7]$. To do so, add an `Int` bound to your `run` command:
+
+    ```
+    run { ... } for 6 Int
+    ```
+
+    This sets a bitwidth of 6 (integers from $-32$ to $31$). Be aware that increasing the bitwidth can increase the search space by an amount exponential in the number of bits: bitwidth $k$ creates $2^k$ integer atoms, so going from 4 (16 atoms) to 8 (256 atoms) can noticeably slow the solver, though there are [possible mitigations](../running-models/concrete-instance-bounds.md).
 
 
 ## Remark

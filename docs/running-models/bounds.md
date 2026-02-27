@@ -21,9 +21,10 @@ Numeric bounds can be provided explicitly per sig in a `run`, `assert`, etc. com
     ```
     run { ... } for 5 Cat
     run { ... } for 5 Cat, 2 Dog
+    run { ... } for 5 Cat, 6 Int
     ```
 
-    The first run will search for instances containing 0--5 cats and 0--4 dogs. The second run will search for instances containing 0--5 cats and 0--2 dogs.
+    The first run will search for instances containing 0--5 cats and 0--4 dogs. The second run will search for instances containing 0--5 cats and 0--2 dogs. The third run allows 0--5 cats, 0--4 dogs, and increases the integer bitwidth to 6 (integers from -32 to 31).
 
 
 Note that this sets an **upper** bound on the size of instances Forge will show you. In other words, Forge will search for instances of size **up to** the bound you specify. If you instead want to set an **exact** bound, you can add the `exactly` keyword per sig. You may mix and match exact and upper numeric bounds as desired.
