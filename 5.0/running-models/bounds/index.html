@@ -2297,8 +2297,9 @@
 <p>E.g., to add a bound to a <code>run</code> command in a model with <code>Cat</code> and <code>Dog</code> sigs, you would write something like:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>run { ... } for 5 Cat
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>run { ... } for 5 Cat, 2 Dog
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>run { ... } for 5 Cat, 6 Int
 </code></pre></div>
-<p>The first run will search for instances containing 0--5 cats and 0--4 dogs. The second run will search for instances containing 0--5 cats and 0--2 dogs.</p>
+<p>The first run will search for instances containing 0--5 cats and 0--4 dogs. The second run will search for instances containing 0--5 cats and 0--2 dogs. The third run allows 0--5 cats, 0--4 dogs, and increases the integer bitwidth to 6 (integers from -32 to 31).</p>
 </div>
 <p>Note that this sets an <strong>upper</strong> bound on the size of instances Forge will show you. In other words, Forge will search for instances of size <strong>up to</strong> the bound you specify. If you instead want to set an <strong>exact</strong> bound, you can add the <code>exactly</code> keyword per sig. You may mix and match exact and upper numeric bounds as desired.</p>
 <div class="admonition example">

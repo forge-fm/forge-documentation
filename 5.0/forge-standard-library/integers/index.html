@@ -2700,7 +2700,7 @@
 <p>Forge supports <em>bit-vector</em> integers. That is, the Forge <code>Int</code> sig does not contain an infinite set of mathematical integers. Rather, an instance's <code>Int</code> sig contains a representation of a <em>subset</em> of the integers following <a href="https://en.wikipedia.org/wiki/Two%27s_complement">two's-complement encoding</a> for a specific number of bits. Concretely, if the bitwidth is <span class="arithmatex">\(k\)</span>, the integers in an instance will be the interval <span class="arithmatex">\([-2^{k-1}, 2^{k-1}-1]\)</span>. The default bitwidth is 4.</p>
 <div class="admonition example">
 <p class="admonition-title">Bitwidths</p>
-<p>If we run with a bitwidth of <code>2</code>, we only expect <span class="arithmatex">\(2^2 = 4\)</span> available integers: <code>-2</code> through <code>1</code>, inclusive.</p>
+<p>If we run with a bitwidth of <code>2</code> (e.g., <code>run { ... } for 2 Int</code>), we only expect <span class="arithmatex">\(2^2 = 4\)</span> available integers: <code>-2</code> through <code>1</code>, inclusive.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Bounded integers and overflow</p>
@@ -2708,6 +2708,13 @@
 <p>Moreover, performing arithmetic on Forge integers may trigger integer overflow or underflow.</p>
 <p><strong>Example</strong>: With a bitwidth of <code>4</code>, <code>add[7, 1]</code> evaluates to <code>-8</code>.</p>
 <p>For more on integer bounds, see <a href="../../running-models/bounds/">Bounds</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">When to increase the integer bitwidth</p>
+<p>You may need to increase the bitwidth above the default of <code>4</code> if your model counts more than 7 things or performs arithmetic that exceeds the range <span class="arithmatex">\([-8, 7]\)</span>. To do so, add an <code>Int</code> bound to your <code>run</code> command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>run { ... } for 6 Int
+</code></pre></div>
+<p>This sets a bitwidth of 6 (integers from <span class="arithmatex">\(-32\)</span> to <span class="arithmatex">\(31\)</span>). Be aware that increasing the bitwidth can increase the search space by an amount exponential in the number of bits: bitwidth <span class="arithmatex">\(k\)</span> creates <span class="arithmatex">\(2^k\)</span> integer atoms, so going from 4 (16 atoms) to 8 (256 atoms) can noticeably slow the solver, though there are <a href="../../running-models/concrete-instance-bounds/">possible mitigations</a>.</p>
 </div>
 <h2 id="remark">Remark<a class="headerlink" href="#remark" title="Permanent link">&para;</a></h2>
 <p>There are <em>technically</em> two types of "integers" in Forge: integer <strong>values</strong> (e.g. 4) and integer <strong>atoms</strong> (e.g. the atom representing 4 in a given instance). You can think of this as roughly similar to the primitive-<code>int</code> vs. object-<code>Integer</code> distinction in Java, although the analogy is not perfect. Forge will usually be able to automatically convert between these two, and you shouldn't usually have to think about the difference. We still mention it here for completeness.</p>
@@ -2759,16 +2766,16 @@
 <h2 id="sum-aggregator">Sum Aggregator<a class="headerlink" href="#sum-aggregator" title="Permanent link">&para;</a></h2>
 <p>You should be cautious using <code>sum[...]</code> once you start using the Relational Forge language. Suppose you have <code>sig A { i: one Int }</code>, and want to sum over all of the <code>i</code> values for every <code>A</code>. Duplicate values for <code>i</code> may exist across multiple <code>A</code> atoms. Then <code>sum[A.i]</code> would <em>not</em> count duplicates separately, since <code>A.i</code> evaluates to a <em>set</em>, which can have no duplicates!  </p>
 <p>Because of this problem, Forge provides a second way to use <code>sum</code> which does count duplicates:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sum &lt;x&gt;: &lt;set&gt; | { &lt;int-expr&gt; }
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sum &lt;x&gt;: &lt;set&gt; | { &lt;int-expr&gt; }
 </code></pre></div>
 <p>Above, <code>x</code> is a variable name, <code>set</code> is the set you are quantifying over (currently only arity-1 sets are supported), and <code>int-expr</code> is an expression that evaluates to an <strong>integer value</strong>. The result of this entire expression is also an <strong>integer value</strong>. This counts duplicate integer values provided the atoms (of any type) in "relation" are different. The following example illustrates the difference between the two different uses of <code>sum</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Sum aggregator</p>
 <p>In the instance:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>inst duplicates {
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    A = `A0 + `A1
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    time = `A0 -&gt; 1 + `A1 -&gt; 1
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>inst duplicates {
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    A = `A0 + `A1
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    time = `A0 -&gt; 1 + `A1 -&gt; 1
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>}
 </code></pre></div>
 <ul>
 <li><code>sum[A.time]</code> evaluates to the value 1; and</li>
