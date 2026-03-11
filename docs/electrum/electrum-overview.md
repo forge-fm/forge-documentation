@@ -31,6 +31,7 @@ When the temporal solver is enabled, instances are always traces, and a trace is
 
 
 Temporal formulas and expressions are always evaluated with respect to a state index. At the top level of any formula, the index is $0$ (the first state of the trace). Temporal operators either change or "fan out" across multiple state indexes to let you express things like:
+
 * "in the next state, ..." (add 1 to the state index)
 * at some point in the future, ... (search for `some` state index)
 * at all points in the future, ... (check `all` future indexes)

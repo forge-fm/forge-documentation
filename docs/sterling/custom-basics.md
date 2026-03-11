@@ -108,6 +108,7 @@ External resources:
 * [D3FX helpers design documentation](https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e)---**beware, this is actively being worked on and edited, and thus subject to change!**
 
 Examples using D3:
+
 * [Mia Santomauro's 2021 Guide](https://github.com/miasantomauro/lets-get-visual) for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.
 * Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:
   * [Sudoku Synthesizer](https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz)

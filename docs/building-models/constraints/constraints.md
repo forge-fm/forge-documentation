@@ -9,6 +9,7 @@ This idea of a _constraint_ is key in Forge (and in many other modeling language
 When you're programming traditionally, you give the computer a set of instructions and it follows those instructions. This is true whether you're programming functionally or imperatively, with or without objects, etc. In contrast, modeling languages like Forge work differently. The goal of a Forge model isn't to _run instructions_, but rather to _express the rules_ that govern systems.
 
 Here's a useful comparison to help reinforce the difference (with thanks to Daniel Jackson):
+
 - Given a lack of **instructions**, a program _does_ nothing.
 - Given a lack of **constraints**, a model _allows_ everything.
 
@@ -57,6 +58,7 @@ The <span style="color:green">green</span> syntax is about whether something is 
 ### Writing Constraints: Formulas vs. Expressions
 
 The top-level constraints that Forge works with must always evaluate to booleans, but the inner workings of constraints can speak about specific objects, the values of their fields, and so on. We'll make the distinction between these two different kinds of syntax:
+
 * <span style="color:green">_Formulas_</span> always evaluate to booleans---i.e., either true or false; and
 * <span style="color:red">_Expressions_</span> always evaluate to objects or sets of objects. 
 

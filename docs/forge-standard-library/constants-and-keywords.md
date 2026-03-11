@@ -13,6 +13,7 @@ Forge provides a few built-in constants:
 ## Keywords
 
 The following is a list of keywords in Forge that may not be used as names for relations, sigs, predicates, and runs. These include:
+
 - `state`, `transition` (reserved for future use)
 - `sig`, `pred`, `fun`
 - `test`, `expect`, `assert`, `run`, `check`, `is`, `for`
