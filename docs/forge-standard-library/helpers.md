@@ -1,6 +1,6 @@
 # Helpers
 
-Forge and Frglet provide a number of built-in helpers to ease your work in the language.
+Forge and Froglet provide a number of built-in helpers to ease your work in the language.
 
 ## Sequences
 
