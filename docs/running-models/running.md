@@ -34,7 +34,7 @@ The run command can be used in a few different ways, show below:
 
 ```
 <run-name>: run <pred> for <bounds>
-<run-name>: run { <expr> } for <bounds>
+<run-name>: run { <formula> } for <bounds>
 ```
 
 Note that the run-name is optional to provide, but is helpful to distinguish what different run commands are showing.
@@ -49,7 +49,7 @@ The check command is used to ask Forge to look for counterexamples to a given se
 
 ```
 <check-name>: check <pred> for <bounds>
-<check-name>: check { <expr> } for <bounds>
+<check-name>: check { <formula> } for <bounds>
 ```
 
 If no counterexamples are found, Sterling displays "No counterexamples found. Assertion may be valid". When no more counterexamples can be found, Sterling displays "No more instances found".
