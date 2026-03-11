@@ -9,6 +9,7 @@ The types of problems that Forge creates and solves consist of 3 mathematical ob
 ## Partial Instances
 
 Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by `sig` and `pred` declarations. The third concern is often addressed by numeric bounds (also called "scope"), but numeric bounds are always converted (usually invisibly to the user!) into set-based bounds that concretely specify:
+
 - the _lower_ bounds, what _must_ be in an instance; and 
 - the _upper_ bounds, what _may_ be in an instance.
 

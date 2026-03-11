@@ -101,6 +101,7 @@ Names of `sig`s may be used on the right-hand-side of an assignment only if the 
 ## Assert
 
 The `assert` syntax allows you to write tests at a more abstract level than examples do. An assert has these parts:
+
   - an optional name, followed by a colon;
   - an optional block of `all`-quantified variables;
   - the keyword `assert`, followed by a predicate name or `{}`-delimited constraint block;
@@ -159,6 +160,7 @@ Assertions also support universal quantification (i.e. `all`, but not `some`, `o
 
 
 Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:
+
 * Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; 
 * for a game of chess to be won, a king must be in check; 
 * someone must first be logged into Gmail to read their mail;
@@ -210,6 +212,7 @@ Every `test expect` contains a set of individual checks. Each has:
 * an intention (`is sat`, `is unsat`, `is checked`, or `is forge_error`). 
 
 The meaning of each intention is:
+
 * `is sat`: the predicate block is satisfiable under the given bounds; 
 * `is unsat`: the predicate block is unsatisfiable under the given bounds; and 
 * `is checked`: the predicate block's *negation* is unsatisfiable under the given bounds.

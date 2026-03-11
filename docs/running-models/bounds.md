@@ -56,7 +56,7 @@ Instance bounds allow you to encode specific partial instances that you want For
     ```
     inst exampleInstance {
         Person = `Person0 + `Person1 + `Person2
-        spouse = `Person0 -> `Person1 + `Person1 + `Person0
+        spouse = `Person0 -> `Person1 + `Person1 -> `Person0
     }
     ```
 
@@ -65,7 +65,7 @@ Instance bounds allow you to encode specific partial instances that you want For
     ```
     example myExample is {marriageRules} for {
         Person = `Person0 + `Person1 + `Person2
-        spouse = `Person0 -> `Person1 + `Person1 + `Person0
+        spouse = `Person0 -> `Person1 + `Person1 -> `Person0
     }
     ```
 
@@ -80,7 +80,7 @@ Instances defined via `inst` can be used in `run`, `assert`, etc. and may be com
     ```
     run {} for 3 Int for {
         Person = `Person0 + `Person1 + `Person2
-        spouse = `Person0 -> `Person1 + `Person1 + `Person0
+        spouse = `Person0 -> `Person1 + `Person1 -> `Person0
     }
     ```
 
