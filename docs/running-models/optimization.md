@@ -24,10 +24,10 @@ option solver PMaxSAT4J
 
 <!-- If you do have a specific target in mind, give it as part of a `run` command, following the target. E.g.:
 
-```
+
 tomf_close_fixed: run {} for 3 Node 
   target_pi {no Node} close_noretarget 
-``` -->
+-->
 
 ## Mode: Targeting a partial instance 
 
