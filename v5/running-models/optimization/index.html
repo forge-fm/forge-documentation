@@ -1549,6 +1549,62 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mode-targeting-a-partial-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode: Targeting a partial instance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode: Targeting a partial instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-minimal-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Minimal Instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-targeting-an-integer-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode: Targeting an integer expression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode: Targeting an integer expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-minimizing-total-edge-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Minimizing total edge weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2244,6 +2300,62 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mode-targeting-a-partial-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode: Targeting a partial instance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode: Targeting a partial instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-minimal-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Minimal Instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-targeting-an-integer-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode: Targeting an integer expression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode: Targeting an integer expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-minimizing-total-edge-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Minimizing total edge weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2282,43 +2394,37 @@
 
 <!-- Absent an explicit target, the engine will target the first instance generated. Therefore, use the global option if you don't have a specific target in mind, but want to customize the enumeration strategy that the solver follows.  -->
 
-<p>&lt;!-- If you do have a specific target in mind, give it as part of a <code>run</code> command, following the target. E.g.:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tomf_close_fixed: run {} for 3 Node 
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  target_pi {no Node} close_noretarget 
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>``` --&gt;
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>## Mode: Targeting a partial instance 
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>To prioritize instances as close as possible to a target, use the `target_pi` keyword in a `run` command. The argument may be either be the name of a pre-defined `inst` or a `{}`-delimited partial-instance block. 
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>### Example: Minimal Instances
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>This example will produce the empty instance first, then a graph of 1 node, etc. 
+<!-- If you do have a specific target in mind, give it as part of a `run` command, following the target. E.g.:
+
+
+tomf_close_fixed: run {} for 3 Node 
+  target_pi {no Node} close_noretarget 
+-->
+
+<h2 id="mode-targeting-a-partial-instance">Mode: Targeting a partial instance<a class="headerlink" href="#mode-targeting-a-partial-instance" title="Permanent link">&para;</a></h2>
+<p>To prioritize instances as close as possible to a target, use the <code>target_pi</code> keyword in a <code>run</code> command. The argument may be either be the name of a pre-defined <code>inst</code> or a <code>{}</code>-delimited partial-instance block. </p>
+<h3 id="example-minimal-instances">Example: Minimal Instances<a class="headerlink" href="#example-minimal-instances" title="Permanent link">&para;</a></h3>
+<p>This example will produce the empty instance first, then a graph of 1 node, etc. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#lang forge
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>option problem_type target
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>option solver PMaxSAT4J
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sig Node { edges: pfunc Node -&gt; Int }
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>inst emptyGraph { no Node }
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>tomf_test_close_noretarget_noNode: run {}
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  target_pi emptyGraph
 </code></pre></div>
-<h1 id="lang-forge">lang forge<a class="headerlink" href="#lang-forge" title="Permanent link">&para;</a></h1>
-<p>option problem_type target
-option solver PMaxSAT4J
-sig Node { edges: pfunc Node -&gt; Int }
-inst emptyGraph { no Node }
-tomf_test_close_noretarget_noNode: run {}
-  target_pi emptyGraph
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>## Mode: Targeting an integer expression 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>It can sometimes be useful to minimize an _integer_ expression, rather than a set. To do this, use either the `minimize_int` or `maximize_int` keywords, providing an integer-valued expression. 
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>When optimizing with respect to an integer expression, keep in mind the bitwidth. E.g., the default bitwidth of `4` will instantiate the $2^4 = 16$ integers in the interval `[-8, 7]`. Thus, minimizing an integer expression when the default bitwidth is in effect will target `-8`. 
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>### Example: Minimizing total edge weight 
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>This example will produce graphs with minimal total edge weight, modulo potential underflow. E.g., the example may produce a graph with a single edge of weight `-8`, but it might also produce a graph with three distinct `-8`-weight edges. 
-</code></pre></div></p>
-<h1 id="lang-forge_1">lang forge<a class="headerlink" href="#lang-forge_1" title="Permanent link">&para;</a></h1>
-<p>option problem_type target
-option solver PMaxSAT4J
-sig Node { edges: pfunc Node -&gt; Int }
-tomf_test_close_noretarget_int_totalWeight4: run {} for exactly 2 Node
-  minimize_int {sum m: Node | sum n: Node | m.edges[n]} 
-```</p>
+<h2 id="mode-targeting-an-integer-expression">Mode: Targeting an integer expression<a class="headerlink" href="#mode-targeting-an-integer-expression" title="Permanent link">&para;</a></h2>
+<p>It can sometimes be useful to minimize an <em>integer</em> expression, rather than a set. To do this, use either the <code>minimize_int</code> or <code>maximize_int</code> keywords, providing an integer-valued expression. </p>
+<p>When optimizing with respect to an integer expression, keep in mind the bitwidth. E.g., the default bitwidth of <code>4</code> will instantiate the <span class="arithmatex">\(2^4 = 16\)</span> integers in the interval <code>[-8, 7]</code>. Thus, minimizing an integer expression when the default bitwidth is in effect will target <code>-8</code>. </p>
+<h3 id="example-minimizing-total-edge-weight">Example: Minimizing total edge weight<a class="headerlink" href="#example-minimizing-total-edge-weight" title="Permanent link">&para;</a></h3>
+<p>This example will produce graphs with minimal total edge weight, modulo potential underflow. E.g., the example may produce a graph with a single edge of weight <code>-8</code>, but it might also produce a graph with three distinct <code>-8</code>-weight edges. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#lang forge
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>option problem_type target
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>option solver PMaxSAT4J
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sig Node { edges: pfunc Node -&gt; Int }
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>tomf_test_close_noretarget_int_totalWeight4: run {} for exactly 2 Node
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  minimize_int {sum m: Node | sum n: Node | m.edges[n]} 
+</code></pre></div>
 <p>If this example used <code>maximize_int</code> rather than <code>minimize_int</code>, the solver would anti-target <code>-8</code> and in effect target the maximum integer value <code>7</code>.</p>
 
 
